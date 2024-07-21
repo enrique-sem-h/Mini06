@@ -16,6 +16,10 @@
 		31AFE1D22C4AFFEC0005DDDB /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D12C4AFFEC0005DDDB /* ARViewController.swift */; };
 		31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */; };
 		31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */; };
+		40C555A72C4D5AFE00CBD100 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A62C4D5AFE00CBD100 /* Coordinator.swift */; };
+		40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */; };
+		40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */; };
+		40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		31AFE1D12C4AFFEC0005DDDB /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarSystemViewController.swift; sourceTree = "<group>"; };
 		31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
+		40C555A62C4D5AFE00CBD100 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailCoordinator.swift; sourceTree = "<group>"; };
+		40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 		31AFE1B52C4AFD210005DDDB /* Mini06AR */ = {
 			isa = PBXGroup;
 			children = (
+				40C555A52C4D5AF100CBD100 /* Utils */,
 				31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */,
 				31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */,
 				31AFE1DA2C4B00400005DDDB /* Model */,
@@ -115,6 +124,17 @@
 				31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		40C555A52C4D5AF100CBD100 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				40C555A62C4D5AFE00CBD100 /* Coordinator.swift */,
+				40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */,
+				40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */,
+				40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,12 +207,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C555A72C4D5AFE00CBD100 /* Coordinator.swift in Sources */,
 				31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
 				31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */,
 				31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */,
+				40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */,
 				31AFE1CC2C4AFF5D0005DDDB /* PlanetDetailViewController.swift in Sources */,
 				31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */,
+				40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */,
+				40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */,
 				31AFE1D22C4AFFEC0005DDDB /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +361,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -364,7 +388,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

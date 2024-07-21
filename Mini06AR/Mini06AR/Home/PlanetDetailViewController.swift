@@ -7,23 +7,62 @@
 
 import UIKit
 
+/**
+ A `PlanetDetailViewController` exibe os detalhes de um planeta específico.
+ */
 class PlanetDetailViewController: UIViewController {
+    /// O coordenador responsável por gerenciar a navegação a partir desta tela.
+    var coordinator: PlanetDetailCoordinator?
+    
+    /// O planeta cujos detalhes serão exibidos.
+    var planet: Planet?
 
+    /**
+     Configura a visualização ao carregar a tela.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .black
+        
+        let label = UILabel()
+        label.text = planet?.name
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.textAlignment = .center
+        
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = planet?.description
+        descriptionLabel.font = UIFont.systemFont(ofSize: 16)
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.numberOfLines = 0
+        
+        let imageView = UIImageView()
+        if let imageName = planet?.imageName {
+            imageView.image = UIImage(named: imageName)
+        }
+        imageView.contentMode = .scaleAspectFit
+        
+        let radiusLabel = UILabel()
+        radiusLabel.text = "Raio: \(planet?.radius ?? 0) km"
+        radiusLabel.font = UIFont.systemFont(ofSize: 16)
+        radiusLabel.textAlignment = .center
+        
+        let distanceLabel = UILabel()
+        distanceLabel.text = "Distância do Sol: \(planet?.distanceFromSun ?? 0) milhões de km"
+        distanceLabel.font = UIFont.systemFont(ofSize: 16)
+        distanceLabel.textAlignment = .center
+        
+        let stackView = UIStackView(arrangedSubviews: [label, descriptionLabel, imageView, radiusLabel, distanceLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .center
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
