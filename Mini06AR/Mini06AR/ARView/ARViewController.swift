@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ The `ARViewController` class displays the AR view for a selected planet.
+ */
 class ARViewController: UIViewController {
     var coordinator: ARCoordinator?
     var planet: Planet?
@@ -16,11 +19,11 @@ class ARViewController: UIViewController {
         self.view.backgroundColor = .black
 
         let detailsButton = UIButton(type: .system)
-        detailsButton.setTitle("Ver Detalhes", for: .normal)
+        detailsButton.setTitle("Detalhes", for: .normal)
         detailsButton.addTarget(self, action: #selector(showPlanetDetail), for: .touchUpInside)
 
         let solarSystemButton = UIButton(type: .system)
-        solarSystemButton.setTitle("Ver Sistema Solar", for: .normal)
+        solarSystemButton.setTitle("Sistema Solar AR", for: .normal)
         solarSystemButton.addTarget(self, action: #selector(showSolarSystemView), for: .touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [detailsButton, solarSystemButton])
@@ -44,5 +47,3 @@ class ARViewController: UIViewController {
         coordinator?.showSolarSystemView()
     }
 }
-
-

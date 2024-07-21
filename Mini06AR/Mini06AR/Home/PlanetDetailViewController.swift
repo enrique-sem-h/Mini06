@@ -8,17 +8,17 @@
 import UIKit
 
 /**
- A `PlanetDetailViewController` exibe os detalhes de um planeta específico.
+ The `PlanetDetailViewController` class displays the details of a specific planet.
  */
 class PlanetDetailViewController: UIViewController {
-    /// O coordenador responsável por gerenciar a navegação a partir desta tela.
+    /// The coordinator responsible for managing navigation from this screen.
     var coordinator: PlanetDetailCoordinator?
     
-    /// O planeta cujos detalhes serão exibidos.
+    /// The planet whose details will be displayed.
     var planet: Planet?
 
     /**
-     Configura a visualização ao carregar a tela.
+     Configures the view when the screen is loaded.
      */
     override func viewDidLoad() {
         super.viewDidLoad()

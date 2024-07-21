@@ -7,6 +7,9 @@
 
 import UIKit
 
+/**
+ The `HomeViewController` class is responsible for displaying the home screen with a list of planets.
+ */
 class HomeViewController: UIViewController {
     var coordinator: MainCoordinator?
 
@@ -17,7 +20,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .gray
+        self.view.backgroundColor = .white
 
         let stackView = UIStackView()
         stackView.axis = .vertical
