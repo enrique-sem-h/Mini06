@@ -16,6 +16,5 @@ class SolarSystemViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .yellow
 
-        // Do any additional setup after loading the view.
     }
 }

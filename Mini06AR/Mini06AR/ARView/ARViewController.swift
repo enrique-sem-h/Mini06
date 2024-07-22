@@ -16,14 +16,16 @@ class ARViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .systemBackground
 
         let detailsButton = UIButton(type: .system)
         detailsButton.setTitle("Detalhes", for: .normal)
+        detailsButton.setTitleColor(.systemBlue, for: .normal)
         detailsButton.addTarget(self, action: #selector(showPlanetDetail), for: .touchUpInside)
 
         let solarSystemButton = UIButton(type: .system)
         solarSystemButton.setTitle("Sistema Solar AR", for: .normal)
+        solarSystemButton.setTitleColor(.systemBlue, for: .normal)
         solarSystemButton.addTarget(self, action: #selector(showSolarSystemView), for: .touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [detailsButton, solarSystemButton])

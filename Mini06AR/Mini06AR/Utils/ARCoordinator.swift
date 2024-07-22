@@ -42,11 +42,11 @@ class ARCoordinator: Coordinator {
      Shows the planet detail view.
      */
     func showPlanetDetail() {
-        let planetDetailCoordinator = PlanetDetailCoordinator(navigationController: navigationController, planet: planet)
-        childCoordinators.append(planetDetailCoordinator)
-        planetDetailCoordinator.parentCoordinator = self
-        planetDetailCoordinator.start()
-    }
+            let planetDetailCoordinator = PlanetDetailCoordinator(navigationController: navigationController, planet: planet)
+            childCoordinators.append(planetDetailCoordinator)
+            planetDetailCoordinator.parentCoordinator = self
+            planetDetailCoordinator.start()
+        }
     
     /**
      Shows the solar system view.
