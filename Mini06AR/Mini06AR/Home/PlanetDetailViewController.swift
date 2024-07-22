@@ -8,18 +8,14 @@
 import UIKit
 
 /**
- The `PlanetDetailViewController` class displays the details of a specific planet.
+ A classe `PlanetDetailViewController` exibe os detalhes de um planeta específico.
  */
 class PlanetDetailViewController: UIViewController {
-    /// The coordinator responsible for managing navigation from this screen.
     var coordinator: PlanetDetailCoordinator?
     
-    /// The planet whose details will be displayed.
     var planet: Planet?
 
-    /**
-     Configures the view when the screen is loaded.
-     */
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +49,7 @@ class PlanetDetailViewController: UIViewController {
         
         let distanceLabel = UILabel()
         if planet?.name == "Sol" {
-            distanceLabel.text = "Distância: N/A"
+            distanceLabel.text = ""
         } else {
             distanceLabel.text = "Distância do Sol: \(planet?.distanceFromSun ?? 0) milhões de km"
         }
@@ -74,7 +70,6 @@ class PlanetDetailViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            // Constraints for imageView to handle image size issues
             imageView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.5),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])

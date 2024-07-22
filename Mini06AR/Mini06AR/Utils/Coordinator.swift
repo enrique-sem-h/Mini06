@@ -8,16 +8,16 @@
 import UIKit
 
 /**
- The `Coordinator` protocol defines the basic structure for a navigation coordinator.
- A `Coordinator` is responsible for managing the navigation within the app.
+ O protocolo `Coordinator` define a estrutura básica para um coordenador de navegação.
+ Um `Coordinator` é responsável por gerenciar a navegação dentro do aplicativo.
  */
 protocol Coordinator: AnyObject {
-    /// List of child coordinators to maintain the navigation hierarchy.
+    /// Lista de coordinators filhos para manter a hierarquia de navegação.
     var childCoordinators: [Coordinator] { get set }
     
-    /// Main navigation controller.
+    /// Controlador de navegação principal.
     var navigationController: UINavigationController { get set }
     
-    /// Initial method to start the coordinator's flow.
+    /// Método inicial para começar o fluxo do coordinator.
     func start()
 }

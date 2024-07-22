@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- The `HomeViewController` class is responsible for displaying the home screen with a list of planets.
+ A classe `HomeViewController` é responsável por exibir a tela inicial com uma lista de planetas.
  */
 class HomeViewController: UIViewController {
     var coordinator: MainCoordinator?
@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
                description: "A estrela no centro do Sistema Solar, responsável por fornecer luz e calor à Terra.",
                imageName: "sun",
                radius: 696340.0,
-               distanceFromSun: 0.0), // distância do Sol a si mesmo é 0
+               distanceFromSun: 0.0), 
         Planet(name: "Mercúrio",
                description: "O menor planeta do Sistema Solar e o mais próximo do Sol.",
                imageName: "mercury",

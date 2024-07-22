@@ -8,23 +8,23 @@
 import UIKit
 
 /**
- The `MainCoordinator` class is responsible for starting and managing the main navigation flow of the app.
+ A classe `MainCoordinator` é responsável por iniciar e gerenciar o fluxo de navegação principal do aplicativo.
  */
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
     /**
-     Initializes a new `MainCoordinator` with the provided navigation controller.
+     Inicializa um novo `MainCoordinator` com o controlador de navegação fornecido.
      
-     - Parameter navigationController: The main navigation controller for the app.
+     - Parameter navigationController: O controlador de navegação principal para o aplicativo.
      */
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     /**
-     Starts the main flow by showing the home view controller.
+     Inicia o fluxo principal mostrando o controlador de visualização inicial.
      */
     func start() {
         let homeViewController = HomeViewController()
@@ -33,9 +33,9 @@ class MainCoordinator: Coordinator {
     }
 
     /**
-     Shows the AR view for the selected planet.
+     Mostra a visualização AR para o planeta selecionado.
      
-     - Parameter planet: The planet to display in the AR view.
+     - Parameter planet: O planeta a ser exibido na visualização AR.
      */
     func showARView(for planet: Planet) {
         let arCoordinator = ARCoordinator(navigationController: navigationController, planet: planet)

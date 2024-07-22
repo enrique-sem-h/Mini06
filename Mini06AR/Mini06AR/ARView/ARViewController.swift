@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- The `ARViewController` class displays the AR view for a selected planet.
+ A classe `ARViewController` exibe uma visualização AR do planeta selecionado.
  */
 class ARViewController: UIViewController {
     var coordinator: ARCoordinator?

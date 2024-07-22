@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- The `SolarSystemViewController` class displays a view of the solar system.
+ A classe `SolarSystemViewController` exibe a view do Sistema Solar.
  */
 class SolarSystemViewController: UIViewController {
 

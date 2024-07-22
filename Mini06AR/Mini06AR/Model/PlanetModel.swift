@@ -8,8 +8,8 @@
 import Foundation
 
 /**
- The `Planet` struct represents a planet in the app.
- Model Placeholder pq não sabemos oq colocar nele ainda
+ A estrutura `Planet` representa um planeta no aplicativo.
+ Modelo Placeholder pq não sabemos oq colocar nele ainda
  */
 struct Planet {
     let name: String

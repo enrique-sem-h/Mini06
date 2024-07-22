@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- The `PlanetDetailCoordinator` class is responsible for managing the navigation flow for displaying the details of a planet.
+ A classe `PlanetDetailCoordinator` é responsável por gerenciar o fluxo de navegação para exibir os detalhes de um planeta.
  */
 class PlanetDetailCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()

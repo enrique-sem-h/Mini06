@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- The `ARCoordinator` class is responsible for managing the navigation flow for the AR view.
+ A classe `ARCoordinator` é responsável por gerenciar o fluxo de navegação para a visualização AR.
  */
 class ARCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
@@ -17,11 +17,11 @@ class ARCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
     
     /**
-     Initializes a new `ARCoordinator` with the provided navigation controller and planet.
+     Inicializa um novo `ARCoordinator` com o controlador de navegação e o planeta fornecidos.
      
      - Parameters:
-        - navigationController: The navigation controller for the app.
-        - planet: The planet to be displayed in the AR view.
+        - navigationController: O controlador de navegação para o aplicativo.
+        - planet: O planeta a ser exibido na visualização AR.
      */
     init(navigationController: UINavigationController, planet: Planet) {
         self.navigationController = navigationController
@@ -29,7 +29,7 @@ class ARCoordinator: Coordinator {
     }
     
     /**
-     Starts the flow by showing the AR view controller.
+     Inicia o fluxo mostrando o controlador de visualização AR.
      */
     func start() {
         let arViewController = ARViewController()
@@ -39,7 +39,7 @@ class ARCoordinator: Coordinator {
     }
     
     /**
-     Shows the planet detail view.
+     Mostra a visualização de detalhes do planeta.
      */
     func showPlanetDetail() {
             let planetDetailCoordinator = PlanetDetailCoordinator(navigationController: navigationController, planet: planet)
@@ -49,7 +49,7 @@ class ARCoordinator: Coordinator {
         }
     
     /**
-     Shows the solar system view.
+     Mostra a visualização do sistema solar.
      */
     func showSolarSystemView() {
         let solarSystemViewController = SolarSystemViewController()
@@ -57,7 +57,7 @@ class ARCoordinator: Coordinator {
     }
     
     /**
-     Indicates that the coordinator has finished its work.
+     Indica que o coordenador terminou seu trabalho.
      */
     func didFinish() {
         parentCoordinator?.childCoordinators.removeAll { $0 === self }
