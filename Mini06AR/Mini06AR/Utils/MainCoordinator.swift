@@ -43,4 +43,12 @@ class MainCoordinator: Coordinator {
         arCoordinator.parentCoordinator = self
         arCoordinator.start()
     }
+    
+    /**
+     Mostra a visualização do sistema solar.
+     */
+    func showSolarSystemView() {
+        let solarSystemViewController = SolarSystemViewController()
+        navigationController.pushViewController(solarSystemViewController, animated: true)
+    }
 }
