@@ -20,7 +20,18 @@
 		40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */; };
 		40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */; };
 		40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */; };
+		E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E86380B22C4EDD8B00E00B41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31AFE1AB2C4AFD200005DDDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31AFE1B22C4AFD210005DDDB;
+			remoteInfo = Mini06AR;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31AFE1B32C4AFD210005DDDB /* Mini06AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini06AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +49,19 @@
 		40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailCoordinator.swift; sourceTree = "<group>"; };
 		40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCoordinator.swift; sourceTree = "<group>"; };
+		E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mini06ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini06ARTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		31AFE1B02C4AFD210005DDDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86380AB2C4EDD8B00E00B41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				31AFE1B52C4AFD210005DDDB /* Mini06AR */,
+				E86380AF2C4EDD8B00E00B41 /* Mini06ARTests */,
 				31AFE1B42C4AFD210005DDDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				31AFE1B32C4AFD210005DDDB /* Mini06AR.app */,
+				E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +159,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E86380AF2C4EDD8B00E00B41 /* Mini06ARTests */ = {
+			isa = PBXGroup;
+			children = (
+				E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */,
+			);
+			path = Mini06ARTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +187,24 @@
 			productReference = 31AFE1B32C4AFD210005DDDB /* Mini06AR.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E86380AD2C4EDD8B00E00B41 /* Mini06ARTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86380B62C4EDD8B00E00B41 /* Build configuration list for PBXNativeTarget "Mini06ARTests" */;
+			buildPhases = (
+				E86380AA2C4EDD8B00E00B41 /* Sources */,
+				E86380AB2C4EDD8B00E00B41 /* Frameworks */,
+				E86380AC2C4EDD8B00E00B41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E86380B32C4EDD8B00E00B41 /* PBXTargetDependency */,
+			);
+			name = Mini06ARTests;
+			productName = Mini06ARTests;
+			productReference = E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -169,6 +217,10 @@
 				TargetAttributes = {
 					31AFE1B22C4AFD210005DDDB = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					E86380AD2C4EDD8B00E00B41 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 31AFE1B22C4AFD210005DDDB;
 					};
 				};
 			};
@@ -186,6 +238,7 @@
 			projectRoot = "";
 			targets = (
 				31AFE1B22C4AFD210005DDDB /* Mini06AR */,
+				E86380AD2C4EDD8B00E00B41 /* Mini06ARTests */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +250,13 @@
 			files = (
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
 				31AFE1C32C4AFD220005DDDB /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86380AC2C4EDD8B00E00B41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +281,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E86380AA2C4EDD8B00E00B41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E86380B32C4EDD8B00E00B41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31AFE1B22C4AFD210005DDDB /* Mini06AR */;
+			targetProxy = E86380B22C4EDD8B00E00B41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		31AFE1C12C4AFD220005DDDB /* LaunchScreen.storyboard */ = {
@@ -408,6 +484,42 @@
 			};
 			name = Release;
 		};
+		E86380B42C4EDD8B00E00B41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RAG47DD75D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fabiofreitas.Mini06ARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mini06AR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mini06AR";
+			};
+			name = Debug;
+		};
+		E86380B52C4EDD8B00E00B41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RAG47DD75D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fabiofreitas.Mini06ARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mini06AR.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mini06AR";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -425,6 +537,15 @@
 			buildConfigurations = (
 				31AFE1C82C4AFD220005DDDB /* Debug */,
 				31AFE1C92C4AFD220005DDDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86380B62C4EDD8B00E00B41 /* Build configuration list for PBXNativeTarget "Mini06ARTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86380B42C4EDD8B00E00B41 /* Debug */,
+				E86380B52C4EDD8B00E00B41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

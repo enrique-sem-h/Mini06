@@ -1,0 +1,55 @@
+---
+name: Build and Test Project
+
+on:
+  push:
+    branches:
+      - main
+      - Developer
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup XCode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 15
+      - name: Install xpretty util command
+        run: |
+          gem install xcpretty
+      - name: Cache derived data
+        uses: actions/cache@v3
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-derived-data-${{ hashFiles('**/*.{swift,objc,h,m}') }}
+          restore-keys: |
+            ${{ runner.os }}-derived-data-
+      - name: Build Project for testing
+        run: |
+          set -o pipefail && \
+          xcodebuild build-for-testing \
+          -project Mini06AR/Mini06AR.xcodeproj \
+          -scheme Mini06AR \
+          -destination 'platform=iOS Simulator,name=iPad Air 11-inch (M2),OS=17.5' \
+          CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | xcpretty
+      - name: Run tests
+        run: |
+          xcodebuild test \
+          -project Mini06AR/Mini06AR.xcodeproj \
+          -scheme Mini06AR \
+          -destination 'platform=iOS Simulator,name=iPad Air 11-inch (M2),OS=17.5' \
+          -enableCodeCoverage YES
+      - name: Run regular build
+        run: |
+          set -o pipefail && \
+          xcodebuild build \
+          -project Mini06AR/Mini06AR.xcodeproj \
+          -scheme Mini06AR \
+          -destination 'platform=iOS Simulator,name=iPad Air 11-inch (M2),OS=17.5' \
+          CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | xcpretty
