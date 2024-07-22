@@ -49,14 +49,6 @@ class ARCoordinator: Coordinator {
         }
     
     /**
-     Mostra a visualização do sistema solar.
-     */
-    func showSolarSystemView() {
-        let solarSystemViewController = SolarSystemViewController()
-        navigationController.pushViewController(solarSystemViewController, animated: true)
-    }
-    
-    /**
      Indica que o coordenador terminou seu trabalho.
      */
     func didFinish() {
