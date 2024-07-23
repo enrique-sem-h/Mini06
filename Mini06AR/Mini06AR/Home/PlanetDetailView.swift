@@ -11,11 +11,11 @@ import UIKit
 class PlanetDetailView: UIView {
     var planet: Planet?
     
-    var nameLabel: UILabel!
-    var descriptionLabel: UILabel!
-    var radiusLabel: UILabel!
-    var distanceLabel: UILabel!
-    var imageView: UIImageView!
+    var planetNameLabel: UILabel!
+    var planetDescriptionLabel: UILabel!
+    var planetRadiusLabel: UILabel!
+    var planetDistanceLabel: UILabel!
+    var planetImageView: UIImageView!
     var stackView: UIStackView!
     
     init(planet: Planet) {
@@ -31,26 +31,28 @@ class PlanetDetailView: UIView {
     }
     
     private func createUIElements() {
-        nameLabel = {
+        planetNameLabel = {
             let label = UILabel()
             label.text = planet?.name
-            label.font = UIFont.systemFont(ofSize: 24)
+            label.font = UIFont.boldSystemFont(ofSize: 24)
             label.textAlignment = .center
             label.textColor = .label
+            label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
-        descriptionLabel = {
+        planetDescriptionLabel = {
             let descriptionLabel = UILabel()
             descriptionLabel.text = planet?.description
             descriptionLabel.font = UIFont.systemFont(ofSize: 16)
-            descriptionLabel.textAlignment = .center
+            descriptionLabel.textAlignment = .left
             descriptionLabel.numberOfLines = 0
             descriptionLabel.textColor = .secondaryLabel
+            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
             return descriptionLabel
         }()
         
-        imageView = {
+        planetImageView = {
             let imageView = UIImageView()
             if let imageName = planet?.imageName {
                 imageView.image = UIImage(named: imageName)
@@ -60,16 +62,17 @@ class PlanetDetailView: UIView {
             return imageView
         }()
         
-        radiusLabel = {
+        planetRadiusLabel = {
             let radiusLabel = UILabel()
             radiusLabel.text = "Raio: \(planet?.radius ?? 0) km"
             radiusLabel.font = UIFont.systemFont(ofSize: 16)
             radiusLabel.textAlignment = .center
             radiusLabel.textColor = .label
+            radiusLabel.translatesAutoresizingMaskIntoConstraints = false
             return radiusLabel
         }()
         
-        distanceLabel = {
+        planetDistanceLabel = {
             let distanceLabel = UILabel()
             if planet?.name == "Sol" {
                 distanceLabel.text = ""
@@ -79,33 +82,37 @@ class PlanetDetailView: UIView {
             distanceLabel.font = UIFont.systemFont(ofSize: 16)
             distanceLabel.textAlignment = .center
             distanceLabel.textColor = .label
+            distanceLabel.translatesAutoresizingMaskIntoConstraints = false
             return distanceLabel
         }()
         
         stackView = {
-            let stackView = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel, imageView, radiusLabel, distanceLabel])
+            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel, planetImageView, planetRadiusLabel, planetDistanceLabel])
             stackView.axis = .vertical
             stackView.spacing = 10
-            stackView.alignment = .center
-            
+            stackView.alignment = .leading
+            stackView.translatesAutoresizingMaskIntoConstraints = false
             return stackView
         }()
         
-        setupStackView()
+        setupViews()
     }
     
-    private func setupStackView() {
-        self.addSubview(stackView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupViews() {
+        let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width
+        let defaultPadding = 120/0.16
+        backgroundColor = .systemBackground
+        addSubview(planetImageView)
+        addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            imageView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.5),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            planetImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0.16 * (screenWidth ?? defaultPadding)),
+            planetImageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            planetImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
+            planetImageView.widthAnchor.constraint(equalTo: planetImageView.heightAnchor),
+            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
+            stackView.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 120),
+            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -0.08 * (screenWidth ?? defaultPadding/2)),
         ])
     }
 }
