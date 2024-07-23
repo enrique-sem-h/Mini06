@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SceneKit
 
 class PlanetDetailView: UIView {
     var planet: Planet?
@@ -15,7 +16,7 @@ class PlanetDetailView: UIView {
     var planetDescriptionLabel: UILabel!
     var planetRadiusLabel: UILabel!
     var planetDistanceLabel: UILabel!
-    var planetImageView: UIImageView!
+    var planet3DView: SCNView!
     var stackView: UIStackView!
     
     init(planet: Planet) {
@@ -28,6 +29,24 @@ class PlanetDetailView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func loadPlanetModel(name: String = "Earth.usdz", rotating: Bool = true) -> SCNScene? {
+        guard let scene = SCNScene(named: name) else {
+            return nil
+        }
+        if let planet =  scene.rootNode.childNodes.first {
+            planet.position = SCNVector3(0, 0, 0)
+            scene.rootNode.addChildNode(planet)
+        }
+        if rotating {
+            let rotationAnimation = CABasicAnimation(keyPath: "rotation")
+            rotationAnimation.toValue = NSValue(scnVector4: SCNVector4(0, 1, 0, Float.pi * 2))
+            rotationAnimation.duration = 5
+            rotationAnimation.repeatCount = .infinity
+            scene.rootNode.addAnimation(rotationAnimation, forKey: "rotate")
+        }
+        return scene
     }
     
     private func createUIElements() {
@@ -52,14 +71,22 @@ class PlanetDetailView: UIView {
             return descriptionLabel
         }()
         
-        planetImageView = {
-            let imageView = UIImageView()
-            if let imageName = planet?.imageName {
-                imageView.image = UIImage(named: imageName)
-            }
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
+        planet3DView = {
+            let sceneView = SCNView()
+            let planet = loadPlanetModel()
+            sceneView.scene = planet
+            sceneView.autoenablesDefaultLighting = true
+            let cameraNode = SCNNode()
+            let camera = SCNCamera()
+            camera.usesOrthographicProjection = true
+            camera.orthographicScale = 1.0
+            cameraNode.camera = camera
+            cameraNode.position = SCNVector3(0, 0, 10)
+            planet?.rootNode.addChildNode(cameraNode)
+            sceneView.allowsCameraControl = true
+            sceneView.cameraControlConfiguration.allowsTranslation = false
+            sceneView.backgroundColor = .clear
+            return sceneView
         }()
         
         planetRadiusLabel = {
@@ -87,7 +114,7 @@ class PlanetDetailView: UIView {
         }()
         
         stackView = {
-            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel, planetImageView, planetRadiusLabel, planetDistanceLabel])
+            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel, planet3DView, planetRadiusLabel, planetDistanceLabel])
             stackView.axis = .vertical
             stackView.spacing = 10
             stackView.alignment = .leading
@@ -102,16 +129,16 @@ class PlanetDetailView: UIView {
         let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width
         let defaultPadding = 120/0.16
         backgroundColor = .systemBackground
-        addSubview(planetImageView)
+        addSubview(planet3DView)
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            planetImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0.16 * (screenWidth ?? defaultPadding)),
-            planetImageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            planetImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
-            planetImageView.widthAnchor.constraint(equalTo: planetImageView.heightAnchor),
+            planet3DView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0.16 * (screenWidth ?? defaultPadding)),
+            planet3DView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            planet3DView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
+            planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor),
             stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
             stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
-            stackView.leadingAnchor.constraint(equalTo: planetImageView.trailingAnchor, constant: 120),
+            stackView.leadingAnchor.constraint(equalTo: planet3DView.trailingAnchor, constant: 120),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -0.08 * (screenWidth ?? defaultPadding/2)),
         ])
     }
