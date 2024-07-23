@@ -62,7 +62,7 @@ class PlanetDetailView: UIView {
         
         planetDescriptionLabel = {
             let descriptionLabel = UILabel()
-            descriptionLabel.text = planet?.description
+            descriptionLabel.text = planet?.descriptions ["Descrição"]
             descriptionLabel.font = UIFont.systemFont(ofSize: 16)
             descriptionLabel.textAlignment = .left
             descriptionLabel.numberOfLines = 0
