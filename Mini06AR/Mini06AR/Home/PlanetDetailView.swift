@@ -1,10 +1,3 @@
-//
-//  PlanetDetailView.swift
-//  Mini06AR
-//
-//  Created by Enrique Carvalho on 22/07/24.
-//
-
 import Foundation
 import UIKit
 import SceneKit
@@ -31,7 +24,7 @@ class PlanetDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func loadPlanetModel(name: String = "Earth.usdz", rotating: Bool = true) -> SCNScene? {
+    private func loadPlanetModel(name: String, rotating: Bool = true) -> SCNScene? {
         guard let scene = SCNScene(named: name) else {
             return nil
         }
@@ -62,7 +55,7 @@ class PlanetDetailView: UIView {
         
         planetDescriptionLabel = {
             let descriptionLabel = UILabel()
-            descriptionLabel.text = planet?.descriptions ["Descrição"]
+            descriptionLabel.text = planet?.descriptions["Descrição"]
             descriptionLabel.font = UIFont.systemFont(ofSize: 16)
             descriptionLabel.textAlignment = .left
             descriptionLabel.numberOfLines = 0
@@ -73,8 +66,10 @@ class PlanetDetailView: UIView {
         
         planet3DView = {
             let sceneView = SCNView()
-            let planet = loadPlanetModel()
-            sceneView.scene = planet
+            if let modelName = planet?.modelName {
+                let planet = loadPlanetModel(name: modelName)
+                sceneView.scene = planet
+            }
             sceneView.autoenablesDefaultLighting = true
             let cameraNode = SCNNode()
             let camera = SCNCamera()
@@ -82,7 +77,7 @@ class PlanetDetailView: UIView {
             camera.orthographicScale = 1.0
             cameraNode.camera = camera
             cameraNode.position = SCNVector3(0, 0, 10)
-            planet?.rootNode.addChildNode(cameraNode)
+            sceneView.scene?.rootNode.addChildNode(cameraNode)
             sceneView.allowsCameraControl = true
             sceneView.cameraControlConfiguration.allowsTranslation = false
             sceneView.backgroundColor = .clear
