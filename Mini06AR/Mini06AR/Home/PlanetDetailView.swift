@@ -1,3 +1,10 @@
+//
+//  PlanetDetailView.swift
+//  Mini06AR
+//
+//  Created by Enrique Carvalho on 22/07/24.
+//
+
 import Foundation
 import UIKit
 import SceneKit
