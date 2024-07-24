@@ -22,7 +22,8 @@ let planets = [
                "Descrição": "A estrela no centro do Sistema Solar, responsável por fornecer luz e calor à Terra.",
                "Curiosidade 1": "O Sol é composto principalmente por hidrogênio e hélio.",
                "Curiosidade 2": "A temperatura na superfície do Sol é de cerca de 15 milhões de graus Celsius."
-           ]),
+           ],
+           modelName: "Sun.usdz"),
     
     //MARK: - Mercúrio
 
@@ -34,7 +35,8 @@ let planets = [
                "Descrição": "O menor planeta do Sistema Solar e o mais próximo do Sol.",
                "Curiosidade 1": "Mercúrio não tem atmosfera significativa para reter o calor.",
                "Curiosidade 2": "A superfície de Mercúrio é coberta de crateras."
-           ]),
+           ],
+           modelName: "Mercury.usdz"),
     
     //MARK: - Vênus
 
@@ -46,7 +48,8 @@ let planets = [
                "Descrição": "O segundo planeta do Sistema Solar e o mais quente.",
                "Curiosidade 1": "A atmosfera de Vênus é composta principalmente de dióxido de carbono.",
                "Curiosidade 2": "Vênus possui uma temperatura superficial média de 475 graus Celsius."
-           ]),
+           ],
+           modelName: "Venus.usdz"),
     
     //MARK: - Terra
 
@@ -58,7 +61,8 @@ let planets = [
                "Descrição": "Nosso lar, o terceiro planeta do Sistema Solar.",
                "Curiosidade 1": "A Terra é o único planeta conhecido por abrigar vida.",
                "Curiosidade 2": "A superfície da Terra é composta por 71% de água."
-           ]),
+           ],
+           modelName: "Earth.usdz"),
     
     //MARK: - Marte
 
@@ -70,7 +74,8 @@ let planets = [
                "Descrição": "O Planeta Vermelho, o quarto do Sistema Solar.",
                "Curiosidade 1": "Marte possui a montanha mais alta do Sistema Solar, Olympus Mons.",
                "Curiosidade 2": "A atmosfera de Marte é composta principalmente de dióxido de carbono."
-           ]),
+           ],
+           modelName: "Mars.usdz"),
     
     //MARK: - Júpiter
 
@@ -82,7 +87,8 @@ let planets = [
                "Descrição": "O maior planeta do Sistema Solar, o quinto a partir do Sol.",
                "Curiosidade 1": "Júpiter tem uma mancha vermelha gigante, que é uma tempestade em curso.",
                "Curiosidade 2": "Júpiter tem mais de 79 luas."
-           ]),
+           ],
+           modelName: "Jupiter.usdz"),
     
     //MARK: - Saturno
 
@@ -94,7 +100,8 @@ let planets = [
                "Descrição": "Conhecido pelos seus anéis impressionantes, é o sexto planeta do Sistema Solar.",
                "Curiosidade 1": "Os anéis de Saturno são feitos principalmente de gelo e rocha.",
                "Curiosidade 2": "Saturno tem 145 luas conhecidas."
-           ]),
+           ],
+           modelName: "Saturn.usdz"),
     
     //MARK: - Urano
 
@@ -106,7 +113,8 @@ let planets = [
                "Descrição": "O sétimo planeta do Sistema Solar, conhecido pela sua cor azulada.",
                "Curiosidade 1": "Urano gira de lado, com seu eixo de rotação quase paralelo ao plano de sua órbita.",
                "Curiosidade 2": "Urano tem 27 luas conhecidas."
-           ]),
+           ],
+           modelName: "Uranus.usdz"),
     
     //MARK: - Netuno
 
@@ -118,5 +126,6 @@ let planets = [
                "Descrição": "O oitavo planeta do Sistema Solar, conhecido por seus ventos fortes.",
                "Curiosidade 1": "Netuno tem os ventos mais rápidos do Sistema Solar, atingindo até 2.100 km/h.",
                "Curiosidade 2": "Netuno tem 14 luas conhecidas."
-           ])
+           ],
+           modelName: "Neptune.usdz")
 ]

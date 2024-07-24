@@ -16,6 +16,7 @@ struct Planet {
     let radius: Double
     let distanceFromSun: Double
     let descriptions: [String: String]
+    let modelName: String
 
     /**
      Inicializa uma nova instância de `Planet`.
@@ -26,12 +27,14 @@ struct Planet {
         - radius: O raio do planeta em quilômetros.
         - distanceFromSun: A distância do planeta ao Sol em milhões de quilômetros.
         - descriptions: Um dicionário contendo descrições e curiosidades sobre o planeta.
+        - modelName: O nome do arquivo do modelo 3D do planeta.
      */
-    init(name: String, imageName: String, radius: Double, distanceFromSun: Double, descriptions: [String: String]) {
+    init(name: String, imageName: String, radius: Double, distanceFromSun: Double, descriptions: [String: String], modelName: String) {
         self.name = name
         self.imageName = imageName
         self.radius = radius
         self.distanceFromSun = distanceFromSun
         self.descriptions = descriptions
+        self.modelName = modelName
     }
 }
