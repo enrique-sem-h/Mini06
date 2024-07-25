@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31746B1C2C52BEF20035B9CD /* PlanetARView.swift */; };
 		31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */; };
 		31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */; };
 		31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1BA2C4AFD210005DDDB /* HomeViewController.swift */; };
@@ -17,7 +18,7 @@
 		31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */; };
 		31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */; };
 		31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */; };
-		31BDB0642C4EF2DD00B59EA5 /* PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0632C4EF2DD00B59EA5 /* PlanetARView.swift */; };
+		31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */; };
 		40960F822C502B5100A883C6 /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960F812C502B5100A883C6 /* PlanetData.swift */; };
 		40C555A72C4D5AFE00CBD100 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A62C4D5AFE00CBD100 /* Coordinator.swift */; };
 		40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31746B1C2C52BEF20035B9CD /* PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetARView.swift; sourceTree = "<group>"; };
 		31AFE1B32C4AFD210005DDDB /* Mini06AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini06AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarSystemViewController.swift; sourceTree = "<group>"; };
 		31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailView.swift; sourceTree = "<group>"; };
-		31BDB0632C4EF2DD00B59EA5 /* PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetARView.swift; sourceTree = "<group>"; };
+		31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHUDView.swift; sourceTree = "<group>"; };
 		40960F812C502B5100A883C6 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
 		40C555A62C4D5AFE00CBD100 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				31AFE1D12C4AFFEC0005DDDB /* ARViewController.swift */,
-				31BDB0632C4EF2DD00B59EA5 /* PlanetARView.swift */,
+				31746B1C2C52BEF20035B9CD /* PlanetARView.swift */,
+				31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -281,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C555A72C4D5AFE00CBD100 /* Coordinator.swift in Sources */,
-				31BDB0642C4EF2DD00B59EA5 /* PlanetARView.swift in Sources */,
+				31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */,
 				31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
@@ -293,6 +296,7 @@
 				31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */,
 				40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */,
 				40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */,
+				31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */,
 				31AFE1D22C4AFFEC0005DDDB /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,10 +457,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9H5R689TD;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -482,10 +486,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9H5R689TD;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

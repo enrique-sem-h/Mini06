@@ -7,6 +7,9 @@
 
 import UIKit
 
+var screenWidth: CGFloat = 0
+var screenHeight: CGFloat = 0
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var mainCoordinator: MainCoordinator?
@@ -21,6 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+        
+        screenWidth = window?.screen.bounds.width ?? 0
+        screenHeight = window?.screen.bounds.height ?? 0
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

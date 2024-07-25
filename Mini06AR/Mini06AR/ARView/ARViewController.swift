@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ARKit
 
 /**
  A classe `ARViewController` exibe uma visualização AR do planeta selecionado.
@@ -14,15 +15,23 @@ class ARViewController: UIViewController {
     var coordinator: ARCoordinator?
     var planet: Planet?
 
-    var planetARView: PlanetARView?
+    var arHudView: ARHUDView?
+    var planetARView: ARV?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        planetARView = PlanetARView()
-        planetARView?.arViewController = self
+        arHudView = ARHUDView(self)
         
-        self.view = planetARView
+        if planet != nil {
+            planetARView = ARV(viewController: self)
+        }
+        
+        if let arHudView, let planetARView {
+            view.addSubview(planetARView)
+            view.addSubview(arHudView)
+
+        }
     }
 
     @objc func showPlanetDetail() {
