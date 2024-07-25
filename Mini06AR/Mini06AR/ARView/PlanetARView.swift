@@ -110,7 +110,7 @@ extension ARView {
         } else {
             let results = self.raycast(from: loc, allowing: .estimatedPlane, alignment: .any)
             if let first = results.first {
-                var position = simd_make_float3(first.worldTransform.columns.3)
+                let position = simd_make_float3(first.worldTransform.columns.3)
                 if self.scene.anchors.first?.findEntity(named: ARView.viewController?.planet?.modelName ?? "Earth") != nil {
                     print("already have earth placed")
                     return

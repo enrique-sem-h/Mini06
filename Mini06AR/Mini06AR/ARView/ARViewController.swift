@@ -16,7 +16,7 @@ class ARViewController: UIViewController {
     var planet: Planet?
 
     var arHudView: ARHUDView?
-    var planetARView: ARV?
+    var planetARView: PlanetARView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class ARViewController: UIViewController {
         arHudView = ARHUDView(self)
         
         if planet != nil {
-            planetARView = ARV(viewController: self)
+            planetARView = PlanetARView(viewController: self)
         }
         
         if let arHudView, let planetARView {
