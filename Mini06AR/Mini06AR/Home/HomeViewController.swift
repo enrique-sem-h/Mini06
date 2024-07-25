@@ -58,50 +58,50 @@ class HomeViewController: UIViewController {
     }
     
     private func setupSolarSystem() {
-            let maxDistance = planets.map { $0.distanceFromSun }.max() ?? 1
-            let screenSize = min(view.bounds.width, view.bounds.height)
-            let maxAllowedDistance = screenSize / 1.6 // Deixa espaço para o Sol e as margens
-            
-            let distanceMultiplier: CGFloat
-            if maxDistance > maxAllowedDistance {
-                distanceMultiplier = maxAllowedDistance / CGFloat(maxDistance)
-            } else {
-                distanceMultiplier = 5
-            }
-            
-            let sunView = createPlanetButton(name: "Sol", imageName: "sun", radius: 50)
-            sunView.center = view.center
-            view.addSubview(sunView)
-            
-            for (index, planet) in planets.filter({ $0.name != "Sol" }).enumerated() {
-                let planetButton = createPlanetButton(name: planet.name, imageName: planet.imageName, radius: 20)
-                planetButton.tag = index
-                let distance = CGFloat(planet.distanceFromSun) * distanceMultiplier
-                let orbitPath = UIBezierPath(arcCenter: view.center, radius: distance, startAngle: 0, endAngle: .pi * 2, clockwise: true)
-                
-                let orbitLayer = CAShapeLayer()
-                orbitLayer.path = orbitPath.cgPath
-                orbitLayer.strokeColor = UIColor.gray.cgColor
-                orbitLayer.fillColor = UIColor.clear.cgColor
-                view.layer.addSublayer(orbitLayer)
-                
-                planetButton.center = CGPoint(x: view.center.x + distance, y: view.center.y)
-                view.addSubview(planetButton)
-                
-                planetButton.addTarget(self, action: #selector(planetTapped(_:)), for: .allTouchEvents)
-                
-                let nameLabel = UILabel()
-                nameLabel.text = planet.name
-                nameLabel.textAlignment = .center
-                nameLabel.font = UIFont.systemFont(ofSize: 12)
-                nameLabel.sizeToFit()
-                nameLabel.tag = 100 + index // Tag para identificar a label associada ao planeta
-                view.addSubview(nameLabel)
-                
-                let speed = planetSpeeds[planet.name] ?? 1.0 // Velocidade padrão se não especificada
-                animatePlanet(planetView: planetButton, orbitPath: orbitPath, duration: speed, nameLabel: nameLabel)
-            }
+        let maxDistance = planets.map { $0.distanceFromSun }.max() ?? 1
+        let screenSize = min(view.bounds.width, view.bounds.height)
+        let maxAllowedDistance = screenSize / 1.6 // Deixa espaço para o Sol e as margens
+        
+        let distanceMultiplier: CGFloat
+        if maxDistance > maxAllowedDistance {
+            distanceMultiplier = maxAllowedDistance / CGFloat(maxDistance)
+        } else {
+            distanceMultiplier = 5
         }
+        
+        let sunView = createPlanetButton(name: "Sol", imageName: "sun", radius: 50)
+        sunView.center = view.center
+        view.addSubview(sunView)
+        
+        for (index, planet) in planets.filter({ $0.name != "Sol" }).enumerated() {
+            let planetButton = createPlanetButton(name: planet.name, imageName: planet.imageName, radius: 20)
+            planetButton.tag = index
+            let distance = CGFloat(planet.distanceFromSun) * distanceMultiplier
+            let orbitPath = UIBezierPath(arcCenter: view.center, radius: distance, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+            
+            let orbitLayer = CAShapeLayer()
+            orbitLayer.path = orbitPath.cgPath
+            orbitLayer.strokeColor = UIColor.gray.cgColor
+            orbitLayer.fillColor = UIColor.clear.cgColor
+            view.layer.addSublayer(orbitLayer)
+            
+            planetButton.center = CGPoint(x: view.center.x + distance, y: view.center.y)
+            view.addSubview(planetButton)
+            
+            planetButton.addTarget(self, action: #selector(planetTapped(_:)), for: .allTouchEvents)
+            
+            let nameLabel = UILabel()
+            nameLabel.text = planet.name
+            nameLabel.textAlignment = .center
+            nameLabel.font = UIFont.systemFont(ofSize: 12)
+            nameLabel.sizeToFit()
+            nameLabel.tag = 100 + index // Tag para identificar a label associada ao planeta
+            view.addSubview(nameLabel)
+            
+            let speed = planetSpeeds[planet.name] ?? 1.0 // Velocidade padrão se não especificada
+            animatePlanet(planetView: planetButton, orbitPath: orbitPath, duration: speed, nameLabel: nameLabel)
+        }
+    }
     
     private func setupViews() {
         setupSolarSystem()
