@@ -11,13 +11,29 @@ import Foundation
  Um arquivo que contém os dados dos planetas do Sistema Solar.
  */
 
+// Ajuste esses valores conforme necessário
+let baseDistance: CGFloat = 2.5 // Distância base para o Sol
+let distanceMultiplier: CGFloat = 5 // Multiplicador para ampliar as distâncias
+
+// Adicione velocidades de rotação variáveis (em segundos para uma volta completa)
+let planetSpeeds: [String: Double] = [
+    "Mercúrio": 0.2, // Velocidade de rotação para Mercúrio (em segundos)
+    "Vênus": 0.3,
+    "Terra": 0.5,
+    "Marte": 0.6,
+    "Júpiter": 1.0,
+    "Saturno": 1.2,
+    "Urano": 1.5,
+    "Netuno": 1.8
+]
+
 let planets = [
     
     //MARK: - SOL
     Planet(name: "Sol",
            imageName: "sun",
            radius: 696340.0,
-           distanceFromSun: 0.0,
+           distanceFromSun: 10 / 1.6,
            descriptions: [
                "Descrição": "A estrela no centro do Sistema Solar, responsável por fornecer luz e calor à Terra.",
                "Curiosidade 1": "O Sol é composto principalmente por hidrogênio e hélio.",
@@ -30,7 +46,7 @@ let planets = [
     Planet(name: "Mercúrio",
            imageName: "mercury",
            radius: 2439.7,
-           distanceFromSun: 57.9,
+           distanceFromSun: 20 / 1.6,
            descriptions: [
                "Descrição": "O menor planeta do Sistema Solar e o mais próximo do Sol.",
                "Curiosidade 1": "Mercúrio não tem atmosfera significativa para reter o calor.",
@@ -43,7 +59,7 @@ let planets = [
     Planet(name: "Vênus",
            imageName: "venus",
            radius: 6051.8,
-           distanceFromSun: 108.2,
+           distanceFromSun: 30 / 1.6,
            descriptions: [
                "Descrição": "O segundo planeta do Sistema Solar e o mais quente.",
                "Curiosidade 1": "A atmosfera de Vênus é composta principalmente de dióxido de carbono.",
@@ -56,7 +72,7 @@ let planets = [
     Planet(name: "Terra",
            imageName: "earth",
            radius: 6371.0,
-           distanceFromSun: 149.6,
+           distanceFromSun: 40 / 1.6,
            descriptions: [
                "Descrição": "Nosso lar, o terceiro planeta do Sistema Solar.",
                "Curiosidade 1": "A Terra é o único planeta conhecido por abrigar vida.",
@@ -69,7 +85,7 @@ let planets = [
     Planet(name: "Marte",
            imageName: "mars",
            radius: 3389.5,
-           distanceFromSun: 227.9,
+           distanceFromSun: 50 / 1.6,
            descriptions: [
                "Descrição": "O Planeta Vermelho, o quarto do Sistema Solar.",
                "Curiosidade 1": "Marte possui a montanha mais alta do Sistema Solar, Olympus Mons.",
@@ -82,7 +98,7 @@ let planets = [
     Planet(name: "Júpiter",
            imageName: "jupiter",
            radius: 69911,
-           distanceFromSun: 778.5,
+           distanceFromSun: 60 / 1.6,
            descriptions: [
                "Descrição": "O maior planeta do Sistema Solar, o quinto a partir do Sol.",
                "Curiosidade 1": "Júpiter tem uma mancha vermelha gigante, que é uma tempestade em curso.",
@@ -95,7 +111,7 @@ let planets = [
     Planet(name: "Saturno",
            imageName: "saturn",
            radius: 58232,
-           distanceFromSun: 1433.5,
+           distanceFromSun: 70 / 1.6,
            descriptions: [
                "Descrição": "Conhecido pelos seus anéis impressionantes, é o sexto planeta do Sistema Solar.",
                "Curiosidade 1": "Os anéis de Saturno são feitos principalmente de gelo e rocha.",
@@ -108,7 +124,7 @@ let planets = [
     Planet(name: "Urano",
            imageName: "uranus",
            radius: 25362,
-           distanceFromSun: 2872.5,
+           distanceFromSun: 80 / 1.6,
            descriptions: [
                "Descrição": "O sétimo planeta do Sistema Solar, conhecido pela sua cor azulada.",
                "Curiosidade 1": "Urano gira de lado, com seu eixo de rotação quase paralelo ao plano de sua órbita.",
@@ -121,7 +137,7 @@ let planets = [
     Planet(name: "Netuno",
            imageName: "neptune",
            radius: 24622,
-           distanceFromSun: 4495.1,
+           distanceFromSun: 90 / 1.6,
            descriptions: [
                "Descrição": "O oitavo planeta do Sistema Solar, conhecido por seus ventos fortes.",
                "Curiosidade 1": "Netuno tem os ventos mais rápidos do Sistema Solar, atingindo até 2.100 km/h.",
