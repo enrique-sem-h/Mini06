@@ -37,5 +37,11 @@ class ARViewController: UIViewController {
     @objc func showPlanetDetail() {
         coordinator?.showPlanetDetail()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if let planetARView, planetARView.isShowingInfo {
+            planetARView.toggleInfo()
+        }
+    }
 
 }

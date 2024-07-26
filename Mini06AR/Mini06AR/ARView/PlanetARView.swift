@@ -9,20 +9,45 @@ import UIKit
 import RealityKit
 import ARKit
 
-class PlanetARView: UIView, ARSessionDelegate, ARCoachingOverlayViewDelegate {
+class PlanetARView: UIView, ARCoachingOverlayViewDelegate {
     weak var viewController: ARViewController?
     
-    lazy private var arView = ARView()
-    lazy private var deleteButton = UIButton(type: .roundedRect)
+    lazy var isShowingInfo = false
+    lazy var arView = CustomARView()
+    lazy var resetButton = UIButton(type: .roundedRect)
+    lazy var contentView = PassthroughView()
+    lazy var infoView = UIView()
+    lazy var textLabel = UILabel()
     
     init(viewController: ARViewController) {
         super.init(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         self.viewController = viewController
-        
-        self.backgroundColor = .blue
-        
+        self.backgroundColor = .clear
         setupARView()
-        setupDeleteButton()
+        setupResetButton()
+        configureInfo()
+    }
+    
+    private func configureInfo() {
+        contentView.backgroundColor = .clear
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.backgroundColor = .white
+        infoView.layer.cornerRadius = 8.0
+        textLabel.text = (viewController?.planet?.descriptions["Curiosidade 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosidade 2"] ?? "")
+        textLabel.textColor = .darkText
+        textLabel.numberOfLines = 0
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoView.addSubview(textLabel)
+        
+        addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -44,8 +69,8 @@ class PlanetARView: UIView, ARSessionDelegate, ARCoachingOverlayViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal]
         arView.session.run(configuration)
-        arView.session.delegate = self
-        ARView.viewController = self.viewController
+        arView.arViewDelegate = self
+        arView.viewController = self.viewController
     }
     
     private func placeARView() {
@@ -70,76 +95,29 @@ class PlanetARView: UIView, ARSessionDelegate, ARCoachingOverlayViewDelegate {
     }
     
     // MARK: - DeleteButton
-    private func setupDeleteButton() {
-        deleteButton.setTitle("Delete All", for: .normal)
-        deleteButton.tintColor = .red
-        deleteButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
-        placeDeleteButton()
+    private func setupResetButton() {
+        resetButton.setTitle("Reset Position", for: .normal)
+        resetButton.configuration = UIButton.Configuration.borderedTinted()
+        resetButton.tintColor = .red
+        resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
+        placeResetButton()
     }
     
     @objc private func handleTapDelete() {
         guard !arView.scene.anchors.isEmpty else { return }
         arView.scene.anchors.removeAll()
+        if isShowingInfo {
+            toggleInfo()
+        }
     }
     
-    private func placeDeleteButton() {
-        arView.addSubview(deleteButton)
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+    private func placeResetButton() {
+        arView.addSubview(resetButton)
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            deleteButton.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
-            deleteButton.bottomAnchor.constraint(equalTo: arView.bottomAnchor, constant: -40)
+            resetButton.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
+            resetButton.topAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.topAnchor)
         ])
     }
 }
 
-extension ARView {
-    func enableTapGesture() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleARViewTap))
-        self.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    static var viewController: ARViewController?
-    
-    @objc private func handleARViewTap(recognizer: UITapGestureRecognizer) {
-        let loc = recognizer.location(in: self)
-        guard let rayResult = self.ray(through: loc) else { return }
-        let results = self.scene.raycast(origin: rayResult.origin, direction: rayResult.direction)
-        
-        if let firstResult = results.first {
-            print("tap on object: \(firstResult.entity)")
-        } else {
-            let results = self.raycast(from: loc, allowing: .estimatedPlane, alignment: .any)
-            if let first = results.first {
-                let position = simd_make_float3(first.worldTransform.columns.3)
-                if self.scene.anchors.first?.findEntity(named: ARView.viewController?.planet?.modelName ?? "Earth") != nil {
-                    print("already have earth placed")
-                    return
-                }
-                let planetAnchor = AnchorEntity(world: position)
-                if let planetModel = try? ModelEntity.load(named: ARView.viewController?.planet?.modelName ?? "Earth") {
-                    planetModel.name = ARView.viewController?.planet?.modelName ?? "Earth"
-                    planetAnchor.addChild(planetModel)
-                    let from = Transform(rotation: .init(angle: .pi * 2, axis: [0, 1, 0]))
-                    
-                    let definition = FromToByAnimation(from: from,
-                                                       duration: 20,
-                                                       timing: .linear,
-                                                       bindTarget: .transform,
-                                                       repeatMode: .repeat)
-                    
-                    if let animate = try? AnimationResource.generate(with: definition) {
-                        planetModel.playAnimation(animate)
-                    }
-                }
-                self.scene.addAnchor(planetAnchor)
-            }
-        }
-        
-    }
-}
-
-extension PlanetARView {
-    func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        arView.scene.findEntity(named: "Earth")?.removeFromParent()
-    }
-}
