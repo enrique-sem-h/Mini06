@@ -9,12 +9,17 @@ import UIKit
 import ARKit
 import RealityKit
 
-extension PlanetARView {
+/**
+ Esta extensão em `PlanetARView` é responsável por remover todas as Âncoras do RealityKit quando o ARKit perde o tracking do plano horizontal onde os planetas são colocados
+ */
+extension PlanetARView: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         arView.scene.findEntity(named: arView.viewController?.planet?.modelName ?? CustomARView.defaultModelName )?.removeFromParent()
     }
 }
-
+/**
+ Esta extensão em `PlanetARView` é responsável pela implementação do delegate `CustomARViewDelegate` que será utilizado quando houver uma interação com um planeta dentro da Realidade Aumentada
+ */
 extension PlanetARView: CustomARViewDelegate {
     func toggleInfo() {
         if isShowingInfo {

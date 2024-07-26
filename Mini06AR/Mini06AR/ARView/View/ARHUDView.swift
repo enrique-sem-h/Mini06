@@ -8,6 +8,9 @@
 import RealityKit
 import UIKit
 
+/**
+ A classe `ARHUDView` constrói uma View que possui elementos de interação que não interagem com a Realidade Aumentada
+ */
 class ARHUDView: UIView {
     weak var arViewController: ARViewController?
     
@@ -28,9 +31,9 @@ class ARHUDView: UIView {
     private func setupHUD() {
         detailsButton = {
             let detailsButton = UIButton(type: .system)
-//            detailsButton.setTitle("Detalhes", for: .normal)
+            //            detailsButton.setTitle("Detalhes", for: .normal)
             detailsButton.setImage(UIImage(systemName: "ellipsis.circle.fill"), for: .normal)
-//            detailsButton.setTitleColor(.systemBlue, for: .normal)
+            //            detailsButton.setTitleColor(.systemBlue, for: .normal)
             detailsButton.tintColor = .red
             detailsButton.addTarget(arViewController, action: #selector(arViewController?.showPlanetDetail), for: .touchUpInside)
             detailsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -38,13 +41,13 @@ class ARHUDView: UIView {
         }()
         
         clickLabel = {
-           let label = UILabel()
+            let label = UILabel()
             label.text = "Click the screen to place: \(arViewController?.planet?.name ?? "")"
             label.textColor = .white
             label.font = UIFont.boldSystemFont(ofSize: 16)
             return label
         }()
-
+        
         self.addSubview(clickLabel)
         self.addSubview(detailsButton)
         

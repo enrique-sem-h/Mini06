@@ -9,7 +9,10 @@ import UIKit
 import RealityKit
 import ARKit
 
-class PlanetARView: UIView, ARCoachingOverlayViewDelegate {
+/**
+ A classe `PlanetARView` é responsável por configurar a ARView com as Views de informação e controles que afetam a Realidade Aumentada
+ */
+class PlanetARView: UIView {
     weak var viewController: ARViewController?
     
     lazy var isShowingInfo = false
@@ -26,28 +29,6 @@ class PlanetARView: UIView, ARCoachingOverlayViewDelegate {
         setupARView()
         setupResetButton()
         configureInfo()
-    }
-    
-    private func configureInfo() {
-        contentView.backgroundColor = .clear
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.backgroundColor = .white
-        infoView.layer.cornerRadius = 8.0
-        textLabel.text = (viewController?.planet?.descriptions["Curiosidade 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosidade 2"] ?? "")
-        textLabel.textColor = .darkText
-        textLabel.numberOfLines = 0
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        infoView.addSubview(textLabel)
-        
-        addSubview(contentView)
-        
-        NSLayoutConstraint.activate([
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
-            contentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
-        ])
     }
     
     required init?(coder: NSCoder) {
@@ -94,7 +75,7 @@ class PlanetARView: UIView, ARCoachingOverlayViewDelegate {
         ])
     }
     
-    // MARK: - DeleteButton
+    // MARK: - ResetButton
     private func setupResetButton() {
         resetButton.setTitle("Reset Position", for: .normal)
         resetButton.configuration = UIButton.Configuration.borderedTinted()
@@ -117,6 +98,29 @@ class PlanetARView: UIView, ARCoachingOverlayViewDelegate {
         NSLayoutConstraint.activate([
             resetButton.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
             resetButton.topAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.topAnchor)
+        ])
+    }
+    
+    //MARK: - Info about the planets
+    private func configureInfo() {
+        contentView.backgroundColor = .clear
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.translatesAutoresizingMaskIntoConstraints = false
+        infoView.backgroundColor = .white
+        infoView.layer.cornerRadius = 8.0
+        textLabel.text = (viewController?.planet?.descriptions["Curiosidade 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosidade 2"] ?? "")
+        textLabel.textColor = .darkText
+        textLabel.numberOfLines = 0
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoView.addSubview(textLabel)
+        
+        addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
         ])
     }
 }

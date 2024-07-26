@@ -14,7 +14,7 @@ import ARKit
 class ARViewController: UIViewController {
     var coordinator: ARCoordinator?
     var planet: Planet?
-
+    
     var arHudView: ARHUDView?
     var planetARView: PlanetARView?
     
@@ -30,10 +30,10 @@ class ARViewController: UIViewController {
         if let arHudView, let planetARView {
             view.addSubview(planetARView)
             view.addSubview(arHudView)
-
+            
         }
     }
-
+    
     @objc func showPlanetDetail() {
         coordinator?.showPlanetDetail()
     }
@@ -43,5 +43,5 @@ class ARViewController: UIViewController {
             planetARView.toggleInfo()
         }
     }
-
+    
 }

@@ -147,13 +147,9 @@
 		31AFE1D02C4AFFAB0005DDDB /* ARView */ = {
 			isa = PBXGroup;
 			children = (
-				31AFE1D12C4AFFEC0005DDDB /* ARViewController.swift */,
-				E8264DA82C541417003F61E8 /* PassthroughView.swift */,
-				31746B1C2C52BEF20035B9CD /* PlanetARView.swift */,
-				E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */,
-				E8264DAE2C5416A7003F61E8 /* Extension+CustomARView.swift */,
-				31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */,
-				E8264DAA2C54142E003F61E8 /* CustomARView.swift */,
+				E8264DB52C541EB2003F61E8 /* View */,
+				E8264DB42C541EAE003F61E8 /* Extension */,
+				E8264DB32C541EA9003F61E8 /* ViewController */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -184,6 +180,34 @@
 				40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E8264DB32C541EA9003F61E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				31AFE1D12C4AFFEC0005DDDB /* ARViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E8264DB42C541EAE003F61E8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */,
+				E8264DAE2C5416A7003F61E8 /* Extension+CustomARView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E8264DB52C541EB2003F61E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8264DA82C541417003F61E8 /* PassthroughView.swift */,
+				31746B1C2C52BEF20035B9CD /* PlanetARView.swift */,
+				31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */,
+				E8264DAA2C54142E003F61E8 /* CustomARView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E86380AF2C4EDD8B00E00B41 /* Mini06ARTests */ = {
@@ -491,7 +515,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -520,7 +544,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
