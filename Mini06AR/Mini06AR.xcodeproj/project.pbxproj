@@ -135,10 +135,8 @@
 		31AFE1CA2C4AFED40005DDDB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				31AFE1BA2C4AFD210005DDDB /* HomeViewController.swift */,
-				409C022E2C554C2F0021D622 /* HomeView.swift */,
-				409C02322C5582560021D622 /* SolarSystemSceneView.swift */,
-				409C02342C5582F90021D622 /* PlanetBoxView.swift */,
+				409C02362C55987C0021D622 /* View */,
+				409C02372C5598B90021D622 /* ViewController */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -178,6 +176,24 @@
 				40960F812C502B5100A883C6 /* PlanetData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		409C02362C55987C0021D622 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				409C02322C5582560021D622 /* SolarSystemSceneView.swift */,
+				409C02342C5582F90021D622 /* PlanetBoxView.swift */,
+				409C022E2C554C2F0021D622 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		409C02372C5598B90021D622 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				31AFE1BA2C4AFD210005DDDB /* HomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		40C555A52C4D5AF100CBD100 /* Utils */ = {

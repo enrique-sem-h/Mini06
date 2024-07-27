@@ -7,11 +7,24 @@
 
 import UIKit
 
+/**
+ A classe `PlanetBoxView` é uma visualização personalizada que exibe uma caixa com botões para selecionar planetas, aplicando o estilo de Glassmorphism.
+ */
 class PlanetBoxView: UIView {
     
+    /// Closure que é chamada quando um botão de planeta é pressionado, exibindo a visualização de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
+    
+    /// Lista de planetas a serem exibidos na caixa de seleção.
     private var planets: [Planet]
     
+    /**
+     Inicializa uma nova `PlanetBoxView` com o quadro e os planetas fornecidos.
+     
+     - Parameters:
+        - frame: O quadro da visualização.
+        - planets: Uma lista de planetas a serem exibidos na caixa de seleção.
+     */
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
         super.init(frame: frame)
@@ -19,10 +32,18 @@ class PlanetBoxView: UIView {
         setupPlanetSelectionButtons()
     }
     
+    /**
+     Inicializa uma nova `PlanetBoxView` a partir de um codificador.
+     
+     - Parameter coder: O codificador a ser utilizado.
+     */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+     Configura a aparência de Glassmorphism da caixa.
+     */
     private func setupGlassmorphismBox() {
         self.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         self.layer.cornerRadius = 15
@@ -39,9 +60,13 @@ class PlanetBoxView: UIView {
         self.addSubview(blurEffectView)
     }
     
+    /**
+     Configura os botões de seleção de planetas dentro da caixa.
+     */
     private func setupPlanetSelectionButtons() {
         let planetNames = planets.map { $0.name }
         
+        // Remove qualquer botão existente antes de adicionar novos botões
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
         let buttonHeight: CGFloat = 40
@@ -86,6 +111,11 @@ class PlanetBoxView: UIView {
         }
     }
     
+    /**
+     Método chamado quando um botão de planeta é pressionado.
+     
+     - Parameter sender: O botão pressionado.
+     */
     @objc private func planetButtonTapped(_ sender: UIButton) {
         let planetIndex = sender.tag
         let selectedPlanet = planets[planetIndex]

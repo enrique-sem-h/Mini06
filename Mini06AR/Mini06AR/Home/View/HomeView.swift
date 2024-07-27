@@ -7,24 +7,51 @@
 
 import UIKit
 
+/**
+ A classe `HomeView` é uma visualização personalizada que exibe uma visualização da cena do sistema solar e um menu para selecionar planetas.
+ */
 class HomeView: UIView {
     
+    /// Indica se a caixa de seleção de planetas está visível.
     var isPlanetBoxVisible = false
+    
+    /// Lista de planetas a serem exibidos.
     var planets: [Planet] = []
+    
+    /// Closure que é chamada quando um botão de planeta é pressionado, exibindo a visualização de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
+    
+    /// A visualização da caixa de seleção de planetas.
     private var planetBoxView: PlanetBoxView!
+    
+    /// O botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
     private var toggleButton: UIButton!
     
+    /**
+     Inicializa uma nova `HomeView` com o quadro e os planetas fornecidos.
+     
+     - Parameters:
+        - frame: O quadro da visualização.
+        - planets: Uma lista de planetas a serem exibidos.
+     */
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
         super.init(frame: frame)
         setupView()
     }
     
+    /**
+     Inicializa uma nova `HomeView` a partir de um codificador.
+     
+     - Parameter coder: O codificador a ser utilizado.
+     */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+     Configura a visualização inicial, incluindo a cena do sistema solar e a caixa de seleção de planetas.
+     */
     private func setupView() {
         let sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
         self.addSubview(sceneView)
@@ -39,6 +66,9 @@ class HomeView: UIView {
         setupToggleButton()
     }
     
+    /**
+     Configura o botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
+     */
     private func setupToggleButton() {
         toggleButton = UIButton(type: .system)
         toggleButton.setTitle("Menu", for: .normal)
@@ -68,6 +98,9 @@ class HomeView: UIView {
         self.addSubview(toggleButton)
     }
     
+    /**
+     Método chamado quando o botão de alternância é pressionado, mostrando ou ocultando a caixa de seleção de planetas.
+     */
     @objc private func togglePlanetBox() {
         isPlanetBoxVisible.toggle()
         

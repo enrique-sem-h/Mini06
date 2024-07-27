@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- O protocolo `Coordinator` define a estrutura básica para um coordenador de navegação.
+ O protocolo `Coordinator` define a estrutura básica para um coordinator de navegação.
  Um `Coordinator` é responsável por gerenciar a navegação dentro do aplicativo.
  */
 protocol Coordinator: AnyObject {
