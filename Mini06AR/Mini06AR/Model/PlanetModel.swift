@@ -12,7 +12,6 @@ import Foundation
  */
 struct Planet {
     let name: String
- //   let imageName:String
     let radius: Double
     let distanceFromSun: Double
     let descriptions: [String: String]
@@ -23,7 +22,6 @@ struct Planet {
      
      - Parameters:
         - name: O nome do planeta.
-        - imageName: O nome do arquivo da imagem do planeta
         - radius: O raio do planeta em quilômetros.
         - distanceFromSun: A distância do planeta ao Sol em milhões de quilômetros.
         - descriptions: Um dicionário contendo descrições e curiosidades sobre o planeta.

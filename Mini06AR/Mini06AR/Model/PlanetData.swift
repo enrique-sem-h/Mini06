@@ -15,7 +15,6 @@ let planets = [
 
     // MARK: - Sol
     Planet(name: "Sol",
-           //  imageName: "sun_image",
            radius: 696340.0,
            distanceFromSun: 0.0,
            descriptions: [
@@ -27,7 +26,6 @@ let planets = [
     
     // MARK: - Mercúrio
     Planet(name: "Mercúrio",
-           // imageName: "mercury_image",
            radius: 2439.7,
            distanceFromSun: 57.9,
            descriptions: [
@@ -39,7 +37,6 @@ let planets = [
     
     // MARK: - Vênus
     Planet(name: "Vênus",
-           //    imageName: "venus_image",
            radius: 6051.8,
            distanceFromSun: 108.2,
            descriptions: [
@@ -51,7 +48,6 @@ let planets = [
     
     // MARK: - Terra
     Planet(name: "Terra",
-           //  imageName: "earth_image",
            radius: 6371.0,
            distanceFromSun: 149.6,
            descriptions: [
@@ -63,7 +59,6 @@ let planets = [
     
     // MARK: - Marte
     Planet(name: "Marte",
-           //  imageName: "mars_image",
            radius: 3389.5,
            distanceFromSun: 227.9,
            descriptions: [
@@ -75,7 +70,6 @@ let planets = [
     
     // MARK: - Júpiter
     Planet(name: "Júpiter",
-           // imageName: "jupiter_image",
            radius: 69911,
            distanceFromSun: 778.5,
            descriptions: [
@@ -87,7 +81,6 @@ let planets = [
     
     // MARK: - Saturno
     Planet(name: "Saturno",
-           // imageName: "saturn_image",
            radius: 58232,
            distanceFromSun: 1433.5,
            descriptions: [
@@ -99,7 +92,6 @@ let planets = [
     
     // MARK: - Urano
     Planet(name: "Urano",
-           //  imageName: "uranus_image",
            radius: 25362,
            distanceFromSun: 2872.5,
            descriptions: [
@@ -111,7 +103,6 @@ let planets = [
     
     // MARK: - Netuno
     Planet(name: "Netuno",
-           // imageName: "neptune_image",
            radius: 24622,
            distanceFromSun: 4495.1,
            descriptions: [
