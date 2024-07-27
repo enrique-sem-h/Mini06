@@ -30,7 +30,6 @@ class PlanetBoxView: UIView {
         self.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         self.clipsToBounds = true
         
-        // Add blur effect to box
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
@@ -42,23 +41,24 @@ class PlanetBoxView: UIView {
     
     private func setupPlanetSelectionButtons() {
         let planetNames = planets.map { $0.name }
-        let buttonWidth: CGFloat = self.frame.width - 20
+        
+        self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
+        
         let buttonHeight: CGFloat = 40
+        let buttonSpacing: CGFloat = 10
         
         for (index, name) in planetNames.enumerated() {
-            let button = UIButton(frame: CGRect(x: 10, y: 10 + index * Int(buttonHeight + 10), width: Int(buttonWidth), height: Int(buttonHeight)))
+            let button = UIButton(type: .system)
             button.setTitle(name, for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.tag = index
             
-            // Set glassmorphism style
             button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
             button.layer.cornerRadius = 10
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
             button.clipsToBounds = true
             
-            // Add blur effect to button
             let blurEffect = UIBlurEffect(style: .light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = button.bounds
@@ -68,7 +68,21 @@ class PlanetBoxView: UIView {
             button.insertSubview(blurEffectView, at: 0)
             
             button.addTarget(self, action: #selector(planetButtonTapped(_:)), for: .touchUpInside)
+            button.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(button)
+            
+            NSLayoutConstraint.activate([
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+                button.heightAnchor.constraint(equalToConstant: buttonHeight)
+            ])
+            
+            if index == 0 {
+                button.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+            } else {
+                let previousButton = self.subviews.filter { $0 is UIButton }[index - 1] as! UIButton
+                button.topAnchor.constraint(equalTo: previousButton.bottomAnchor, constant: buttonSpacing).isActive = true
+            }
         }
     }
     

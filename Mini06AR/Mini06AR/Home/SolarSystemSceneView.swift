@@ -86,6 +86,7 @@ class SolarSystemSceneView: SCNView {
         addOrbitingPlanet(name: "Marte", radius: 0.53, distance: 20, texture: "mars_texture", duration: 40)
         addOrbitingPlanet(name: "Júpiter", radius: 2.5, distance: 28, texture: "jupiter_texture", duration: 50)
         
+        // Adição de Saturno e seus anéis
         let saturnOrbitNode = SCNNode()
         let saturnNode = addPlanet(name: "Saturno", radius: 2.0, distance: 36, texture: "saturn_texture")
         saturnOrbitNode.addChildNode(saturnNode)
@@ -117,7 +118,6 @@ class SolarSystemSceneView: SCNView {
         addOrbitingPlanet(name: "Urano", radius: 1.5, distance: 44, texture: "uranus_texture", duration: 70)
         addOrbitingPlanet(name: "Netuno", radius: 1.5, distance: 52, texture: "neptune_texture", duration: 80)
         
-        // Animação do Sol
         let sunRotation = CABasicAnimation(keyPath: "rotation")
         sunRotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
         sunRotation.duration = 30
