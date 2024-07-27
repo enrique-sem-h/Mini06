@@ -49,7 +49,7 @@ class ARCoordinator: Coordinator {
         }
     
     /**
-     Indica que o coordenador terminou seu trabalho.
+     Indica que o coordinator terminou seu trabalho.
      */
     func didFinish() {
         parentCoordinator?.childCoordinators.removeAll { $0 === self }

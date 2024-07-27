@@ -8,18 +8,38 @@
 import UIKit
 import SceneKit
 
+/**
+ A classe `SolarSystemSceneView` é responsável por configurar e exibir uma cena 3D do sistema solar usando SceneKit.
+ */
 class SolarSystemSceneView: SCNView {
 
+    /**
+     Inicializa uma nova `SolarSystemSceneView` com o quadro e os planetas fornecidos.
+     
+     - Parameters:
+        - frame: O quadro da visualização.
+        - planets: Uma lista de planetas a serem exibidos na cena.
+     */
     init(frame: CGRect, planets: [Planet]) {
         super.init(frame: frame, options: [:])
         setupScene(planets: planets)
     }
     
+    /**
+     Inicializa uma nova `SolarSystemSceneView` a partir de um codificador.
+     
+     - Parameter coder: O codificador a ser utilizado.
+     */
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupScene(planets: [])
     }
     
+    /**
+     Configura a cena 3D com os planetas fornecidos.
+     
+     - Parameter planets: Uma lista de planetas a serem exibidos na cena.
+     */
     private func setupScene(planets: [Planet]) {
         print("Setting up scene with \(planets.count) planets.")
         
@@ -38,6 +58,16 @@ class SolarSystemSceneView: SCNView {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 50)
         scene.rootNode.addChildNode(cameraNode)
         
+        /**
+         Adiciona um planeta à cena.
+         
+         - Parameters:
+            - name: O nome do planeta.
+            - radius: O raio do planeta.
+            - distance: A distância do planeta do centro da cena.
+            - texture: O nome da imagem de textura do planeta.
+         - Returns: O nó do planeta criado.
+         */
         func addPlanet(name: String, radius: CGFloat, distance: Float, texture: String) -> SCNNode {
             let sphere = SCNSphere(radius: radius)
             if let planetTexture = UIImage(named: texture) {
@@ -50,6 +80,16 @@ class SolarSystemSceneView: SCNView {
             return planetNode
         }
         
+        /**
+         Adiciona um planeta em órbita à cena.
+         
+         - Parameters:
+            - name: O nome do planeta.
+            - radius: O raio do planeta.
+            - distance: A distância do planeta do centro da cena.
+            - texture: O nome da imagem de textura do planeta.
+            - duration: A duração da órbita do planeta.
+         */
         func addOrbitingPlanet(name: String, radius: CGFloat, distance: Float, texture: String, duration: TimeInterval) {
             let orbitNode = SCNNode()
             let planetNode = addPlanet(name: name, radius: radius, distance: distance, texture: texture)
