@@ -12,7 +12,6 @@ import Foundation
  */
 struct Planet {
     let name: String
-    let imageName: String
     let radius: Double
     let distanceFromSun: Double
     let descriptions: [String: String]
@@ -23,18 +22,10 @@ struct Planet {
      
      - Parameters:
         - name: O nome do planeta.
-        - imageName: O nome da imagem associada ao planeta.
         - radius: O raio do planeta em quilômetros.
         - distanceFromSun: A distância do planeta ao Sol em milhões de quilômetros.
         - descriptions: Um dicionário contendo descrições e curiosidades sobre o planeta.
         - modelName: O nome do arquivo do modelo 3D do planeta.
+        - textureName: O nome do arquivo da textura do modelo 3D.
      */
-    init(name: String, imageName: String, radius: Double, distanceFromSun: Double, descriptions: [String: String], modelName: String) {
-        self.name = name
-        self.imageName = imageName
-        self.radius = radius
-        self.distanceFromSun = distanceFromSun
-        self.descriptions = descriptions
-        self.modelName = modelName
-    }
 }
