@@ -17,7 +17,6 @@ struct Planet {
     let distanceFromSun: Double
     let descriptions: [String: String]
     let modelName: String
-    let textureName: String
 
     /**
      Inicializa uma nova instância de `Planet`.
