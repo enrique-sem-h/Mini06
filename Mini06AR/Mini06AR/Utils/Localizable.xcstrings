@@ -1,0 +1,468 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Curiosity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Curiosity"
+          }
+        }
+      }
+    },
+    "Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        }
+      }
+    },
+    "Earth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earth"
+          }
+        }
+      }
+    },
+    "EarthCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earth is the only known planet to harbor life."
+          }
+        }
+      }
+    },
+    "EarthCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The surface of Earth is composed of 71% water."
+          }
+        }
+      }
+    },
+    "EarthDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our home, the third planet in the Solar System."
+          }
+        }
+      }
+    },
+    "Jupiter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter"
+          }
+        }
+      }
+    },
+    "JupiterCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter has a giant red spot, which is an ongoing storm."
+          }
+        }
+      }
+    },
+    "JupiterCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter has more than 79 moons."
+          }
+        }
+      }
+    },
+    "JupiterDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The largest planet in the Solar System, the fifth from the Sun."
+          }
+        }
+      }
+    },
+    "Mars" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mars"
+          }
+        }
+      }
+    },
+    "MarsCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mars has the highest mountain in the Solar System, Olympus Mons."
+          }
+        }
+      }
+    },
+    "MarsCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The atmosphere of Mars is primarily composed of carbon dioxide."
+          }
+        }
+      }
+    },
+    "MarsDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Red Planet, the fourth in the Solar System."
+          }
+        }
+      }
+    },
+    "Mercury" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mercury"
+          }
+        }
+      }
+    },
+    "MercuryCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mercury does not have a significant atmosphere to retain heat."
+          }
+        }
+      }
+    },
+    "MercuryCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The surface of Mercury is covered with craters."
+          }
+        }
+      }
+    },
+    "MercuryDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The smallest planet in the Solar System and the closest to the Sun."
+          }
+        }
+      }
+    },
+    "Moon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moon"
+          }
+        }
+      }
+    },
+    "MoonCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Moon is the fifth largest natural satellite in the Solar System."
+          }
+        }
+      }
+    },
+    "MoonCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The visible face of the Moon is always the same due to its synchronized rotation with Earth."
+          }
+        }
+      }
+    },
+    "MoonDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The only natural satellite of Earth, known for its influence on tides.\""
+          }
+        }
+      }
+    },
+    "Neptune" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neptune"
+          }
+        }
+      }
+    },
+    "NeptuneCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neptune has the fastest winds in the Solar System, reaching up to 2,100 km/h."
+          }
+        }
+      }
+    },
+    "NeptuneCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neptune has 14 known moons."
+          }
+        }
+      }
+    },
+    "NeptuneDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The eighth planet in the Solar System, known for its strong winds."
+          }
+        }
+      }
+    },
+    "Saturn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturn"
+          }
+        }
+      }
+    },
+    "SaturnCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturn's rings are primarily made of ice and rock."
+          }
+        }
+      }
+    },
+    "SaturnCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturn has 145 known moons."
+          }
+        }
+      }
+    },
+    "SaturnDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Known for its impressive rings, it is the sixth planet in the Solar System."
+          }
+        }
+      }
+    },
+    "Sun" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sun"
+          }
+        }
+      }
+    },
+    "SunCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Sun is primarily composed of hydrogen and helium."
+          }
+        }
+      }
+    },
+    "SunCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The temperature at the surface of the Sun is about 15 million degrees Celsius."
+          }
+        }
+      }
+    },
+    "SunDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The star at the center of the Solar System, responsible for providing light and heat to Earth."
+          }
+        }
+      }
+    },
+    "Uranus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uranus"
+          }
+        }
+      }
+    },
+    "UranusCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uranus rotates on its side, with its axis of rotation almost parallel to the plane of its orbit."
+          }
+        }
+      }
+    },
+    "UranusCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uranus has 27 known moons."
+          }
+        }
+      }
+    },
+    "UranusDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The seventh planet in the Solar System, known for its bluish color."
+          }
+        }
+      }
+    },
+    "Venus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venus"
+          }
+        }
+      }
+    },
+    "VenusCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The atmosphere of Venus is primarily composed of carbon dioxide."
+          }
+        }
+      }
+    },
+    "VenusCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venus has an average surface temperature of 475 degrees Celsius."
+          }
+        }
+      }
+    },
+    "VenusDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The second planet in the Solar System and the hottest."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
