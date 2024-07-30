@@ -15,12 +15,12 @@ import RealityKit
 extension CustomARView {
     internal static let defaultModelName = "Earth.usdz"
     
-    func enableTapGesture() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleARViewTap))
+    func enablePlanetARTapGestures() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlePlanetARTap))
         self.addGestureRecognizer(gestureRecognizer)
     }
     
-    @objc private func handleARViewTap(recognizer: UITapGestureRecognizer) {
+    @objc private func handlePlanetARTap(recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: self)
         guard let rayResult = self.ray(through: loc) else { return }
         let results = self.scene.raycast(origin: rayResult.origin, direction: rayResult.direction)

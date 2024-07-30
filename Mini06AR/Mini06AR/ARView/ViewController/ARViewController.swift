@@ -42,6 +42,7 @@ class ARViewController: UIViewController {
         if let planetARView, planetARView.isShowingInfo {
             planetARView.toggleInfo()
         }
+        planetARView?.arView.scene.anchors.removeAll()
     }
     
 }
