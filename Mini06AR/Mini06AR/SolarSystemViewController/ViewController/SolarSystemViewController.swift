@@ -14,7 +14,6 @@ class SolarSystemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
-
+        self.view = SolarSystemARView(viewController: self)
     }
 }

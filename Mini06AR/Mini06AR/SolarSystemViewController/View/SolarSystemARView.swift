@@ -1,41 +1,44 @@
 //
-//  ARV.swift
+//  SolarSystemARView.swift
 //  Mini06AR
 //
-//  Created by Enrique Carvalho on 25/07/24.
+//  Created by Fabio Freitas on 30/07/24.
 //
 
 import UIKit
-import RealityKit
 import ARKit
+import RealityKit
 
-/**
- A classe `PlanetARView` é responsável por configurar a ARView com as Views de informação e controles que afetam a Realidade Aumentada
- */
-class PlanetARView: UIView {
-    weak var viewController: ARViewController?
+class SolarSystemARView: UIView {
     
-    lazy var isShowingInfo = false
-    lazy var arView = CustomARView()
-    lazy var resetButton = UIButton(type: .roundedRect)
-    lazy var contentView = PassthroughView()
-    lazy var infoView = UIView()
-    lazy var textLabel = UILabel()
+    private var viewController: UIViewController?
     
-    init(viewController: ARViewController) {
-        super.init(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+    lazy private var arView = CustomARView()
+    lazy var resetButton = UIButton()
+    
+    static var sunModel: String {
+        return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
+    }
+    static var planetModelNames: [String] {
+        return planets.map({ $0.modelName }).filter({ !($0.contains("sun") || $0.contains("moon")) })
+    }
+    
+    init(viewController: UIViewController? = nil) {
+        super.init(frame: .zero)
         self.viewController = viewController
-        self.backgroundColor = .clear
-        setupARView()
-        setupResetButton()
-        configureInfo()
+        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - ARView
+    
+    private func setup() {
+        setupARView()
+        setupResetButton()
+    }
+    
     private func setupARView() {
         guard ARWorldTrackingConfiguration.isSupported else {
             print("AR is not supported")
@@ -43,22 +46,20 @@ class PlanetARView: UIView {
         }
         configureARViewSession()
         placeARView()
-        arView.enablePlanetARTapGestures()
+        arView.enableSolarSystemGesture()
     }
     
+    // MARK: - ARView
     private func configureARViewSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal]
         arView.session.run(configuration)
-        arView.arViewDelegate = self
-        arView.arPlanetViewController = self.viewController
     }
     
     private func placeARView() {
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.session = arView.session
         coachingOverlay.goal = .horizontalPlane
-        coachingOverlay.delegate = self
         self.addSubview(arView)
         self.addSubview(coachingOverlay)
         arView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,9 +88,6 @@ class PlanetARView: UIView {
     @objc private func handleTapDelete() {
         guard !arView.scene.anchors.isEmpty else { return }
         arView.scene.anchors.removeAll()
-        if isShowingInfo {
-            toggleInfo()
-        }
     }
     
     private func placeResetButton() {
@@ -98,29 +96,6 @@ class PlanetARView: UIView {
         NSLayoutConstraint.activate([
             resetButton.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
             resetButton.topAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.topAnchor)
-        ])
-    }
-    
-    //MARK: - Info about the planets
-    private func configureInfo() {
-        contentView.backgroundColor = .clear
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.backgroundColor = .white
-        infoView.layer.cornerRadius = 8.0
-        textLabel.text = (viewController?.planet?.descriptions["Curiosidade 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosidade 2"] ?? "")
-        textLabel.textColor = .darkText
-        textLabel.numberOfLines = 0
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        infoView.addSubview(textLabel)
-        
-        addSubview(contentView)
-        
-        NSLayoutConstraint.activate([
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
-            contentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
         ])
     }
 }

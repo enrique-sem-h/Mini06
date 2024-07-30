@@ -42,6 +42,8 @@
 		E8264DF62C5971A5003F61E8 /* earth.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DEC2C5971A5003F61E8 /* earth.usdz */; };
 		E8264DF72C5971A5003F61E8 /* mars.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DED2C5971A5003F61E8 /* mars.usdz */; };
 		E8264DF82C5971A5003F61E8 /* uranus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DEE2C5971A5003F61E8 /* uranus.usdz */; };
+		E8264DFA2C59769B003F61E8 /* SolarSystemARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */; };
+		E8264DFF2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */; };
 		E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		E8264DEC2C5971A5003F61E8 /* earth.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = earth.usdz; sourceTree = "<group>"; };
 		E8264DED2C5971A5003F61E8 /* mars.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = mars.usdz; sourceTree = "<group>"; };
 		E8264DEE2C5971A5003F61E8 /* uranus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = uranus.usdz; sourceTree = "<group>"; };
+		E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemARView.swift; sourceTree = "<group>"; };
+		E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+SolarSystemGestures.swift"; sourceTree = "<group>"; };
 		E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mini06ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini06ARTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,7 +185,9 @@
 		31AFE1D52C4B00180005DDDB /* SolarSystemViewController */ = {
 			isa = PBXGroup;
 			children = (
-				31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */,
+				E8264DFD2C597CEA003F61E8 /* Extension */,
+				E8264DFC2C597CE4003F61E8 /* ViewController */,
+				E8264DFB2C597CE0003F61E8 /* View */,
 			);
 			path = SolarSystemViewController;
 			sourceTree = "<group>";
@@ -279,6 +285,30 @@
 				E8264DE72C5971A5003F61E8 /* venus.usdz */,
 			);
 			path = PlanetModels;
+			sourceTree = "<group>";
+		};
+		E8264DFB2C597CE0003F61E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E8264DFC2C597CE4003F61E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				31AFE1D62C4B00270005DDDB /* SolarSystemViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E8264DFD2C597CEA003F61E8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E86380AF2C4EDD8B00E00B41 /* Mini06ARTests */ = {
@@ -418,7 +448,9 @@
 				31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */,
 				E8264DAB2C54142E003F61E8 /* CustomARView.swift in Sources */,
 				409C02332C5582560021D622 /* SolarSystemSceneView.swift in Sources */,
+				E8264DFF2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift in Sources */,
 				40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */,
+				E8264DFA2C59769B003F61E8 /* SolarSystemARView.swift in Sources */,
 				31AFE1CC2C4AFF5D0005DDDB /* PlanetDetailViewController.swift in Sources */,
 				409C022F2C554C2F0021D622 /* HomeView.swift in Sources */,
 				31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */,
