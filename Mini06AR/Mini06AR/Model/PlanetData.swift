@@ -12,7 +12,17 @@ import Foundation
  */
 
 let planets = [
-
+    
+    // MARK: - Lua
+    Planet(name: "Lua",
+           radius: 1737.1,
+           distanceFromSun: 149.6,
+           descriptions: [
+            "Descrição": "O único satélite natural da Terra, conhecido por sua influência nas marés.",
+            "Curiosidade 1": "A Lua é o quinto maior satélite natural do Sistema Solar.",
+            "Curiosidade 2": "A face visível da Lua é sempre a mesma devido à rotação sincronizada com a Terra."
+           ],
+           modelName: "moon.usdz"),
     // MARK: - Sol
     Planet(name: "Sol",
            radius: 696340.0,
@@ -22,7 +32,7 @@ let planets = [
             "Curiosidade 1": "O Sol é composto principalmente por hidrogênio e hélio.",
             "Curiosidade 2": "A temperatura na superfície do Sol é de cerca de 15 milhões de graus Celsius."
            ],
-           modelName: "Sun.usdz"),
+           modelName: "sun.usdz"),
     
     // MARK: - Mercúrio
     Planet(name: "Mercúrio",
@@ -33,7 +43,7 @@ let planets = [
             "Curiosidade 1": "Mercúrio não tem atmosfera significativa para reter o calor.",
             "Curiosidade 2": "A superfície de Mercúrio é coberta de crateras."
            ],
-           modelName: "Mercury.usdz"),
+           modelName: "mercury.usdz"),
     
     // MARK: - Vênus
     Planet(name: "Vênus",
@@ -44,7 +54,7 @@ let planets = [
             "Curiosidade 1": "A atmosfera de Vênus é composta principalmente de dióxido de carbono.",
             "Curiosidade 2": "Vênus possui uma temperatura superficial média de 475 graus Celsius."
            ],
-           modelName: "Venus.usdz"),
+           modelName: "venus.usdz"),
     
     // MARK: - Terra
     Planet(name: "Terra",
@@ -55,7 +65,7 @@ let planets = [
             "Curiosidade 1": "A Terra é o único planeta conhecido por abrigar vida.",
             "Curiosidade 2": "A superfície da Terra é composta por 71% de água."
            ],
-           modelName: "Earth.usdz"),
+           modelName: "earth.usdz"),
     
     // MARK: - Marte
     Planet(name: "Marte",
@@ -66,7 +76,7 @@ let planets = [
             "Curiosidade 1": "Marte possui a montanha mais alta do Sistema Solar, Olympus Mons.",
             "Curiosidade 2": "A atmosfera de Marte é composta principalmente de dióxido de carbono."
            ],
-           modelName: "Mars.usdz"),
+           modelName: "mars.usdz"),
     
     // MARK: - Júpiter
     Planet(name: "Júpiter",
@@ -77,7 +87,7 @@ let planets = [
             "Curiosidade 1": "Júpiter tem uma mancha vermelha gigante, que é uma tempestade em curso.",
             "Curiosidade 2": "Júpiter tem mais de 79 luas."
            ],
-           modelName: "Jupiter.usdz"),
+           modelName: "jupiter.usdz"),
     
     // MARK: - Saturno
     Planet(name: "Saturno",
@@ -88,7 +98,7 @@ let planets = [
             "Curiosidade 1": "Os anéis de Saturno são feitos principalmente de gelo e rocha.",
             "Curiosidade 2": "Saturno tem 145 luas conhecidas."
            ],
-           modelName: "Saturn.usdz"),
+           modelName: "saturn.usdz"),
     
     // MARK: - Urano
     Planet(name: "Urano",
@@ -99,7 +109,7 @@ let planets = [
             "Curiosidade 1": "Urano gira de lado, com seu eixo de rotação quase paralelo ao plano de sua órbita.",
             "Curiosidade 2": "Urano tem 27 luas conhecidas."
            ],
-           modelName: "Uranus.usdz"),
+           modelName: "uranus.usdz"),
     
     // MARK: - Netuno
     Planet(name: "Netuno",
@@ -110,5 +120,5 @@ let planets = [
             "Curiosidade 1": "Netuno tem os ventos mais rápidos do Sistema Solar, atingindo até 2.100 km/h.",
             "Curiosidade 2": "Netuno tem 14 luas conhecidas."
            ],
-           modelName: "Neptune.usdz")
+           modelName: "neptune.usdz")
 ]
