@@ -27,6 +27,8 @@ class HomeView: UIView {
     /// O botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
     private var toggleButton: UIButton!
     
+    var sceneView: SolarSystemSceneView!
+    
     /**
      Inicializa uma nova `HomeView` com o quadro e os planetas fornecidos.
      
@@ -53,7 +55,7 @@ class HomeView: UIView {
      Configura a visualização inicial, incluindo a cena do sistema solar e a caixa de seleção de planetas.
      */
     private func setupView() {
-        let sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
+        sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
         self.addSubview(sceneView)
         
         planetBoxView = PlanetBoxView(frame: CGRect(x: -200, y: 80, width: 180, height: 460), planets: planets)

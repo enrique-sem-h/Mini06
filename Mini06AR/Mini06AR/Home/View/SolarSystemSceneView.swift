@@ -20,6 +20,8 @@ class SolarSystemSceneView: SCNView {
         - frame: O quadro da visualização.
         - planets: Uma lista de planetas a serem exibidos na cena.
      */
+    let cameraNode = SCNNode()
+    
     init(frame: CGRect, planets: [Planet]) {
         super.init(frame: frame, options: [:])
         setupScene(planets: planets)
@@ -53,7 +55,6 @@ class SolarSystemSceneView: SCNView {
             print("Error: Background image not found.")
         }
         
-        let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 50)
         scene.rootNode.addChildNode(cameraNode)
@@ -76,6 +77,7 @@ class SolarSystemSceneView: SCNView {
                 print("Error: Texture image for \(name) not found.")
             }
             let planetNode = SCNNode(geometry: sphere)
+            planetNode.name = name
             planetNode.position = SCNVector3(x: distance, y: 0, z: 0)
             return planetNode
         }
