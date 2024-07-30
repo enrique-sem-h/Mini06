@@ -21,13 +21,16 @@ class HomeView: UIView {
     /// Closure que é chamada quando um botão de planeta é pressionado, exibindo a visualização de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
     
+    var sceneView: SolarSystemSceneView
+    
     /// A visualização da caixa de seleção de planetas.
     private var planetBoxView: PlanetBoxView!
     
     /// O botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
     private var toggleButton: UIButton!
     
-    var sceneView: SolarSystemSceneView!
+    /// Botão de alternancia para mostrar;esconder animações da view.
+    private var pauseButton: UIButton!
     
     /**
      Inicializa uma nova `HomeView` com o quadro e os planetas fornecidos.
@@ -38,6 +41,7 @@ class HomeView: UIView {
      */
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
+        sceneView = SolarSystemSceneView(frame: frame, planets: planets)
         super.init(frame: frame)
         setupView()
     }
@@ -66,6 +70,7 @@ class HomeView: UIView {
         self.addSubview(planetBoxView)
         
         setupToggleButton()
+        setupPauseButton()
     }
     
     /**
@@ -98,6 +103,34 @@ class HomeView: UIView {
         
         toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
         self.addSubview(toggleButton)
+    }
+    
+    private func setupPauseButton() {
+        // defining the button for pausing the view animations
+        pauseButton = UIButton(type: .system)
+        pauseButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        pauseButton.setTitleColor(.white, for: .normal)
+        pauseButton.setTitle("Pause", for: .normal)
+        
+        pauseButton.layer.cornerRadius = 10
+        pauseButton.layer.borderWidth = 1
+        pauseButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+        pauseButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        pauseButton.clipsToBounds = true
+        
+        pauseButton.frame = CGRect(x: 20, y: toggleButton.frame.maxY + 10, width: 100, height: 40)
+        
+        pauseButton.addTarget(self, action: #selector(pause), for: .touchUpInside)
+        self.addSubview(pauseButton)
+    }
+    
+    @objc private func pause() {
+        sceneView.scene?.isPaused.toggle()
+        if sceneView.scene?.isPaused == true {
+            pauseButton.setTitle("Unpause", for: .normal)
+        } else {
+            pauseButton.setTitle("Pause", for: .normal)
+        }
     }
     
     /**
