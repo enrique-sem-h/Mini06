@@ -14,7 +14,7 @@ import RealityKit
  */
 extension PlanetARView: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        arView.scene.findEntity(named: arView.viewController?.planet?.modelName ?? CustomARView.defaultModelName )?.removeFromParent()
+        arView.scene.findEntity(named: arView.arPlanetViewController?.planet?.modelName ?? CustomARView.defaultModelName )?.removeFromParent()
     }
 }
 /**

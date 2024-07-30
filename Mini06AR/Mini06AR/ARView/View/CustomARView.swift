@@ -17,5 +17,5 @@ protocol CustomARViewDelegate {
  */
 class CustomARView: ARView {
     var arViewDelegate: CustomARViewDelegate?
-    var viewController: ARViewController?
+    var arPlanetViewController: ARViewController?
 }
