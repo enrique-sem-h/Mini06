@@ -94,8 +94,8 @@ class SolarSystemARView: UIView {
         arView.addSubview(resetButton)
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            resetButton.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
-            resetButton.topAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.topAnchor)
+            resetButton.bottomAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            resetButton.trailingAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.trailingAnchor, constant: -40)
         ])
     }
 }

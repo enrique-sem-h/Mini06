@@ -38,20 +38,23 @@ extension CustomARView {
     private func createSun(anchor: AnchorEntity) {
         guard let sun = try? ModelEntity.load(named: SolarSystemARView.sunModel) else { return }
         sun.name = SolarSystemARView.sunModel
+        sun.scale = [0.6,0.6,0.6]
+        sun.transform.translation.y = anchor.transform.translation.y
         anchor.addChild(sun)
     }
     
     private func createOrbitingPlanets(anchor: AnchorEntity, planets: [String]) {
-        for (n,model) in planets.enumerated() {
+        for var (n,model) in planets.enumerated() {
             guard  let planetEntity = try? ModelEntity.load(named: model) else { return }
             let p = planetEntity.clone(recursive: true)
+            n += 1
             p.name = model
             p.scale = [0.5,0.5,0.5] // Size
             p.transform.translation.y = anchor.transform.translation.y
             anchor.addChild(p)
             
             var t = p.transform
-            t .translation = [2.0 + 1.5*Float(n),0,0] // Distance
+            t .translation = [0,0,2.0*Float(n)] // Distance
             if let orbit = createOrbitAnimation(transform: t, n: n){
                 p.playAnimation(orbit)
             }
