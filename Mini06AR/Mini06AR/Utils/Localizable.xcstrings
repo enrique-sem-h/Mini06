@@ -103,6 +103,23 @@
         }
       }
     },
+    "Go" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vai"
+          }
+        }
+      }
+    },
     "Jupiter" : {
       "extractionState" : "manual",
       "localizations" : {
