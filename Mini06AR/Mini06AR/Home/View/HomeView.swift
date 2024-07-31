@@ -158,17 +158,35 @@ class HomeView: UIView {
         arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
         self.addSubview(arButton)
     }
+
+    @objc private func openARView() {
+        // Lógica para abrir a visualização AR
+        print("Abrir visualização AR")
+        
+        // Animação de fade para o botão de AR
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.fromValue = 1.0
+        fadeAnimation.toValue = 0.5
+        fadeAnimation.duration = 0.2
+        fadeAnimation.autoreverses = true
+        fadeAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        arButton.layer.add(fadeAnimation, forKey: "fadeAnimation")
+    }
     
     @objc private func pause() {
         sceneView.scene?.isPaused.toggle()
         let newImage = sceneView.scene?.isPaused == true ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
         pauseButton.setImage(newImage, for: .normal)
+        
+        // Animação de pulso para o botão de pausa
+        let pulseAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        pulseAnimation.values = [1.0, 1.2, 1.0]
+        pulseAnimation.keyTimes = [0, 0.5, 1]
+        pulseAnimation.duration = 0.4
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        pauseButton.layer.add(pulseAnimation, forKey: "pulseAnimation")
     }
     
-    @objc private func openARView() {
-        // Lógica para abrir a visualização AR
-        print("Abrir visualização AR")
-    }
     
     /**
      Método chamado quando o botão de configurações é pressionado, mostrando ou ocultando os botões adicionais.
@@ -176,17 +194,23 @@ class HomeView: UIView {
     @objc private func toggleSettingsButtons() {
         areSettingsButtonsVisible.toggle()
         
-        UIView.animate(withDuration: 0.3) {
+        // Animação de rotação
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.fromValue = 0
+        rotationAnimation.toValue = Double.pi * 2
+        rotationAnimation.duration = 0.3
+        rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        settingsButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
+        UIView.animate(withDuration: 0.2) {
             let alpha: CGFloat = self.areSettingsButtonsVisible ? 1.0 : 0.0
             let transform: CGAffineTransform = self.areSettingsButtonsVisible ? .identity : CGAffineTransform(scaleX: 0.5, y: 0.5)
             
             self.pauseButton.alpha = alpha
             self.pauseButton.transform = transform
             self.pauseButton.isHidden = !self.areSettingsButtonsVisible
-            
-           
-//            self.arButton.alpha = alpha
-//            self.arButton.transform = transform
+
         }
     }
     
@@ -195,6 +219,15 @@ class HomeView: UIView {
      */
     @objc private func togglePlanetBox() {
         isPlanetBoxVisible.toggle()
+        
+        // Animação de escala para o botão de alternância
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = 1.1
+        scaleAnimation.duration = 0.2
+        scaleAnimation.autoreverses = true
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        toggleButton.layer.add(scaleAnimation, forKey: "scaleAnimation")
         
         let boxWidth: CGFloat = planetBoxView.frame.width
         let boxHeight: CGFloat = planetBoxView.frame.height
