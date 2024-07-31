@@ -29,8 +29,17 @@ class HomeView: UIView {
     /// O botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
     private var toggleButton: UIButton!
     
-    /// Botão de alternancia para mostrar;esconder animações da view.
+    /// Botão de configurações para mostrar/ocultar os botões adicionais.
+    private var settingsButton: UIButton!
+    
+    /// Botão de alternância para mostrar/esconder animações da view.
     private var pauseButton: UIButton!
+    
+    /// Botão para ativar AR.
+    private var arButton: UIButton!
+    
+    /// Indica se os botões de configuração estão visíveis.
+    private var areSettingsButtonsVisible = false
     
     /**
      Inicializa uma nova `HomeView` com o quadro e os planetas fornecidos.
@@ -62,7 +71,7 @@ class HomeView: UIView {
         sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
         self.addSubview(sceneView)
         
-        planetBoxView = PlanetBoxView(frame: CGRect(x: -200, y: 80, width: 180, height: 460), planets: planets)
+        planetBoxView = PlanetBoxView(frame: CGRect(x: -300, y: 0, width: 300, height: self.frame.height), planets: planets)
         planetBoxView.isHidden = true
         planetBoxView.showARView = { [weak self] planet in
             self?.showARView?(planet)
@@ -70,7 +79,9 @@ class HomeView: UIView {
         self.addSubview(planetBoxView)
         
         setupToggleButton()
+        setupSettingsButton()
         setupPauseButton()
+        setupARButton()
     }
     
     /**
@@ -78,14 +89,13 @@ class HomeView: UIView {
      */
     private func setupToggleButton() {
         toggleButton = UIButton(type: .system)
-        toggleButton.setTitle("Menu", for: .normal)
-        toggleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        toggleButton.setTitleColor(.white, for: .normal)
+        toggleButton.setTitle("Explore", for: .normal)
+        toggleButton.tintColor = .white
         
         let buttonWidth: CGFloat = 100
         let buttonHeight: CGFloat = 40
         let boxX: CGFloat = 20
-        let boxY: CGFloat = planetBoxView.frame.maxY + 10
+        let boxY: CGFloat = self.frame.height - 80 // Mover o botão para baixo
         toggleButton.frame = CGRect(x: boxX, y: boxY, width: buttonWidth, height: buttonHeight)
         
         toggleButton.layer.cornerRadius = 10
@@ -94,42 +104,91 @@ class HomeView: UIView {
         toggleButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         toggleButton.clipsToBounds = true
         
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.isUserInteractionEnabled = false
-        blurEffectView.layer.cornerRadius = 10
-        blurEffectView.clipsToBounds = true
-        toggleButton.addSubview(blurEffectView)
-        
         toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
         self.addSubview(toggleButton)
     }
     
+    /**
+     Configura o botão de configurações para mostrar/ocultar os botões adicionais.
+     */
+    private func setupSettingsButton() {
+        settingsButton = UIButton(type: .system)
+        let settingsImage = UIImage(systemName: "gearshape")
+        settingsButton.setImage(settingsImage, for: .normal)
+        settingsButton.tintColor = .white
+        
+        settingsButton.frame = CGRect(x: self.frame.width - 60, y: 60, width: 40, height: 40)
+        
+        settingsButton.addTarget(self, action: #selector(toggleSettingsButtons), for: .touchUpInside)
+        self.addSubview(settingsButton)
+    }
+    
+    /**
+     Configura o botão de pausa.
+     */
     private func setupPauseButton() {
-        // defining the button for pausing the view animations
         pauseButton = UIButton(type: .system)
-        pauseButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        pauseButton.setTitleColor(.white, for: .normal)
-        pauseButton.setTitle("Pause", for: .normal)
+        let pauseImage = UIImage(systemName: "pause.fill")
+        pauseButton.setImage(pauseImage, for: .normal)
+        pauseButton.tintColor = .white
         
-        pauseButton.layer.cornerRadius = 10
-        pauseButton.layer.borderWidth = 1
-        pauseButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        pauseButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        pauseButton.clipsToBounds = true
-        
-        pauseButton.frame = CGRect(x: 20, y: toggleButton.frame.maxY + 10, width: 100, height: 40)
+        pauseButton.frame = CGRect(x: settingsButton.frame.origin.x, y: settingsButton.frame.maxY + 10, width: 40, height: 40)
+        pauseButton.isHidden = true // Inicialmente escondido
         
         pauseButton.addTarget(self, action: #selector(pause), for: .touchUpInside)
         self.addSubview(pauseButton)
     }
     
+    /**
+     Configura o botão de AR com estilo de glassmorphism.
+     */
+    private func setupARButton() {
+        arButton = UIButton(type: .system)
+        let arImage = UIImage(systemName: "arkit")
+        arButton.setImage(arImage, for: .normal)
+        arButton.tintColor = .white
+        
+        // Configurando estilo glassmorphism
+        arButton.frame = CGRect(x: self.frame.width - 60, y: self.frame.height - 80, width: 40, height: 40)
+        arButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        arButton.layer.cornerRadius = 20
+        arButton.layer.borderWidth = 1
+        arButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+        arButton.clipsToBounds = true
+        
+        arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
+        self.addSubview(arButton)
+    }
+    
     @objc private func pause() {
         sceneView.scene?.isPaused.toggle()
-        if sceneView.scene?.isPaused == true {
-            pauseButton.setTitle("Unpause", for: .normal)
-        } else {
-            pauseButton.setTitle("Pause", for: .normal)
+        let newImage = sceneView.scene?.isPaused == true ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
+        pauseButton.setImage(newImage, for: .normal)
+    }
+    
+    @objc private func openARView() {
+        // Lógica para abrir a visualização AR
+        print("Abrir visualização AR")
+        // Exemplo: self.showARView?(algumPlaneta) ou outra lógica
+    }
+    
+    /**
+     Método chamado quando o botão de configurações é pressionado, mostrando ou ocultando os botões adicionais.
+     */
+    @objc private func toggleSettingsButtons() {
+        areSettingsButtonsVisible.toggle()
+        
+        UIView.animate(withDuration: 0.3) {
+            let alpha: CGFloat = self.areSettingsButtonsVisible ? 1.0 : 0.0
+            let transform: CGAffineTransform = self.areSettingsButtonsVisible ? .identity : CGAffineTransform(scaleX: 0.5, y: 0.5)
+            
+            self.pauseButton.alpha = alpha
+            self.pauseButton.transform = transform
+            self.pauseButton.isHidden = !self.areSettingsButtonsVisible
+            
+            // Manter o arButton visível sempre
+            self.arButton.alpha = alpha
+            self.arButton.transform = transform
         }
     }
     
@@ -141,8 +200,8 @@ class HomeView: UIView {
         
         let boxWidth: CGFloat = planetBoxView.frame.width
         let boxHeight: CGFloat = planetBoxView.frame.height
-        let boxX: CGFloat = 20
-        let boxY: CGFloat = 80
+        let boxX: CGFloat = 0
+        let boxY: CGFloat = 0
         
         let boxHiddenFrame = CGRect(x: -boxWidth, y: boxY, width: boxWidth, height: boxHeight) // Fora da tela à esquerda
         let boxVisibleFrame = CGRect(x: boxX, y: boxY, width: boxWidth, height: boxHeight) // Dentro da tela
@@ -154,12 +213,16 @@ class HomeView: UIView {
             UIView.animate(withDuration: 0.3, animations: {
                 self.planetBoxView.frame = boxVisibleFrame
             })
+            
+            toggleButton.setTitle("Fechar", for: .normal)
         } else {
             UIView.animate(withDuration: 0.3, animations: {
                 self.planetBoxView.frame = boxHiddenFrame
             }) { _ in
                 self.planetBoxView.isHidden = true
             }
+            
+            toggleButton.setTitle("Explore", for: .normal)
         }
     }
 }

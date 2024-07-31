@@ -69,8 +69,9 @@ class PlanetBoxView: UIView {
         // Remove qualquer botão existente antes de adicionar novos botões
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
-        let buttonHeight: CGFloat = 40
-        let buttonSpacing: CGFloat = 10
+        let buttonHeight: CGFloat = 60 // Aumentado o tamanho do botão
+        let buttonSpacing: CGFloat = 20 // Aumentado o espaçamento entre botões
+        let topPadding: CGFloat = 30 // Padding na parte superior da caixa
         
         for (index, name) in planetNames.enumerated() {
             let button = UIButton(type: .system)
@@ -103,7 +104,7 @@ class PlanetBoxView: UIView {
             ])
             
             if index == 0 {
-                button.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+                button.topAnchor.constraint(equalTo: self.topAnchor, constant: topPadding).isActive = true
             } else {
                 let previousButton = self.subviews.filter { $0 is UIButton }[index - 1] as! UIButton
                 button.topAnchor.constraint(equalTo: previousButton.bottomAnchor, constant: buttonSpacing).isActive = true
