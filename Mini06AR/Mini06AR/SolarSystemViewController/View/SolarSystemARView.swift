@@ -10,7 +10,7 @@ import ARKit
 import RealityKit
 
 class SolarSystemARView: UIView {
-    private var isPlayingAnimation = true {
+    var isPlayingAnimation = true {
         didSet {
             updateAnimationButtonTitle()
         }
@@ -141,7 +141,7 @@ class SolarSystemARView: UIView {
         isPlayingAnimation.toggle()
     }
     
-    private func updateAnimationButtonTitle() {
+    func updateAnimationButtonTitle() {
         animationButton.setTitle(isPlayingAnimation ? "Pause Animation" : "Play Animation", for: .normal)
         animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
     }
