@@ -105,15 +105,15 @@ class SolarSystemSceneView: SCNView {
             orbitNode.addAnimation(rotation, forKey: nil)
         }
         
-        let sunNode = addPlanet(name: "Sun", radius: 3.0, distance: 0, texture: "sun_texture")
+        let sunNode = addPlanet(name: "Sol", radius: 3.0, distance: 0, texture: "sun_texture")
         scene.rootNode.addChildNode(sunNode)
         
-        addOrbitingPlanet(name: "Mercury", radius: 0.5, distance: 6, texture: "mercury_texture", duration: 10)
-        addOrbitingPlanet(name: "Venus", radius: 0.95, distance: 10, texture: "venus_texture", duration: 20)
-        addOrbitingPlanet(name: "Earth", radius: 1.0, distance: 14, texture: "earth_texture", duration: 30)
+        addOrbitingPlanet(name: "Mercúrio", radius: 0.5, distance: 6, texture: "mercury_texture", duration: 10)
+        addOrbitingPlanet(name: "Vênus", radius: 0.95, distance: 10, texture: "venus_texture", duration: 20)
+        addOrbitingPlanet(name: "Terra", radius: 1.0, distance: 14, texture: "earth_texture", duration: 30)
         
         let earthOrbitNode = scene.rootNode.childNodes.last!
-        let moonNode = addPlanet(name: "Moon", radius: 0.27, distance: 2, texture: "moon_texture")
+        let moonNode = addPlanet(name: "Lua", radius: 0.27, distance: 2, texture: "moon_texture")
         let moonOrbitNode = SCNNode()
         moonOrbitNode.position = SCNVector3(x: 14, y: 0, z: 0)
         moonOrbitNode.addChildNode(moonNode)
@@ -125,12 +125,12 @@ class SolarSystemSceneView: SCNView {
         moonRotation.repeatCount = .infinity
         moonOrbitNode.addAnimation(moonRotation, forKey: nil)
         
-        addOrbitingPlanet(name: "Mars", radius: 0.53, distance: 20, texture: "mars_texture", duration: 40)
-        addOrbitingPlanet(name: "Jupiter", radius: 2.5, distance: 28, texture: "jupiter_texture", duration: 50)
+        addOrbitingPlanet(name: "Marte", radius: 0.53, distance: 20, texture: "mars_texture", duration: 40)
+        addOrbitingPlanet(name: "Júpiter", radius: 2.5, distance: 28, texture: "jupiter_texture", duration: 50)
         
         // Adição de Saturno e seus anéis
         let saturnOrbitNode = SCNNode()
-        let saturnNode = addPlanet(name: "Saturn", radius: 2.0, distance: 36, texture: "saturn_texture")
+        let saturnNode = addPlanet(name: "Saturno", radius: 2.0, distance: 36, texture: "saturn_texture")
         saturnOrbitNode.addChildNode(saturnNode)
         
         let ringNode = SCNNode()
@@ -157,8 +157,8 @@ class SolarSystemSceneView: SCNView {
         saturnRotation.repeatCount = .infinity
         saturnOrbitNode.addAnimation(saturnRotation, forKey: nil)
         
-        addOrbitingPlanet(name: "Uranus", radius: 1.5, distance: 44, texture: "uranus_texture", duration: 70)
-        addOrbitingPlanet(name: "Neptune", radius: 1.5, distance: 52, texture: "neptune_texture", duration: 80)
+        addOrbitingPlanet(name: "Urano", radius: 1.5, distance: 44, texture: "uranus_texture", duration: 70)
+        addOrbitingPlanet(name: "Netuno", radius: 1.5, distance: 52, texture: "neptune_texture", duration: 80)
         
         let sunRotation = CABasicAnimation(keyPath: "rotation")
         sunRotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))

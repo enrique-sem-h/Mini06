@@ -1,40 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Back" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Back"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voltar"
-          }
-        }
-      }
-    },
-    "Click the screen to place:" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Click the screen to place:"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clique na tela para posicionar:"
-          }
-        }
-      }
-    },
     "Curiosity" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -42,12 +8,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Curiosity"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Curiosidade"
           }
         }
       }
@@ -60,12 +20,6 @@
             "state" : "translated",
             "value" : "Description"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descrição"
-          }
         }
       }
     },
@@ -77,16 +31,10 @@
             "state" : "translated",
             "value" : "Earth"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terra"
-          }
         }
       }
     },
-    "Earth is the only known planet to harbor life." : {
+    "EarthCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -94,11 +42,27 @@
             "state" : "translated",
             "value" : "Earth is the only known planet to harbor life."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "EarthCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Terra é o único planeta conhecido por abrigar vida."
+            "value" : "The surface of Earth is composed of 71% water."
+          }
+        }
+      }
+    },
+    "EarthDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our home, the third planet in the Solar System."
           }
         }
       }
@@ -128,16 +92,10 @@
             "state" : "translated",
             "value" : "Jupiter"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Júpiter"
-          }
         }
       }
     },
-    "Jupiter has a giant red spot, which is an ongoing storm." : {
+    "JupiterCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -145,16 +103,10 @@
             "state" : "translated",
             "value" : "Jupiter has a giant red spot, which is an ongoing storm."
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Júpiter tem uma mancha vermelha gigante, que é uma tempestade em curso."
-          }
         }
       }
     },
-    "Jupiter has more than 79 moons." : {
+    "JupiterCuriosity2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -162,28 +114,16 @@
             "state" : "translated",
             "value" : "Jupiter has more than 79 moons."
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Júpiter tem mais de 79 luas"
-          }
         }
       }
     },
-    "Known for its impressive rings, it is the sixth planet in the Solar System." : {
+    "JupiterDescription" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Known for its impressive rings, it is the sixth planet in the Solar System."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conhecido pelos seus anéis impressionantes, é o sexto planeta do Sistema Solar."
+            "value" : "The largest planet in the Solar System, the fifth from the Sun."
           }
         }
       }
@@ -196,16 +136,10 @@
             "state" : "translated",
             "value" : "Mars"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Marte"
-          }
         }
       }
     },
-    "Mars has the highest mountain in the Solar System, Olympus Mons." : {
+    "MarsCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -213,11 +147,27 @@
             "state" : "translated",
             "value" : "Mars has the highest mountain in the Solar System, Olympus Mons."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "MarsCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Marte possui a montanha mais alta do Sistema Solar, Olympus Mons."
+            "value" : "The atmosphere of Mars is primarily composed of carbon dioxide."
+          }
+        }
+      }
+    },
+    "MarsDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Red Planet, the fourth in the Solar System."
           }
         }
       }
@@ -230,16 +180,10 @@
             "state" : "translated",
             "value" : "Mercury"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mercúrio"
-          }
         }
       }
     },
-    "Mercury does not have a significant atmosphere to retain heat." : {
+    "MercuryCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -247,11 +191,27 @@
             "state" : "translated",
             "value" : "Mercury does not have a significant atmosphere to retain heat."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "MercuryCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mercúrio não tem atmosfera significativa para reter o calor."
+            "value" : "The surface of Mercury is covered with craters."
+          }
+        }
+      }
+    },
+    "MercuryDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The smallest planet in the Solar System and the closest to the Sun."
           }
         }
       }
@@ -264,11 +224,38 @@
             "state" : "translated",
             "value" : "Moon"
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "MoonCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lua"
+            "value" : "The Moon is the fifth largest natural satellite in the Solar System."
+          }
+        }
+      }
+    },
+    "MoonCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The visible face of the Moon is always the same due to its synchronized rotation with Earth."
+          }
+        }
+      }
+    },
+    "MoonDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The only natural satellite of Earth, known for its influence on tides.\""
           }
         }
       }
@@ -281,33 +268,10 @@
             "state" : "translated",
             "value" : "Neptune"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Netuno"
-          }
         }
       }
     },
-    "Neptune has 14 known moons." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neptune has 14 known moons."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Netuno tem 14 luas conhecidas."
-          }
-        }
-      }
-    },
-    "Neptune has the fastest winds in the Solar System, reaching up to 2,100 km/h." : {
+    "NeptuneCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -315,45 +279,27 @@
             "state" : "translated",
             "value" : "Neptune has the fastest winds in the Solar System, reaching up to 2,100 km/h."
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Netuno tem os ventos mais rápidos do Sistema Solar, atingindo até 2.100 km/h."
-          }
         }
       }
     },
-    "Our home, the third planet in the Solar System." : {
+    "NeptuneCuriosity2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Our home, the third planet in the Solar System."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nosso lar, o terceiro planeta do Sistema Solar."
+            "value" : "Neptune has 14 known moons."
           }
         }
       }
     },
-    "Pause" : {
+    "NeptuneDescription" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pause"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausar"
+            "value" : "The eighth planet in the Solar System, known for its strong winds."
           }
         }
       }
@@ -366,33 +312,10 @@
             "state" : "translated",
             "value" : "Saturn"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saturno"
-          }
         }
       }
     },
-    "Saturn has 145 known moons." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saturn has 145 known moons."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saturno tem 145 luas conhecidas."
-          }
-        }
-      }
-    },
-    "Saturn's rings are primarily made of ice and rock." : {
+    "SaturnCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -400,11 +323,27 @@
             "state" : "translated",
             "value" : "Saturn's rings are primarily made of ice and rock."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "SaturnCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Os anéis de Saturno são feitos principalmente de gelo e rocha."
+            "value" : "Saturn has 145 known moons."
+          }
+        }
+      }
+    },
+    "SaturnDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Known for its impressive rings, it is the sixth planet in the Solar System."
           }
         }
       }
@@ -417,203 +356,10 @@
             "state" : "translated",
             "value" : "Sun"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sol"
-          }
         }
       }
     },
-    "The atmosphere of Mars is primarily composed of carbon dioxide." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The atmosphere of Mars is primarily composed of carbon dioxide."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A atmosfera de Marte é composta principalmente de dióxido de carbono."
-          }
-        }
-      }
-    },
-    "The atmosphere of Venus is primarily composed of carbon dioxide." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The atmosphere of Venus is primarily composed of carbon dioxide."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A atmosfera de Vênus é composta principalmente de dióxido de carbono."
-          }
-        }
-      }
-    },
-    "The eighth planet in the Solar System, known for its strong winds." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The eighth planet in the Solar System, known for its strong winds."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O oitavo planeta do Sistema Solar, conhecido por seus ventos fortes."
-          }
-        }
-      }
-    },
-    "The largest planet in the Solar System, the fifth from the Sun." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The largest planet in the Solar System, the fifth from the Sun."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O maior planeta do Sistema Solar, o quinto a partir do Sol."
-          }
-        }
-      }
-    },
-    "The Moon is the fifth largest natural satellite in the Solar System." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The Moon is the fifth largest natural satellite in the Solar System."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A Lua é o quinto maior satélite natural do Sistema Solar."
-          }
-        }
-      }
-    },
-    "The only natural satellite of Earth, known for its influence on tides.\"" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The only natural satellite of Earth, known for its influence on tides.\""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O único satélite natural da Terra, conhecido por sua influência nas marés."
-          }
-        }
-      }
-    },
-    "The Red Planet, the fourth in the Solar System." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The Red Planet, the fourth in the Solar System."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O Planeta Vermelho, o quarto do Sistema Solar."
-          }
-        }
-      }
-    },
-    "The second planet in the Solar System and the hottest." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The second planet in the Solar System and the hottest."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O segundo planeta do Sistema Solar e o mais quente."
-          }
-        }
-      }
-    },
-    "The seventh planet in the Solar System, known for its bluish color." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The seventh planet in the Solar System, known for its bluish color."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O sétimo planeta do Sistema Solar, conhecido pela sua cor azulada."
-          }
-        }
-      }
-    },
-    "The smallest planet in the Solar System and the closest to the Sun." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The smallest planet in the Solar System and the closest to the Sun."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O menor planeta do Sistema Solar e o mais próximo do Sol."
-          }
-        }
-      }
-    },
-    "The star at the center of the Solar System, responsible for providing light and heat to Earth." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The star at the center of the Solar System, responsible for providing light and heat to Earth."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A estrela no centro do Sistema Solar, responsável por fornecer luz e calor à Terra."
-          }
-        }
-      }
-    },
-    "The Sun is primarily composed of hydrogen and helium." : {
+    "SunCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -621,50 +367,10 @@
             "state" : "translated",
             "value" : "The Sun is primarily composed of hydrogen and helium."
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O Sol é composto principalmente por hidrogênio e hélio."
-          }
         }
       }
     },
-    "The surface of Earth is composed of 71% water." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The surface of Earth is composed of 71% water."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A superfície da Terra é composta por 71% de água."
-          }
-        }
-      }
-    },
-    "The surface of Mercury is covered with craters." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The surface of Mercury is covered with craters."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A superfície de Mercúrio é coberta de crateras."
-          }
-        }
-      }
-    },
-    "The temperature at the surface of the Sun is about 15 million degrees Celsius." : {
+    "SunCuriosity2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -672,39 +378,16 @@
             "state" : "translated",
             "value" : "The temperature at the surface of the Sun is about 15 million degrees Celsius."
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A temperatura na superfície do Sol é de cerca de 15 milhões de graus Celsius."
-          }
         }
       }
     },
-    "The visible face of the Moon is always the same due to its synchronized rotation with Earth." : {
+    "SunDescription" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The visible face of the Moon is always the same due to its synchronized rotation with Earth."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A face visível da Lua é sempre a mesma devido à rotação sincronizada com a Terra."
-          }
-        }
-      }
-    },
-    "Unpause" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Retomar"
+            "value" : "The star at the center of the Solar System, responsible for providing light and heat to Earth."
           }
         }
       }
@@ -717,33 +400,10 @@
             "state" : "translated",
             "value" : "Uranus"
           }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Urano"
-          }
         }
       }
     },
-    "Uranus has 27 known moons." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uranus has 27 known moons."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Urano tem 27 luas conhecidas."
-          }
-        }
-      }
-    },
-    "Uranus rotates on its side, with its axis of rotation almost parallel to the plane of its orbit." : {
+    "UranusCuriosity1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -751,11 +411,27 @@
             "state" : "translated",
             "value" : "Uranus rotates on its side, with its axis of rotation almost parallel to the plane of its orbit."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "UranusCuriosity2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Urano gira de lado, com seu eixo de rotação quase paralelo ao plano de sua órbita."
+            "value" : "Uranus has 27 known moons."
+          }
+        }
+      }
+    },
+    "UranusDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The seventh planet in the Solar System, known for its bluish color."
           }
         }
       }
@@ -768,16 +444,21 @@
             "state" : "translated",
             "value" : "Venus"
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "VenusCuriosity1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vênus"
+            "value" : "The atmosphere of Venus is primarily composed of carbon dioxide."
           }
         }
       }
     },
-    "Venus has an average surface temperature of 475 degrees Celsius." : {
+    "VenusCuriosity2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -785,11 +466,16 @@
             "state" : "translated",
             "value" : "Venus has an average surface temperature of 475 degrees Celsius."
           }
-        },
-        "pt-BR" : {
+        }
+      }
+    },
+    "VenusDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vênus possui uma temperatura superficial média de 475 graus Celsius."
+            "value" : "The second planet in the Solar System and the hottest."
           }
         }
       }
