@@ -43,6 +43,7 @@
 		E8264DFA2C59769B003F61E8 /* SolarSystemARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */; };
 		E8264DFF2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */; };
 		E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264E002C5AA34A003F61E8 /* mercury.usdz */; };
+		E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */; };
 		E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemARView.swift; sourceTree = "<group>"; };
 		E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+SolarSystemGestures.swift"; sourceTree = "<group>"; };
 		E8264E002C5AA34A003F61E8 /* mercury.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = mercury.usdz; sourceTree = "<group>"; };
+		E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SolarSystemARView+CustomARViewDelegate.swift"; sourceTree = "<group>"; };
 		E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mini06ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini06ARTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */,
+				E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */,
 				E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
+				E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
 				409C02352C5582F90021D622 /* PlanetBoxView.swift in Sources */,
 				E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */,

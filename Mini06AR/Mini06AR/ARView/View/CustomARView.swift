@@ -10,6 +10,12 @@ import RealityKit
 
 protocol CustomARViewDelegate {
     func toggleInfo()
+    func didPlace3DObject()
+}
+
+extension CustomARViewDelegate {
+    func didPlace3DObject() {}
+    func toggleInfo() {}
 }
 
 /**

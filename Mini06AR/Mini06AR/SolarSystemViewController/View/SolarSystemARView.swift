@@ -10,11 +10,16 @@ import ARKit
 import RealityKit
 
 class SolarSystemARView: UIView {
-    
+    private var isPlayingAnimation = true {
+        didSet {
+            updateAnimationButtonTitle()
+        }
+    }
     private var viewController: UIViewController?
     
     lazy private var arView = CustomARView()
-    lazy var resetButton = UIButton()
+    lazy private var resetButton = UIButton()
+    lazy private var animationButton = UIButton()
     
     static var sunModel: String {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
@@ -33,10 +38,11 @@ class SolarSystemARView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    // MARK: - ARView
     private func setup() {
         setupARView()
         setupResetButton()
+        setupAnimationButton()
     }
     
     private func setupARView() {
@@ -47,9 +53,10 @@ class SolarSystemARView: UIView {
         configureARViewSession()
         placeARView()
         arView.enableSolarSystemGesture()
+        arView.arViewDelegate = self
     }
     
-    // MARK: - ARView
+    
     private func configureARViewSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal]
@@ -88,6 +95,7 @@ class SolarSystemARView: UIView {
     @objc private func handleTapDelete() {
         guard !arView.scene.anchors.isEmpty else { return }
         arView.scene.anchors.removeAll()
+        isPlayingAnimation = false
     }
     
     private func placeResetButton() {
@@ -98,5 +106,43 @@ class SolarSystemARView: UIView {
             resetButton.trailingAnchor.constraint(equalTo: arView.safeAreaLayoutGuide.trailingAnchor, constant: -40)
         ])
     }
+    
+    // MARK: - AnimationButton
+    private func setupAnimationButton() {
+        animationButton.configuration = UIButton.Configuration.borderedTinted()
+        animationButton.tintColor = .cyan
+        animationButton.translatesAutoresizingMaskIntoConstraints = false
+        animationButton.addTarget(self, action: #selector(togglePlanetAnimations), for: .touchUpInside)
+        placeAnimationButton()
+        updateAnimationButtonTitle()
+    }
+    
+    private func placeAnimationButton() {
+        arView.addSubview(animationButton)
+        NSLayoutConstraint.activate([
+            animationButton.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -10),
+            animationButton.trailingAnchor.constraint(equalTo: arView.trailingAnchor, constant: -40)
+        ])
+    }
+    @objc private func togglePlanetAnimations() {
+        guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
+        for (n, p) in SolarSystemARView.planetModelNames.enumerated() {
+            if let e = arView.scene.findEntity(named: p) {
+                if isPlayingAnimation {
+                    e.stopAllAnimations()
+                } else {
+                    let n = n + 1
+                    if let a = CustomARView.createOrbitAnimation(transform: e.transform, n: n) {
+                        e.playAnimation(a)
+                    }
+                }
+            }
+        }
+        isPlayingAnimation.toggle()
+    }
+    
+    private func updateAnimationButtonTitle() {
+        animationButton.setTitle(isPlayingAnimation ? "Pause Animation" : "Play Animation", for: .normal)
+        animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
+    }
 }
-
