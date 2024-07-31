@@ -140,7 +140,7 @@ class HomeView: UIView {
     }
     
     /**
-     Configura o botão de AR com estilo de glassmorphism.
+     Configura o botão de AR.
      */
     private func setupARButton() {
         arButton = UIButton(type: .system)
@@ -148,7 +148,6 @@ class HomeView: UIView {
         arButton.setImage(arImage, for: .normal)
         arButton.tintColor = .white
         
-        // Configurando estilo glassmorphism
         arButton.frame = CGRect(x: self.frame.width - 60, y: self.frame.height - 80, width: 40, height: 40)
         arButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         arButton.layer.cornerRadius = 20
@@ -169,7 +168,6 @@ class HomeView: UIView {
     @objc private func openARView() {
         // Lógica para abrir a visualização AR
         print("Abrir visualização AR")
-        // Exemplo: self.showARView?(algumPlaneta) ou outra lógica
     }
     
     /**
@@ -186,9 +184,9 @@ class HomeView: UIView {
             self.pauseButton.transform = transform
             self.pauseButton.isHidden = !self.areSettingsButtonsVisible
             
-            // Manter o arButton visível sempre
-            self.arButton.alpha = alpha
-            self.arButton.transform = transform
+           
+//            self.arButton.alpha = alpha
+//            self.arButton.transform = transform
         }
     }
     
