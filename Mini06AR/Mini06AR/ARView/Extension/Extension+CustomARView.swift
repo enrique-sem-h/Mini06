@@ -10,7 +10,7 @@ import ARKit
 import RealityKit
 
 /**
- Esta extensão em `CustomARView` é responsável pelos métodos lidam com os gestures que possuem interação com a Realidade Aumentada
+ Esta extensão em `CustomARView` é responsável pelos métodos lidam com os gestures que possuem interação com a Realidade Aumentada do Planeta Selecionado
  */
 extension CustomARView {
     internal static let defaultModelName = "Earth.usdz"

@@ -9,6 +9,9 @@ import UIKit
 import ARKit
 import RealityKit
 
+/**
+ A classe `SolarSystemARView` define a view que é responsavel por montar a view do Sistema Solar em realidade aumentada, suas interações e controles
+ */
 class SolarSystemARView: UIView {
     var isPlayingAnimation = true {
         didSet {
