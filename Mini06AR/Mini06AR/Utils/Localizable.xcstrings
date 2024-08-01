@@ -684,6 +684,12 @@
     "Unpause" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unpause"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
