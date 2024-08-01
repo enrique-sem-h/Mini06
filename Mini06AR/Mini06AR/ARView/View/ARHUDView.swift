@@ -42,7 +42,7 @@ class ARHUDView: UIView {
         
         clickLabel = {
             let label = UILabel()
-            label.text = "Click the screen to place: \(arViewController?.planet?.name ?? "")"
+            label.text = NSLocalizedString("Click the screen to place:", comment: "") + (arViewController?.planet?.name ?? "")
             label.textColor = .white
             label.font = UIFont.boldSystemFont(ofSize: 16)
             return label

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E18BFDB2C5C0255002E6FBB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */; };
 		31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31746B1C2C52BEF20035B9CD /* PlanetARView.swift */; };
 		31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */; };
 		31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */; };
@@ -60,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2E18BFD12C5AC069002E6FBB /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		2EE341DA2C5979A000F4239D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		31746B1C2C52BEF20035B9CD /* PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetARView.swift; sourceTree = "<group>"; };
 		31AFE1B32C4AFD210005DDDB /* Mini06AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini06AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -242,7 +243,7 @@
 				40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */,
 				40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */,
 				40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */,
-				2EE341DA2C5979A000F4239D /* Localizable.xcstrings */,
+				2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -413,6 +414,7 @@
 				E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */,
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
 				E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */,
+				2E18BFDB2C5C0255002E6FBB /* Localizable.xcstrings in Resources */,
 				31AFE1C32C4AFD220005DDDB /* Base in Resources */,
 				E8264DF42C5971A5003F61E8 /* saturn.usdz in Resources */,
 				E8264DF32C5971A5003F61E8 /* moon.usdz in Resources */,
@@ -624,7 +626,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAG47DD75D;
+				DEVELOPMENT_TEAM = J7Y95G67T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
@@ -653,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAG47DD75D;
+				DEVELOPMENT_TEAM = J7Y95G67T3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";

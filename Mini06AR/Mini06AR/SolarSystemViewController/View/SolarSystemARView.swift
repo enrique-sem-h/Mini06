@@ -85,7 +85,7 @@ class SolarSystemARView: UIView {
     
     // MARK: - ResetButton
     private func setupResetButton() {
-        resetButton.setTitle("Reset Position", for: .normal)
+        resetButton.setTitle(NSLocalizedString("Reset Position", comment: ""), for: .normal)
         resetButton.configuration = UIButton.Configuration.borderedTinted()
         resetButton.tintColor = .red
         resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
@@ -142,7 +142,8 @@ class SolarSystemARView: UIView {
     }
     
     func updateAnimationButtonTitle() {
-        animationButton.setTitle(isPlayingAnimation ? "Pause Animation" : "Play Animation", for: .normal)
+        animationButton.setTitle(isPlayingAnimation ? NSLocalizedString("Pause Animation", comment: "") : NSLocalizedString("Play Animation", comment: ""), for: .normal)
         animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
     }
 }
+
