@@ -7,47 +7,22 @@
 
 import UIKit
 
-/**
- A classe `HomeView` é uma visualização personalizada que exibe uma visualização da cena do sistema solar e um menu para selecionar planetas.
- */
 class HomeView: UIView {
     
-    /// Indica se a caixa de seleção de planetas está visível.
     var isPlanetBoxVisible = false
-    
-    /// Lista de planetas a serem exibidos.
     var planets: [Planet] = []
-    
-    /// Closure que é chamada quando um botão de planeta é pressionado, exibindo a visualização de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
-    
     var sceneView: SolarSystemSceneView
-    
-    /// A visualização da caixa de seleção de planetas.
     private var planetBoxView: PlanetBoxView!
-    
-    /// O botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
     private var toggleButton: UIButton!
-    
-    /// Botão de configurações para mostrar/ocultar os botões adicionais.
     private var settingsButton: UIButton!
-    
-    /// Botão de alternância para mostrar/esconder animações da view.
     private var pauseButton: UIButton!
-    
-    /// Botão para ativar AR.
     private var arButton: UIButton!
-    
-    /// Indica se os botões de configuração estão visíveis.
     private var areSettingsButtonsVisible = false
     
-    /**
-     Inicializa uma nova `HomeView` com o quadro e os planetas fornecidos.
-     
-     - Parameters:
-        - frame: O quadro da visualização.
-        - planets: Uma lista de planetas a serem exibidos.
-     */
+    private var planetBoxViewLeadingHiddenConstraint: NSLayoutConstraint!
+    private var planetBoxViewLeadingVisibleConstraint: NSLayoutConstraint!
+    
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
         sceneView = SolarSystemSceneView(frame: frame, planets: planets)
@@ -55,48 +30,53 @@ class HomeView: UIView {
         setupView()
     }
     
-    /**
-     Inicializa uma nova `HomeView` a partir de um codificador.
-     
-     - Parameter coder: O codificador a ser utilizado.
-     */
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /**
-     Configura a visualização inicial, incluindo a cena do sistema solar e a caixa de seleção de planetas.
-     */
     private func setupView() {
         sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
         self.addSubview(sceneView)
         
-        planetBoxView = PlanetBoxView(frame: CGRect(x: -300, y: 0, width: 300, height: self.frame.height), planets: planets)
+        planetBoxView = PlanetBoxView(frame: .zero, planets: planets)
         planetBoxView.isHidden = true
         planetBoxView.showARView = { [weak self] planet in
             self?.showARView?(planet)
         }
+        planetBoxView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(planetBoxView)
         
         setupToggleButton()
         setupSettingsButton()
         setupPauseButton()
         setupARButton()
+        
+        // Configure Auto Layout constraints for planetBoxView
+        planetBoxViewLeadingHiddenConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -250)
+        planetBoxViewLeadingVisibleConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        
+        NSLayoutConstraint.activate([
+            planetBoxViewLeadingHiddenConstraint,
+            planetBoxView.centerYAnchor.constraint(equalTo: self.centerYAnchor), // Center vertically
+            planetBoxView.widthAnchor.constraint(equalToConstant: 200), // Adjust width as needed
+            planetBoxView.heightAnchor.constraint(equalToConstant: 570) // Adjust height as needed
+        ])
     }
     
-    /**
-     Configura o botão de alternância para mostrar/ocultar a caixa de seleção de planetas.
-     */
     private func setupToggleButton() {
         toggleButton = UIButton(type: .system)
         toggleButton.setTitle("Explore", for: .normal)
         toggleButton.tintColor = .white
         
-        let buttonWidth: CGFloat = 100
-        let buttonHeight: CGFloat = 40
-        let boxX: CGFloat = 20
-        let boxY: CGFloat = self.frame.height - 80 // Mover o botão para baixo
-        toggleButton.frame = CGRect(x: boxX, y: boxY, width: buttonWidth, height: buttonHeight)
+        toggleButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(toggleButton)
+        
+        NSLayoutConstraint.activate([
+            toggleButton.widthAnchor.constraint(equalToConstant: 100),
+            toggleButton.heightAnchor.constraint(equalToConstant: 40),
+            toggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            toggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
+        ])
         
         toggleButton.layer.cornerRadius = 10
         toggleButton.layer.borderWidth = 1
@@ -105,50 +85,63 @@ class HomeView: UIView {
         toggleButton.clipsToBounds = true
         
         toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
-        self.addSubview(toggleButton)
     }
     
-    /**
-     Configura o botão de configurações para mostrar/ocultar os botões adicionais.
-     */
     private func setupSettingsButton() {
         settingsButton = UIButton(type: .system)
         let settingsImage = UIImage(systemName: "gearshape")
         settingsButton.setImage(settingsImage, for: .normal)
         settingsButton.tintColor = .white
         
-        settingsButton.frame = CGRect(x: self.frame.width - 60, y: 60, width: 40, height: 40)
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(settingsButton)
+        
+        NSLayoutConstraint.activate([
+            settingsButton.widthAnchor.constraint(equalToConstant: 40),
+            settingsButton.heightAnchor.constraint(equalToConstant: 40),
+            settingsButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
+            settingsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
         
         settingsButton.addTarget(self, action: #selector(toggleSettingsButtons), for: .touchUpInside)
-        self.addSubview(settingsButton)
     }
     
-    /**
-     Configura o botão de pausa.
-     */
     private func setupPauseButton() {
         pauseButton = UIButton(type: .system)
         let pauseImage = UIImage(systemName: "pause.fill")
         pauseButton.setImage(pauseImage, for: .normal)
         pauseButton.tintColor = .white
         
-        pauseButton.frame = CGRect(x: settingsButton.frame.origin.x, y: settingsButton.frame.maxY + 10, width: 40, height: 40)
-        pauseButton.isHidden = true // Inicialmente escondido
-        
-        pauseButton.addTarget(self, action: #selector(pause), for: .touchUpInside)
+        pauseButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(pauseButton)
+        
+        NSLayoutConstraint.activate([
+            pauseButton.widthAnchor.constraint(equalToConstant: 40),
+            pauseButton.heightAnchor.constraint(equalToConstant: 40),
+            pauseButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 10),
+            pauseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
+        
+        pauseButton.isHidden = true
+        pauseButton.addTarget(self, action: #selector(pause), for: .touchUpInside)
     }
     
-    /**
-     Configura o botão de AR.
-     */
     private func setupARButton() {
         arButton = UIButton(type: .system)
         let arImage = UIImage(systemName: "arkit")
         arButton.setImage(arImage, for: .normal)
         arButton.tintColor = .white
         
-        arButton.frame = CGRect(x: self.frame.width - 60, y: self.frame.height - 80, width: 40, height: 40)
+        arButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(arButton)
+        
+        NSLayoutConstraint.activate([
+            arButton.widthAnchor.constraint(equalToConstant: 40),
+            arButton.heightAnchor.constraint(equalToConstant: 40),
+            arButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            arButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
+        
         arButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         arButton.layer.cornerRadius = 20
         arButton.layer.borderWidth = 1
@@ -156,14 +149,11 @@ class HomeView: UIView {
         arButton.clipsToBounds = true
         
         arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
-        self.addSubview(arButton)
     }
-
+    
     @objc private func openARView() {
-        // Lógica para abrir a visualização AR
         print("Abrir visualização AR")
         
-        // Animação de fade para o botão de AR
         let fadeAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.fromValue = 1.0
         fadeAnimation.toValue = 0.5
@@ -178,7 +168,6 @@ class HomeView: UIView {
         let newImage = sceneView.scene?.isPaused == true ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
         pauseButton.setImage(newImage, for: .normal)
         
-        // Animação de pulso para o botão de pausa
         let pulseAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
         pulseAnimation.values = [1.0, 1.2, 1.0]
         pulseAnimation.keyTimes = [0, 0.5, 1]
@@ -187,20 +176,14 @@ class HomeView: UIView {
         pauseButton.layer.add(pulseAnimation, forKey: "pulseAnimation")
     }
     
-    
-    /**
-     Método chamado quando o botão de configurações é pressionado, mostrando ou ocultando os botões adicionais.
-     */
     @objc private func toggleSettingsButtons() {
         areSettingsButtonsVisible.toggle()
         
-        // Animação de rotação
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnimation.fromValue = 0
         rotationAnimation.toValue = Double.pi * 2
         rotationAnimation.duration = 0.3
         rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
         settingsButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
         
         UIView.animate(withDuration: 0.2) {
@@ -210,17 +193,12 @@ class HomeView: UIView {
             self.pauseButton.alpha = alpha
             self.pauseButton.transform = transform
             self.pauseButton.isHidden = !self.areSettingsButtonsVisible
-
         }
     }
     
-    /**
-     Método chamado quando o botão de alternância é pressionado, mostrando ou ocultando a caixa de seleção de planetas.
-     */
     @objc private func togglePlanetBox() {
         isPlanetBoxVisible.toggle()
         
-        // Animação de escala para o botão de alternância
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = 1.0
         scaleAnimation.toValue = 1.1
@@ -229,26 +207,22 @@ class HomeView: UIView {
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         toggleButton.layer.add(scaleAnimation, forKey: "scaleAnimation")
         
-        let boxWidth: CGFloat = planetBoxView.frame.width
-        let boxHeight: CGFloat = planetBoxView.frame.height
-        let boxX: CGFloat = 0
-        let boxY: CGFloat = 0
-        
-        let boxHiddenFrame = CGRect(x: -boxWidth, y: boxY, width: boxWidth, height: boxHeight) // Fora da tela à esquerda
-        let boxVisibleFrame = CGRect(x: boxX, y: boxY, width: boxWidth, height: boxHeight) // Dentro da tela
-        
         if isPlanetBoxVisible {
-            planetBoxView.frame = boxHiddenFrame
             planetBoxView.isHidden = false
+            NSLayoutConstraint.deactivate([planetBoxViewLeadingHiddenConstraint])
+            NSLayoutConstraint.activate([planetBoxViewLeadingVisibleConstraint])
             
-            UIView.animate(withDuration: 0.3, animations: {
-                self.planetBoxView.frame = boxVisibleFrame
-            })
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
             
             toggleButton.setTitle("Fechar", for: .normal)
         } else {
+            NSLayoutConstraint.deactivate([planetBoxViewLeadingVisibleConstraint])
+            NSLayoutConstraint.activate([planetBoxViewLeadingHiddenConstraint])
+            
             UIView.animate(withDuration: 0.3, animations: {
-                self.planetBoxView.frame = boxHiddenFrame
+                self.layoutIfNeeded()
             }) { _ in
                 self.planetBoxView.isHidden = true
             }

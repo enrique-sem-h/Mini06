@@ -69,9 +69,9 @@ class PlanetBoxView: UIView {
         // Remove qualquer botão existente antes de adicionar novos botões
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
-        let buttonHeight: CGFloat = 60 // Aumentado o tamanho do botão
-        let buttonSpacing: CGFloat = 20 // Aumentado o espaçamento entre botões
-        let topPadding: CGFloat = 30 // Padding na parte superior da caixa
+        let buttonHeight: CGFloat = 40 // Diminuído o tamanho do botão
+        let buttonSpacing: CGFloat = 15 // Diminuído o espaçamento entre botões
+        let topPadding: CGFloat = 20 // Padding na parte superior da caixa
         
         for (index, name) in planetNames.enumerated() {
             let button = UIButton(type: .system)
@@ -80,7 +80,7 @@ class PlanetBoxView: UIView {
             button.tag = index
             
             button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-            button.layer.cornerRadius = 10
+            button.layer.cornerRadius = 8 // Diminuído o raio do canto
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
             button.clipsToBounds = true
@@ -89,7 +89,7 @@ class PlanetBoxView: UIView {
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = button.bounds
             blurEffectView.isUserInteractionEnabled = false
-            blurEffectView.layer.cornerRadius = 10
+            blurEffectView.layer.cornerRadius = 8
             blurEffectView.clipsToBounds = true
             button.insertSubview(blurEffectView, at: 0)
             

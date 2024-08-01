@@ -620,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
@@ -649,7 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
