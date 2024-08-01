@@ -9,6 +9,9 @@ import UIKit
 import ARKit
 import RealityKit
 
+/**
+ Esta extensão em `CustomARView` é responsável pelos métodos lidam com os gestures que possuem interação com a Realidade Aumentada relativos à view do Sistema Solar
+ */
 extension CustomARView {
     func enableSolarSystemGesture() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSolarSystemTap))

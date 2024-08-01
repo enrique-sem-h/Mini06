@@ -43,7 +43,7 @@ class PlanetARView: UIView {
         }
         configureARViewSession()
         placeARView()
-        arView.enablePlanetARTapGestures()
+        arView.enableControls()
     }
     
     private func configureARViewSession() {

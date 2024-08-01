@@ -14,8 +14,8 @@ import UIKit
 class ARHUDView: UIView {
     weak var arViewController: ARViewController?
     
-    private var detailsButton: UIButton!
-    private var clickLabel: UILabel!
+    private lazy var detailsButton = UIButton()
+    private lazy var clickLabel = UILabel()
     
     init(_ arViewController: ARViewController) {
         super.init(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
@@ -34,7 +34,7 @@ class ARHUDView: UIView {
             //            detailsButton.setTitle("Detalhes", for: .normal)
             detailsButton.setImage(UIImage(systemName: "ellipsis.circle.fill"), for: .normal)
             //            detailsButton.setTitleColor(.systemBlue, for: .normal)
-            detailsButton.tintColor = .red
+            detailsButton.tintColor = .white
             detailsButton.addTarget(arViewController, action: #selector(arViewController?.showPlanetDetail), for: .touchUpInside)
             detailsButton.translatesAutoresizingMaskIntoConstraints = false
             return detailsButton
