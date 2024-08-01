@@ -32,7 +32,7 @@ extension CustomARView {
             let position = simd_make_float3(first.worldTransform.columns.3)
             let mainAnchor = AnchorEntity(world: position)
             createSun(anchor: mainAnchor)
-            createOrbitingPlanets(anchor: mainAnchor, planets: SolarSystemARView.planetModelNames)
+            createOrbitingPlanets(anchor: mainAnchor, planets: SolarSystem.solarSystemPlanets)
             
             self.scene.addAnchor(mainAnchor)
             arViewDelegate?.didPlace3DObject()
@@ -42,23 +42,24 @@ extension CustomARView {
     private func createSun(anchor: AnchorEntity) {
         guard let sun = try? ModelEntity.load(named: SolarSystemARView.sunModel) else { return }
         sun.name = SolarSystemARView.sunModel
-        sun.scale = [0.6,0.6,0.6]
+        sun.scale = [SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize]
         sun.transform.translation.y = anchor.transform.translation.y
         anchor.addChild(sun)
     }
     
-    private func createOrbitingPlanets(anchor: AnchorEntity, planets: [String]) {
-        for (n,model) in planets.enumerated() {
-            guard  let planetEntity = try? ModelEntity.load(named: model) else { return }
+    private func createOrbitingPlanets(anchor: AnchorEntity, planets: [SolarSystem.SolarSystemPlanetModel]) {
+        for (n,planet) in planets.enumerated() {
+            guard  let planetEntity = try? ModelEntity.load(named: planet.modelName) else { return }
             let p = planetEntity.clone(recursive: true)
             let n = n + 1
-            p.name = model
-            p.scale = [0.5,0.5,0.5] // Size
+            p.name = planet.modelName
+            let planetSize = SolarSystem.SolarSystemPlanetModel.sunSize * planet.scaleRelativeToSun
+            p.scale = [planetSize,planetSize,planetSize] // Size
             p.transform.translation.y = anchor.transform.translation.y
             anchor.addChild(p)
             
             var t = p.transform
-            t .translation = [0,0,2.0*Float(n)] // Distance
+            t .translation = [0,0,SolarSystem.SolarSystemPlanetModel.distanceToFurthest*planet.distanceRelativeToFurthest] // Distance
             if let orbit = Self.createOrbitAnimation(transform: t, n: n){
                 p.playAnimation(orbit)
             }
@@ -66,7 +67,7 @@ extension CustomARView {
     }
     
     static func createOrbitAnimation(transform: Transform, n: Int?) -> AnimationResource? {
-        let baseDuration = 20.0
+        let baseDuration = 10.0
         let duration = baseDuration * Double(n ?? 1)
         let orbitAnimationDefinition = OrbitAnimation(duration: duration, axis: [0,1,0], startTransform: transform, bindTarget: .transform, repeatMode: .cumulative)
         return try? AnimationResource.generate(with: orbitAnimationDefinition)

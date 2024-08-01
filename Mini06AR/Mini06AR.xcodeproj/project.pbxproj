@@ -44,6 +44,7 @@
 		E8264DFF2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */; };
 		E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264E002C5AA34A003F61E8 /* mercury.usdz */; };
 		E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */; };
+		E8264E052C5C198E003F61E8 /* SolarSystemPlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264E042C5C198E003F61E8 /* SolarSystemPlanetModel.swift */; };
 		E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+SolarSystemGestures.swift"; sourceTree = "<group>"; };
 		E8264E002C5AA34A003F61E8 /* mercury.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = mercury.usdz; sourceTree = "<group>"; };
 		E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SolarSystemARView+CustomARViewDelegate.swift"; sourceTree = "<group>"; };
+		E8264E042C5C198E003F61E8 /* SolarSystemPlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemPlanetModel.swift; sourceTree = "<group>"; };
 		E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mini06ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini06ARTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 			children = (
 				31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */,
 				40960F812C502B5100A883C6 /* PlanetData.swift */,
+				E8264E042C5C198E003F61E8 /* SolarSystemPlanetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */,
 				40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */,
 				31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */,
+				E8264E052C5C198E003F61E8 /* SolarSystemPlanetModel.swift in Sources */,
 				31AFE1D22C4AFFEC0005DDDB /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,7 +624,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
@@ -649,7 +653,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
