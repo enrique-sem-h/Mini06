@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EE341DB2C5979A000F4239D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE341DA2C5979A000F4239D /* Localizable.xcstrings */; };
 		31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31746B1C2C52BEF20035B9CD /* PlanetARView.swift */; };
 		31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */; };
 		31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */; };
@@ -33,7 +32,6 @@
 		E8264DAD2C541532003F61E8 /* Extension+PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */; };
 		E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAE2C5416A7003F61E8 /* Extension+CustomARView.swift */; };
 		E8264DEF2C5971A5003F61E8 /* neptune.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DE52C5971A5003F61E8 /* neptune.usdz */; };
-		E8264DF02C5971A5003F61E8 /* mercury.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DE62C5971A5003F61E8 /* mercury.usdz */; };
 		E8264DF12C5971A5003F61E8 /* venus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DE72C5971A5003F61E8 /* venus.usdz */; };
 		E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DE82C5971A5003F61E8 /* sun.usdz */; };
 		E8264DF32C5971A5003F61E8 /* moon.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DE92C5971A5003F61E8 /* moon.usdz */; };
@@ -44,6 +42,8 @@
 		E8264DF82C5971A5003F61E8 /* uranus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264DEE2C5971A5003F61E8 /* uranus.usdz */; };
 		E8264DFA2C59769B003F61E8 /* SolarSystemARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */; };
 		E8264DFF2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */; };
+		E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8264E002C5AA34A003F61E8 /* mercury.usdz */; };
+		E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */; };
 		E86380B12C4EDD8B00E00B41 /* Mini06ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E18BFD12C5AC069002E6FBB /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		2EE341DA2C5979A000F4239D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		31746B1C2C52BEF20035B9CD /* PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetARView.swift; sourceTree = "<group>"; };
 		31AFE1B32C4AFD210005DDDB /* Mini06AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini06AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +87,6 @@
 		E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PlanetARView.swift"; sourceTree = "<group>"; };
 		E8264DAE2C5416A7003F61E8 /* Extension+CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CustomARView.swift"; sourceTree = "<group>"; };
 		E8264DE52C5971A5003F61E8 /* neptune.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = neptune.usdz; sourceTree = "<group>"; };
-		E8264DE62C5971A5003F61E8 /* mercury.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = mercury.usdz; sourceTree = "<group>"; };
 		E8264DE72C5971A5003F61E8 /* venus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = venus.usdz; sourceTree = "<group>"; };
 		E8264DE82C5971A5003F61E8 /* sun.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sun.usdz; sourceTree = "<group>"; };
 		E8264DE92C5971A5003F61E8 /* moon.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = moon.usdz; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		E8264DEE2C5971A5003F61E8 /* uranus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = uranus.usdz; sourceTree = "<group>"; };
 		E8264DF92C59769B003F61E8 /* SolarSystemARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemARView.swift; sourceTree = "<group>"; };
 		E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+SolarSystemGestures.swift"; sourceTree = "<group>"; };
+		E8264E002C5AA34A003F61E8 /* mercury.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = mercury.usdz; sourceTree = "<group>"; };
+		E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SolarSystemARView+CustomARViewDelegate.swift"; sourceTree = "<group>"; };
 		E86380AE2C4EDD8B00E00B41 /* Mini06ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mini06ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86380B02C4EDD8B00E00B41 /* Mini06ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini06ARTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,7 +278,7 @@
 				E8264DEC2C5971A5003F61E8 /* earth.usdz */,
 				E8264DEB2C5971A5003F61E8 /* jupiter.usdz */,
 				E8264DED2C5971A5003F61E8 /* mars.usdz */,
-				E8264DE62C5971A5003F61E8 /* mercury.usdz */,
+				E8264E002C5AA34A003F61E8 /* mercury.usdz */,
 				E8264DE92C5971A5003F61E8 /* moon.usdz */,
 				E8264DE52C5971A5003F61E8 /* neptune.usdz */,
 				E8264DEA2C5971A5003F61E8 /* saturn.usdz */,
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				E8264DFE2C597D0D003F61E8 /* CustomARView+SolarSystemGestures.swift */,
+				E8264E022C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 31AFE1AA2C4AFD200005DDDB;
 			productRefGroup = 31AFE1B42C4AFD210005DDDB /* Products */;
@@ -403,21 +407,15 @@
 				E8264DEF2C5971A5003F61E8 /* neptune.usdz in Resources */,
 				E8264DF82C5971A5003F61E8 /* uranus.usdz in Resources */,
 				E8264DF52C5971A5003F61E8 /* jupiter.usdz in Resources */,
+				E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */,
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
 				E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */,
-				4022CD022C591C16008A1F4D /* jupiter.usdz in Resources */,
-				4022CD032C591C16008A1F4D /* sun.usdz in Resources */,
-				4022CD062C591C16008A1F4D /* uranus.usdz in Resources */,
-				4022CD042C591C16008A1F4D /* earth.usdz in Resources */,
-				4022CD0B2C591C1F008A1F4D /* neptune.usdz in Resources */,
-				4022CD092C591C16008A1F4D /* moon.usdz in Resources */,
 				31AFE1C32C4AFD220005DDDB /* Base in Resources */,
 				E8264DF42C5971A5003F61E8 /* saturn.usdz in Resources */,
 				E8264DF32C5971A5003F61E8 /* moon.usdz in Resources */,
 				E8264DF12C5971A5003F61E8 /* venus.usdz in Resources */,
 				E8264DF62C5971A5003F61E8 /* earth.usdz in Resources */,
 				E8264DF72C5971A5003F61E8 /* mars.usdz in Resources */,
-				E8264DF02C5971A5003F61E8 /* mercury.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +438,7 @@
 				31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */,
 				E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
+				E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
 				409C02352C5582F90021D622 /* PlanetBoxView.swift in Sources */,
 				E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */,
@@ -485,6 +484,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				31AFE1C22C4AFD220005DDDB /* Base */,
+				2E18BFD12C5AC069002E6FBB /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -497,6 +497,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -560,6 +561,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -618,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
@@ -647,7 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HX623XK8T6;
+				DEVELOPMENT_TEAM = RAG47DD75D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
