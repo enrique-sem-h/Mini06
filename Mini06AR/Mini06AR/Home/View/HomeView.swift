@@ -78,7 +78,7 @@ class HomeView: UIView {
      */
     private func setupToggleButton() {
         toggleButton = UIButton(type: .system)
-        toggleButton.setTitle("Menu", for: .normal)
+        toggleButton.setTitle(NSLocalizedString("Menu", comment: ""), for: .normal)
         toggleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         toggleButton.setTitleColor(.white, for: .normal)
         
@@ -110,7 +110,7 @@ class HomeView: UIView {
         pauseButton = UIButton(type: .system)
         pauseButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         pauseButton.setTitleColor(.white, for: .normal)
-        pauseButton.setTitle("Pause", for: .normal)
+        pauseButton.setTitle(NSLocalizedString("Pause", comment: ""), for: .normal)
         
         pauseButton.layer.cornerRadius = 10
         pauseButton.layer.borderWidth = 1
@@ -127,9 +127,9 @@ class HomeView: UIView {
     @objc private func pause() {
         sceneView.scene?.isPaused.toggle()
         if sceneView.scene?.isPaused == true {
-            pauseButton.setTitle("Unpause", for: .normal)
+            pauseButton.setTitle( NSLocalizedString("Unpause", comment: ""), for: .normal)
         } else {
-            pauseButton.setTitle("Pause", for: .normal)
+            pauseButton.setTitle( NSLocalizedString("Pause", comment: ""), for: .normal)
         }
     }
     

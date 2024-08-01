@@ -93,7 +93,7 @@ class PlanetDetailView: UIView {
         
         planetRadiusLabel = {
             let radiusLabel = UILabel()
-            radiusLabel.text = "Raio: \(planet?.radius ?? 0) km"
+            radiusLabel.text = NSLocalizedString("Radius:", comment: "") + "\(planet?.radius ?? 0)" + NSLocalizedString("km", comment: "")
             radiusLabel.font = UIFont.systemFont(ofSize: 16)
             radiusLabel.textAlignment = .center
             radiusLabel.textColor = .label
@@ -106,7 +106,7 @@ class PlanetDetailView: UIView {
             if planet?.name == "Sol" {
                 distanceLabel.text = ""
             } else {
-                distanceLabel.text = "Distância do Sol: \(planet?.distanceFromSun ?? 0) milhões de km"
+                distanceLabel.text = NSLocalizedString("Distance from sun:", comment: "") + "\(planet?.distanceFromSun ?? 0) + NSLocalizedString("millions of km", comment: "")
             }
             distanceLabel.font = UIFont.systemFont(ofSize: 16)
             distanceLabel.textAlignment = .center

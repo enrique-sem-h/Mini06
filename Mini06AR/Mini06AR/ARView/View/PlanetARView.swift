@@ -77,7 +77,7 @@ class PlanetARView: UIView {
     
     // MARK: - ResetButton
     private func setupResetButton() {
-        resetButton.setTitle("Reset Position", for: .normal)
+        resetButton.setTitle(NSLocalizedString("Reset Position", comment: ""), for: .normal)
         resetButton.configuration = UIButton.Configuration.borderedTinted()
         resetButton.tintColor = .red
         resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
