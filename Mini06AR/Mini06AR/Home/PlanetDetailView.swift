@@ -106,7 +106,7 @@ class PlanetDetailView: UIView {
             if planet?.name == "Sol" {
                 distanceLabel.text = ""
             } else {
-                distanceLabel.text = NSLocalizedString("Distance from sun:", comment: "") + "\(planet?.distanceFromSun ?? 0) + NSLocalizedString("millions of km", comment: "")
+                distanceLabel.text = NSLocalizedString("Distance from sun:", comment: "") + "\(planet?.distanceFromSun ?? 0)" + NSLocalizedString("millions of km", comment: "")
             }
             distanceLabel.font = UIFont.systemFont(ofSize: 16)
             distanceLabel.textAlignment = .center
