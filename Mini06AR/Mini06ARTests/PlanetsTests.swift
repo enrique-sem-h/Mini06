@@ -30,7 +30,7 @@ final class PlanetsTests: XCTestCase {
         XCTAssertEqual(sut.count, Self.numberOfPlanets)
     }
     
-    func solarSystemHasPlanets() {
+    func testSolarSystemHasPlanets() {
         XCTAssertFalse(SolarSystem.solarSystemPlanets.isEmpty)
         XCTAssertEqual(SolarSystem.solarSystemPlanets.count, Self.numberOfPlanets)
     }
@@ -42,5 +42,6 @@ final class PlanetsTests: XCTestCase {
         }
         XCTAssertFalse(usdzFiles.isEmpty)
         XCTAssertEqual(usdzFiles.count, Self.numberOfModels)
+        XCTAssertEqual(SolarSystem.solarSystemPlanets.count, Self.numberOfPlanets)
     }
 }
