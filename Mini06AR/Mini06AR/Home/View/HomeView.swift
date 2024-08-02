@@ -13,6 +13,7 @@ class HomeView: UIView {
     var planets: [Planet] = []
     var showARView: ((Planet) -> Void)?
     var sceneView: SolarSystemSceneView
+    var showARViewController: (() -> Void)?
     private var planetBoxView: PlanetBoxView!
     private var toggleButton: UIButton!
     private var settingsButton: UIButton!
@@ -51,15 +52,14 @@ class HomeView: UIView {
         setupPauseButton()
         setupARButton()
         
-        // Configure Auto Layout constraints for planetBoxView
         planetBoxViewLeadingHiddenConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -250)
         planetBoxViewLeadingVisibleConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         
         NSLayoutConstraint.activate([
             planetBoxViewLeadingHiddenConstraint,
-            planetBoxView.centerYAnchor.constraint(equalTo: self.centerYAnchor), // Center vertically
-            planetBoxView.widthAnchor.constraint(equalToConstant: 200), // Adjust width as needed
-            planetBoxView.heightAnchor.constraint(equalToConstant: 570) // Adjust height as needed
+            planetBoxView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            planetBoxView.widthAnchor.constraint(equalToConstant: 200),
+            planetBoxView.heightAnchor.constraint(equalToConstant: 570)
         ])
     }
     
@@ -154,6 +154,8 @@ class HomeView: UIView {
     @objc private func openARView() {
         print("Abrir visualização AR")
         
+        showARViewController?()
+
         let fadeAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.fromValue = 1.0
         fadeAnimation.toValue = 0.5
