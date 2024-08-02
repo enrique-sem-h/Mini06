@@ -6,13 +6,24 @@
 //
 
 import XCTest
+@testable import Mini06AR
 
-
-/*
- * This test is for making shure the CI is running the tests
- */
 final class Mini06ARTests: XCTestCase {
-    func testSampleTestPass() {
-        XCTAssertTrue(true)
+    func testAppHasPlanets() {
+        XCTAssertFalse(planets.isEmpty)
+    }
+    
+    func testAppHasMoon() {
+        XCTAssertFalse(planets.filter({ $0.name.localizedCaseInsensitiveContains("moon") }).isEmpty)
+    }
+    
+    func testAppHasSun() {
+        XCTAssertFalse(planets.filter({ $0.name.localizedCaseInsensitiveContains("sun") }).isEmpty)
+    }
+    
+    func testAppHasAllThePlanets() {
+        let sut = planets.filter({ !($0.name.localizedCaseInsensitiveContains("moon") || $0.name.localizedCaseInsensitiveContains("sun")) })
+        XCTAssertFalse(sut.isEmpty)
+        XCTAssertEqual(sut.count, 8)
     }
 }
