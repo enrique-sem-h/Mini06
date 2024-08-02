@@ -218,7 +218,7 @@ class HomeView: UIView {
                 self.layoutIfNeeded()
             }
             
-            toggleButton.setTitle("Fechar", for: .normal)
+            toggleButton.setTitle(NSLocalizedString("Fechar", comment: ""), for: .normal)
         } else {
             NSLayoutConstraint.deactivate([planetBoxViewLeadingVisibleConstraint])
             NSLayoutConstraint.activate([planetBoxViewLeadingHiddenConstraint])
@@ -229,7 +229,7 @@ class HomeView: UIView {
                 self.planetBoxView.isHidden = true
             }
             
-            toggleButton.setTitle("Explore", for: .normal)
+            toggleButton.setTitle(NSLocalizedString("Explore", comment: ""), for: .normal)
         }
     }
 }
