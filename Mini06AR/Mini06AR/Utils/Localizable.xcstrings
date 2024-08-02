@@ -19,18 +19,11 @@
       }
     },
     "Click the screen to place:" : {
-      "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Click the screen to place:"
-          }
-        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Clique na tela para posicionar:"
+            "value" : "Clique na tela para posicionar: "
           }
         }
       }
@@ -65,6 +58,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Descrição"
+          }
+        }
+      }
+    },
+    "Distance from sun:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance from sun: "
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Distância do sol: "
+          }
+        }
+      }
+    },
+    "Distance from the sun:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance from the sun:"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distância do sol: "
           }
         }
       }
@@ -154,6 +180,16 @@
         }
       }
     },
+    "km" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "km"
+          }
+        }
+      }
+    },
     "Known for its impressive rings, it is the sixth planet in the Solar System." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -205,6 +241,22 @@
         }
       }
     },
+    "Menu" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        }
+      }
+    },
     "Mercury" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -235,6 +287,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mercúrio não tem atmosfera significativa para reter o calor."
+          }
+        }
+      }
+    },
+    "millions of km" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " millions of km"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " milhões de quilômetros"
           }
         }
       }
@@ -337,6 +406,90 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pausar"
+          }
+        }
+      }
+    },
+    "Pause Animation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause Animation"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar animação"
+          }
+        }
+      }
+    },
+    "Play Animation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play Animation"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar animação"
+          }
+        }
+      }
+    },
+    "Radius:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radius: "
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diâmetro: "
+          }
+        }
+      }
+    },
+    "Radius: (planet?.radius ?? 0) km" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radius: (planet?.radius ?? 0) km"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diâmetro: (planet?.radius ?? 0) km"
+          }
+        }
+      }
+    },
+    "Reset Position" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Position"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetar posição"
           }
         }
       }
@@ -490,6 +643,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A Lua é o quinto maior satélite natural do Sistema Solar."
+          }
+        }
+      }
+    },
+    "The only natural satellite of Earth, known for its influence on tides." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The only natural satellite of Earth, known for its influence on tides."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O único satélite natural da Terra, conhecido pela sua influência nas marés."
           }
         }
       }

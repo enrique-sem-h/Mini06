@@ -27,9 +27,6 @@ class SolarSystemARView: UIView {
     static var sunModel: String {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
     }
-    static var planetModelNames: [String] {
-        return planets.map({ $0.modelName }).filter({ !($0.contains("sun") || $0.contains("moon")) })
-    }
     
     init(viewController: UIViewController? = nil) {
         super.init(frame: .zero)
@@ -88,7 +85,7 @@ class SolarSystemARView: UIView {
     
     // MARK: - ResetButton
     private func setupResetButton() {
-        resetButton.setTitle("Reset Position", for: .normal)
+        resetButton.setTitle(NSLocalizedString("Reset Position", comment: ""), for: .normal)
         resetButton.configuration = UIButton.Configuration.borderedTinted()
         resetButton.tintColor = .red
         resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
@@ -129,8 +126,8 @@ class SolarSystemARView: UIView {
     }
     @objc private func togglePlanetAnimations() {
         guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
-        for (n, p) in SolarSystemARView.planetModelNames.enumerated() {
-            if let e = arView.scene.findEntity(named: p) {
+        for (n, p) in SolarSystem.solarSystemPlanets.enumerated() {
+            if let e = arView.scene.findEntity(named: p.modelName) {
                 if isPlayingAnimation {
                     e.stopAllAnimations()
                 } else {
@@ -145,7 +142,8 @@ class SolarSystemARView: UIView {
     }
     
     func updateAnimationButtonTitle() {
-        animationButton.setTitle(isPlayingAnimation ? "Pause Animation" : "Play Animation", for: .normal)
+        animationButton.setTitle(isPlayingAnimation ? NSLocalizedString("Pause Animation", comment: "") : NSLocalizedString("Play Animation", comment: ""), for: .normal)
         animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
     }
 }
+
