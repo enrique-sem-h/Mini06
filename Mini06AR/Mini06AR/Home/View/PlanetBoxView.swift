@@ -70,7 +70,8 @@ class PlanetBoxView: UIView {
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
         let buttonHeight: CGFloat = 40
-        let buttonSpacing: CGFloat = 10
+        let buttonSpacing: CGFloat = 15
+        let topPadding: CGFloat = 20 
         
         for (index, name) in planetNames.enumerated() {
             let button = UIButton(type: .system)
@@ -79,16 +80,16 @@ class PlanetBoxView: UIView {
             button.tag = index
             
             button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-            button.layer.cornerRadius = 10
+            button.layer.cornerRadius = 8 // Diminuído o raio do canto
             button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+            button.layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
             button.clipsToBounds = true
             
             let blurEffect = UIBlurEffect(style: .light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = button.bounds
             blurEffectView.isUserInteractionEnabled = false
-            blurEffectView.layer.cornerRadius = 10
+            blurEffectView.layer.cornerRadius = 8
             blurEffectView.clipsToBounds = true
             button.insertSubview(blurEffectView, at: 0)
             
@@ -103,7 +104,7 @@ class PlanetBoxView: UIView {
             ])
             
             if index == 0 {
-                button.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+                button.topAnchor.constraint(equalTo: self.topAnchor, constant: topPadding).isActive = true
             } else {
                 let previousButton = self.subviews.filter { $0 is UIButton }[index - 1] as! UIButton
                 button.topAnchor.constraint(equalTo: previousButton.bottomAnchor, constant: buttonSpacing).isActive = true

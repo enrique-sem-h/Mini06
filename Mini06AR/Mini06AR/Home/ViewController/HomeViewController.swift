@@ -33,6 +33,10 @@ class HomeViewController: UIViewController {
         homeView.showARView = { [weak self] planet in
             self?.coordinator?.showARView(for: planet)
         }
+        
+        homeView.showARViewController = { [weak self] in
+                  self?.coordinator?.showSolarSystemView()
+              }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
