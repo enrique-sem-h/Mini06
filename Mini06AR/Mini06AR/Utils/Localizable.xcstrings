@@ -63,6 +63,7 @@
       }
     },
     "Distance from sun:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -215,6 +216,7 @@
       }
     },
     "km" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

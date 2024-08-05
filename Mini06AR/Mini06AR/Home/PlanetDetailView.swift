@@ -14,10 +14,10 @@ class PlanetDetailView: UIView {
     
     var planetNameLabel: UILabel!
     var planetDescriptionLabel: UILabel!
-    var planetRadiusLabel: UILabel!
-    var planetDistanceLabel: UILabel!
     var planet3DView: SCNView!
     var stackView: UIStackView!
+    var textBackgroundView: UIView!
+    var planetBackgroundView: UIView!
     
     init(planet: Planet) {
         super.init(frame: .zero)
@@ -35,7 +35,7 @@ class PlanetDetailView: UIView {
         guard let scene = SCNScene(named: name) else {
             return nil
         }
-        if let planet =  scene.rootNode.childNodes.first {
+        if let planet = scene.rootNode.childNodes.first {
             planet.position = SCNVector3(0, 0, 0)
             scene.rootNode.addChildNode(planet)
         }
@@ -53,8 +53,8 @@ class PlanetDetailView: UIView {
         planetNameLabel = {
             let label = UILabel()
             label.text = planet?.name
-            label.font = UIFont.boldSystemFont(ofSize: 24)
-            label.textAlignment = .center
+            label.font = UIFont.boldSystemFont(ofSize: 34)
+            label.textAlignment = .left
             label.textColor = .label
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -63,7 +63,7 @@ class PlanetDetailView: UIView {
         planetDescriptionLabel = {
             let descriptionLabel = UILabel()
             descriptionLabel.text = planet?.descriptions["Descrição"]
-            descriptionLabel.font = UIFont.systemFont(ofSize: 16)
+            descriptionLabel.font = UIFont.systemFont(ofSize: 18)
             descriptionLabel.textAlignment = .left
             descriptionLabel.numberOfLines = 0
             descriptionLabel.textColor = .secondaryLabel
@@ -88,35 +88,19 @@ class PlanetDetailView: UIView {
             sceneView.allowsCameraControl = true
             sceneView.cameraControlConfiguration.allowsTranslation = false
             sceneView.backgroundColor = .clear
+            sceneView.translatesAutoresizingMaskIntoConstraints = false
             return sceneView
         }()
         
-        planetRadiusLabel = {
-            let radiusLabel = UILabel()
-            radiusLabel.text = NSLocalizedString("Radius:", comment: "") + "\(planet?.radius ?? 0)" + NSLocalizedString("km", comment: "")
-            radiusLabel.font = UIFont.systemFont(ofSize: 16)
-            radiusLabel.textAlignment = .center
-            radiusLabel.textColor = .label
-            radiusLabel.translatesAutoresizingMaskIntoConstraints = false
-            return radiusLabel
-        }()
-        
-        planetDistanceLabel = {
-            let distanceLabel = UILabel()
-            if planet?.name == "Sol" {
-                distanceLabel.text = ""
-            } else {
-                distanceLabel.text = NSLocalizedString("Distance from sun:", comment: "") + "\(planet?.distanceFromSun ?? 0)" + NSLocalizedString("millions of km", comment: "")
-            }
-            distanceLabel.font = UIFont.systemFont(ofSize: 16)
-            distanceLabel.textAlignment = .center
-            distanceLabel.textColor = .label
-            distanceLabel.translatesAutoresizingMaskIntoConstraints = false
-            return distanceLabel
+        planetBackgroundView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.systemGray6
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
         }()
         
         stackView = {
-            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel, planet3DView, planetRadiusLabel, planetDistanceLabel])
+            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel])
             stackView.axis = .vertical
             stackView.spacing = 10
             stackView.alignment = .leading
@@ -124,24 +108,47 @@ class PlanetDetailView: UIView {
             return stackView
         }()
         
+        textBackgroundView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.systemGray5
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }()
+        
         setupViews()
     }
     
     private func setupViews() {
-        let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width
-        let defaultPadding = 120/0.16
+        let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width ?? 0
+        let defaultPadding: CGFloat = 120 / 0.16
+        let navigationBarHeight: CGFloat = 90
+        
         backgroundColor = .systemBackground
-        addSubview(planet3DView)
+        
+        addSubview(textBackgroundView)
         addSubview(stackView)
+        addSubview(planetBackgroundView)
+        planetBackgroundView.addSubview(planet3DView)
+        
         NSLayoutConstraint.activate([
-            planet3DView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0.16 * (screenWidth ?? defaultPadding)),
-            planet3DView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            planet3DView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.3),
-            planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor),
-            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
-            stackView.leadingAnchor.constraint(equalTo: planet3DView.trailingAnchor, constant: 120),
-            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -0.08 * (screenWidth ?? defaultPadding/2)),
+            textBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            textBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -screenWidth / 2),
+            textBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight),
+            textBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: textBackgroundView.trailingAnchor, constant: -16),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight + 16),
+            
+            planetBackgroundView.leadingAnchor.constraint(equalTo: textBackgroundView.trailingAnchor),
+            planetBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            planetBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight),
+            planetBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            planet3DView.centerXAnchor.constraint(equalTo: planetBackgroundView.centerXAnchor),
+            planet3DView.centerYAnchor.constraint(equalTo: planetBackgroundView.centerYAnchor),
+            planet3DView.heightAnchor.constraint(equalTo: planetBackgroundView.widthAnchor, multiplier: 0.5),
+            planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor)
         ])
     }
 }
