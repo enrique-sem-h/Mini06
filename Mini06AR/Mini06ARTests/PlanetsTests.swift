@@ -44,4 +44,19 @@ final class PlanetsTests: XCTestCase {
         XCTAssertEqual(usdzFiles.count, Self.numberOfModels)
         XCTAssertEqual(SolarSystem.solarSystemPlanets.count, Self.numberOfPlanets)
     }
+    
+    func testPlanetModelHasDescription() {
+        let descriptions = planets.compactMap({ $0.descriptions["Descrição"] })
+        XCTAssertFalse(descriptions.isEmpty)
+        XCTAssertEqual(descriptions.count, Self.numberOfModels)
+    }
+    
+    func testPlanetModelsHaveCuriosity() {
+        var curiosity = planets.compactMap({ $0.descriptions["Curiosidade 1"] })
+        XCTAssertFalse(curiosity.isEmpty)
+        XCTAssertEqual(curiosity.count, Self.numberOfModels)
+        curiosity = planets.compactMap({ $0.descriptions["Curiosidade 2"]})
+        XCTAssertFalse(curiosity.isEmpty)
+        XCTAssertEqual(curiosity.count, Self.numberOfModels)
+    }
 }
