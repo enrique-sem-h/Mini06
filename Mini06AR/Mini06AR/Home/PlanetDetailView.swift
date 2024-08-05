@@ -5,7 +5,6 @@
 //  Created by Enrique Carvalho on 22/07/24.
 //
 
-import Foundation
 import UIKit
 import SceneKit
 
@@ -18,6 +17,8 @@ class PlanetDetailView: UIView {
     var stackView: UIStackView!
     var textBackgroundView: UIView!
     var planetBackgroundView: UIView!
+    var nameAndMorseStackView: UIStackView!
+    var planetImageView: UIImageView!
     
     init(planet: Planet) {
         super.init(frame: .zero)
@@ -60,6 +61,22 @@ class PlanetDetailView: UIView {
             return label
         }()
         
+        let morseCodeLabel = UILabel()
+        morseCodeLabel.text = planet?.morseCode
+        morseCodeLabel.font = UIFont.systemFont(ofSize: 28)
+        morseCodeLabel.textAlignment = .left
+        morseCodeLabel.textColor = .label
+        morseCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        nameAndMorseStackView = {
+            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel])
+            stackView.axis = .horizontal
+            stackView.spacing = 30
+            stackView.alignment = .trailing
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            return stackView
+        }()
+        
         planetDescriptionLabel = {
             let descriptionLabel = UILabel()
             descriptionLabel.text = planet?.descriptions["Descrição"]
@@ -92,6 +109,7 @@ class PlanetDetailView: UIView {
             return sceneView
         }()
         
+        
         planetBackgroundView = {
             let view = UIView()
             view.backgroundColor = UIColor.systemGray6
@@ -100,7 +118,7 @@ class PlanetDetailView: UIView {
         }()
         
         stackView = {
-            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, planetDescriptionLabel])
+            let stackView = UIStackView(arrangedSubviews: [nameAndMorseStackView, planetDescriptionLabel])
             stackView.axis = .vertical
             stackView.spacing = 10
             stackView.alignment = .leading
@@ -120,7 +138,6 @@ class PlanetDetailView: UIView {
     
     private func setupViews() {
         let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width ?? 0
-        let defaultPadding: CGFloat = 120 / 0.16
         let navigationBarHeight: CGFloat = 90
         
         backgroundColor = .systemBackground
@@ -148,7 +165,9 @@ class PlanetDetailView: UIView {
             planet3DView.centerXAnchor.constraint(equalTo: planetBackgroundView.centerXAnchor),
             planet3DView.centerYAnchor.constraint(equalTo: planetBackgroundView.centerYAnchor),
             planet3DView.heightAnchor.constraint(equalTo: planetBackgroundView.widthAnchor, multiplier: 0.5),
-            planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor)
+            planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor),
+            
+
         ])
     }
 }

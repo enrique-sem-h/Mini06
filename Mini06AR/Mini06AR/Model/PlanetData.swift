@@ -15,6 +15,7 @@ let planets = [
     
     // MARK: - Lua
     Planet(name: NSLocalizedString("Moon", comment: ""),
+           morseCode: "-- --- --- -.",
            radius: 1737.1,
            distanceFromSun: 149.6,
            descriptions: [
@@ -25,6 +26,7 @@ let planets = [
            modelName: "moon.usdz"),
     // MARK: - Sol
     Planet(name: NSLocalizedString("Sun", comment: ""),
+           morseCode: "... ..- -.",
            radius: 696340.0,
            distanceFromSun: 0.0,
            descriptions: [
@@ -36,6 +38,7 @@ let planets = [
     
     // MARK: - Mercúrio
     Planet(name: NSLocalizedString("Mercury", comment: ""),
+           morseCode: "-- . .-. -.-. ..- .-. -.--",
            radius: 2439.7,
            distanceFromSun: 57.9,
            descriptions: [
@@ -47,6 +50,7 @@ let planets = [
     
     // MARK: - Vênus
     Planet(name: NSLocalizedString("Venus", comment: ""),
+           morseCode: "...- . -. ..- ...",
            radius: 6051.8,
            distanceFromSun: 108.2,
            descriptions: [
@@ -58,6 +62,7 @@ let planets = [
     
     // MARK: - Terra
     Planet(name: NSLocalizedString("Earth", comment: ""),
+           morseCode: ". .- .-. - ....",
            radius: 6371.0,
            distanceFromSun: 149.6,
            descriptions: [
@@ -69,6 +74,7 @@ let planets = [
     
     // MARK: - Marte
     Planet(name: NSLocalizedString("Mars", comment: ""),
+           morseCode: "-- .- .-. ...",
            radius: 3389.5,
            distanceFromSun: 227.9,
            descriptions: [
@@ -80,6 +86,7 @@ let planets = [
     
     // MARK: - Júpiter
     Planet(name: NSLocalizedString("Jupiter", comment: ""),
+           morseCode: ".--- ..- .--. .. - . .-.",
            radius: 69911,
            distanceFromSun: 778.5,
            descriptions: [
@@ -91,6 +98,7 @@ let planets = [
     
     // MARK: - Saturno
     Planet(name: NSLocalizedString("Saturn", comment: ""),
+           morseCode: "... .- - ..- .-. -.",
            radius: 58232,
            distanceFromSun: 1433.5,
            descriptions: [
@@ -102,6 +110,7 @@ let planets = [
     
     // MARK: - Urano
     Planet(name: NSLocalizedString("Uranus", comment: ""),
+           morseCode: "..- .-. .- -. ..- ...",
            radius: 25362,
            distanceFromSun: 2872.5,
            descriptions: [
@@ -113,6 +122,7 @@ let planets = [
     
     // MARK: - Netuno
     Planet(name: NSLocalizedString("Neptune", comment: ""),
+           morseCode: "-. . .--. - ..- -. .",
            radius: 24622,
            distanceFromSun: 4495.1,
            descriptions: [
