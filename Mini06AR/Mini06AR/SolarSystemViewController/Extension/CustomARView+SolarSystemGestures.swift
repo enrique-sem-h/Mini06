@@ -14,20 +14,83 @@ import RealityKit
  */
 extension CustomARView {
     func enableSolarSystemGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSolarSystemTap))
-        self.addGestureRecognizer(tapGestureRecognizer)
         
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handleSolarSystemPinchGesture))
         self.addGestureRecognizer(pinchGestureRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSolarSystemPanGesture))
+        self.addGestureRecognizer(panGestureRecognizer)
+        
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetScale))
+        doubleTap.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTap)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSolarSystemTap))
+        tapGestureRecognizer.require(toFail: doubleTap)
+        self.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    @objc private func resetScale() {
+        arViewDelegate?.toggleAnimations()
+        if let originalSunScale = Self.originalPlanetScale[SolarSystemARView.sunModel],let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
+            sun.scale = originalSunScale
+        }
+        for planet in SolarSystem.solarSystemPlanets.map({ $0.modelName }) {
+            if let planetScale = Self.originalPlanetScale[planet], let planetModel = self.scene.findEntity(named: planet) {
+                planetModel.scale = planetScale
+            }
+        }
+        
+        arViewDelegate?.toggleAnimations()
+    }
+    
+    func calculateCombinedRotation(_ translation: CGPoint) -> simd_quatf {
+        // Define a scale factor for the rotation sensitivity
+        let sensitivity: Float = 0.005
+        
+        // Calculate rotation angles based on the translation
+        let angleX = Float(translation.x) * sensitivity
+        let angleY = Float(translation.y) * sensitivity
+        
+        // Define the rotation axes (y-axis for horizontal panning, x-axis for vertical panning)
+        let rotationAxisX = simd_float3(0, 1, 0) // Rotation around the y-axis
+        let rotationAxisY = simd_float3(1, 0, 0) // Rotation around the x-axis
+        
+        // Create quaternions for each rotation
+        let quatX = simd_quatf(angle: angleX, axis: rotationAxisX)
+        let quatY = simd_quatf(angle: angleY, axis: rotationAxisY)
+        
+        // Combine the rotations
+        return quatX * quatY
+    }
+    
+    @objc private func handleSolarSystemPanGesture(_ recognizer: UIPanGestureRecognizer) {
+        arViewDelegate?.toggleAnimations()
+        let translation = recognizer.translation(in: self)
+        let combinedQuat = calculateCombinedRotation(translation)
+        
+        if let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
+            sun.orientation *= combinedQuat
+        }
+        
+        for planetName in SolarSystem.solarSystemPlanets.map({ $0.modelName }) {
+            if let model = self.scene.findEntity(named: planetName) {
+                model.orientation *= combinedQuat
+            }
+        }
+        recognizer.setTranslation(.zero, in: self)
+        arViewDelegate?.toggleAnimations()
+    }
+    
     private static var originalPlanetScale: [String:SIMD3<Float>] = [:]
+    
     @objc private func handleSolarSystemPinchGesture(_ recognizer: UIPinchGestureRecognizer) {
         let value = Float(recognizer.scale)
         //stop anim
         arViewDelegate?.toggleAnimations()
         let pinchScale = SIMD3(value, value, value)
         if let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
-            scaleSun(sun, pinchScale: pinchScale, minimunScaleFactor: 0.25, maximumScaleFactor: 1.25)
+            scaleSun(sun, pinchScale: pinchScale, minimunScaleFactor: 0.25, maximumScaleFactor: 1.15)
         }
         
         for planetName in SolarSystem.solarSystemPlanets.map({$0.modelName}) {
@@ -65,7 +128,7 @@ extension CustomARView {
         let mininumSunScale = originalScale * minimumScaleFactor
         let maxScale = originalScale * maximumScaleFactor
         let newScale = originalScale * pinchScale
-        if lessThanSIMD3(newScale, originalScale) {
+        if lessThanSIMD3(newScale, mininumSunScale) {
             planetEntity.scale = originalScale
         } else if greaterThanSIMD3(newScale, maxScale) {
             planetEntity.scale = maxScale
@@ -89,7 +152,6 @@ extension CustomARView {
             let mainAnchor = AnchorEntity(world: position)
             createSun(anchor: mainAnchor)
             createOrbitingPlanets(anchor: mainAnchor, planets: SolarSystem.solarSystemPlanets)
-            
             self.scene.addAnchor(mainAnchor)
             arViewDelegate?.didPlace3DObject()
         }
