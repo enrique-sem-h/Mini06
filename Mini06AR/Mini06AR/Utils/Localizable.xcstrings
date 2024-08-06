@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "A gas giant with a unique feature: it rotates on its side with an axial tilt of 98 degrees. Its atmosphere contains methane, giving it a bluish color. Uranus has 27 known moons, the most famous being Titania and Oberon." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um gigante gasoso com uma característica única: ele gira de lado com uma inclinação axial de 98 graus. Sua atmosfera contém metano, conferindo-lhe uma cor azulada. Urano tem 27 luas conhecidas, sendo as mais famosas Titânia e Oberon."
+          }
+        }
+      }
+    },
     "Back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -24,6 +34,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Clique na tela para posicionar: "
+          }
+        }
+      }
+    },
+    "Composition and Energy: The Sun is a star composed mainly of hydrogen (about 74%) and helium (about 24%), with traces of heavier elements. In the Sun's core, nuclear fusion converts hydrogen into helium, releasing an enormous amount of energy. This energy is radiated into space as light and heat, sustaining life on Earth." : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Composition and Energy: The Sun is a star composed mainly of hydrogen (about 74%1$) and helium (about 24%2$), with traces of heavier elements. In the Sun's core, nuclear fusion converts hydrogen into helium, releasing an enormous amount of energy. This energy is radiated into space as light and heat, sustaining life on Earth."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Composição e Energia: O Sol é uma estrela composta principalmente de hidrogênio (cerca de 74%1$) e hélio (cerca de 24%2$), com traços de elementos mais pesados. No núcleo do Sol, a fusão nuclear converte hidrogênio em hélio, liberando uma enorme quantidade de energia. Essa energia é irradiada para o espaço como luz e calor, sustentando a vida na Terra."
           }
         }
       }
@@ -113,6 +140,16 @@
         }
       }
     },
+    "Earth has a single moon, which is the largest natural satellite in relation to the size of its planet. The presence of the Moon stabilizes Earth's axial tilt, which has an important impact on climate and seasons." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Terra tem uma única lua, que é o maior satélite natural em relação ao tamanho do seu planeta. A presença da Lua estabiliza a inclinação axial da Terra, o que tem um impacto importante no clima e nas estações."
+          }
+        }
+      }
+    },
     "Earth is the only known planet to harbor life." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -164,6 +201,156 @@
         }
       }
     },
+    "In addition to its extreme temperatures, Mercury has a highly elliptical orbit and is the second densest planet in the solar system, with a large iron core that occupies about 75% of its radius." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Além de suas temperaturas extremas, Mercúrio \npossui uma órbita altamente elíptica e é o segundo \nplaneta mais denso do sistema solar, com um grande \nnúcleo de ferro que ocupa cerca de 75% do seu raio."
+          }
+        }
+      }
+    },
+    "In addition to its powerful winds, Neptune also has a storm known as the Great Dark Spot, similar to Jupiter’s Great Red Spot, but it seems to appear and disappear over time. Neptune also has a ring system, although it is much fainter than Saturn’s." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Além de seus ventos poderosos, Netuno também tem uma tempestade conhecida como a Grande Mancha Escura, semelhante à Grande Mancha Vermelha de Júpiter, mas que parece aparecer e desaparecer ao longo do tempo. Netuno também tem um sistema de anéis, embora seja muito mais tênue do que o de Saturno."
+          }
+        }
+      }
+    },
+    "In addition to the Great Red Spot, Jupiter has other smaller and faster storms in its turbulent atmosphere. Jupiter's magnetic field is 14 times stronger than Earth's and has a huge magnetosphere that encompasses many of its moons." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Além da Grande Mancha Vermelha, Júpiter tem outras \ntempestades menores e rápidas em sua atmosfera \nturbulenta. O campo magnético de Júpiter é 14 vezes\nmais forte que o da Terra, e possui uma magnetosfera \nenorme que abrange várias de suas luas."
+          }
+        }
+      }
+    },
+    "In addition to Titan, Saturn has 83 known moons. The planet's composition is mainly hydrogen and helium, and it has a density lower than water, meaning it could float in a hypothetical ocean large enough to hold it." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Além de Titã, Saturno tem 83 luas conhecidas. A composição do planeta é principalmente de hidrogênio e hélio, e sua densidade é menor que a da água, o que significa que ele poderia flutuar em um oceano hipotético grande o suficiente para contê-lo."
+          }
+        }
+      }
+    },
+    "In Roman culture, Earth (or Tellus) symbolized the goddess of earth and fertility. The name of our planet honors the goddess who represents life and fertility, reflecting Earth's importance as the home of all known life." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na cultura romana, Terra (ou Tellus) simbolizava a \ndeusa da terra e da fertilidade. O nome do nosso \nplaneta homenageia a deusa que representa a vida \ne a fecundidade, refletindo a importância da Terra \ncomo lar de toda a vida conhecida."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Jupiter was the king of the gods, the god of the sky and thunder. The planet Jupiter, the largest in the solar system, reflects the grandeur and supremacy of the god." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Júpiter, na mitologia romana, era o rei dos deuses,\no deus do céu e do trovão. O planeta Júpiter, o maior \ndo sistema solar, reflete a grandeza e a supremacia do \ndeus."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Mercury was the god of commerce, travelers, communication, and thieves. He is known for his speed and ability as the messenger of the gods. The planet Mercury, the fastest to orbit the Sun, reflects the agility of the god." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, Mercúrio era o deus do \ncomércio, dos viajantes, da comunicação e dos \nladrões. Ele é conhecido por sua rapidez e habilidade \ncomo mensageiro dos deuses. \nO planeta Mercúrio, o mais rápido a orbitar o Sol, \nreflete a agilidade do deus."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Neptune was the god of the sea, responsible for governing the waters and the storms. The planet Neptune, with its deep blue color, symbolizes the power and mysteries of the ocean." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, Netuno era o deus do mar, responsável por governar as águas e as tempestades. O planeta Netuno, com sua cor azul profunda, simboliza o poder e os mistérios do oceano."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time. The planet Saturn, with its majestic rings, symbolizes the god's agricultural and time aspects." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, Saturno representava o \ndeus da agricultura e do tempo. \nO planeta Saturno, com seus impressionantes \nanéis, simboliza a colheita e o ciclo do tempo, \nrefletindo os atributos do deus."
+          }
+        }
+      }
+    },
+    "In Roman mythology, the Moon was personified by the goddess Luna. She was the goddess of the moon and presided over the lunar cycles and the night. Luna was often depicted driving a silver chariot across the night sky." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, a Lua era personificada pela deusa Luna. Ela era a deusa da lua e presidia os ciclos lunares e a noite. Luna era frequentemente representada conduzindo uma carruagem prateada pelo céu noturno."
+          }
+        }
+      }
+    },
+    "In Roman mythology, the Sun was personified by the god Sol, also known as Sol Invictus (Unconquered Sun). He was the god of the sun, representing the light, heat, and vitality that sustain life on Earth. Sol was often depicted driving a golden chariot across the sky during the day." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, o Sol era personificado pelo \ndeus Sol, também conhecido como Sol Invictus \n(Sol Invencível). Ele era o deus do sol, representando \na luz, o calor e a vitalidade que sustentam a vida na \nTerra. Sol era frequentemente retratado dirigindo uma \ncarruagem dourada pelo céu durante o dia. "
+          }
+        }
+      }
+    },
+    "In Roman mythology, Uranus was personified as the god of the sky, the primordial being who symbolized the heavens. The planet Uranus, being one of the most distant and mysterious planets, represents the infinite sky and the mysteries of the universe." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na cultura romana, Urano era o deus primitivo do céu. \nO planeta Urano, que orbita de lado e tem uma \ncoloração azulada, simboliza o mistério e a \nsingularidade do céu primitivo."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Venus represented the goddess of love, beauty, and fertility. The planet Venus, being the brightest in the night sky, symbolizes the dazzling beauty of the goddess of love." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, Vênus representava a deusa do amor, da beleza e da fertilidade. O planeta Vênus, sendo o mais brilhante no céu noturno, simboliza a beleza deslumbrante da deusa do amor."
+          }
+        }
+      }
+    },
+    "It is famous for its extensive ring system, composed of ice and rock particles. Saturn's largest moon, Titan, is larger than Mercury and has a thick atmosphere and surface lakes of liquid methane." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Conhecido por seus impressionantes anéis \ncompostos principalmente de pedaços de gelo e \nrocha. Saturno tem 83 luas conhecidas, com Titã \nsendo a maior e uma das mais intrigantes devido \nà sua espessa atmosfera e lagos de metano."
+          }
+        }
+      }
+    },
+    "It is the closest planet to the Sun and has the most extreme surface temperatures, ranging from -180°C at night to 430°C during the day. Despite this, Mercury is not the hottest planet, a title that belongs to Venus." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "É o planeta mais próximo do Sol e tem as temperaturas de superfície mais extremas, variando de -180°C à noite a 430°C durante o dia. Apesar disso, Mercúrio não é o planeta mais quente, título que pertence a Vênus."
+          }
+        }
+      }
+    },
     "Jupiter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -177,6 +364,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Júpiter"
+          }
+        }
+      }
+    },
+    "Jupiter has 95 moons." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter tem 95 luas"
           }
         }
       }
@@ -222,6 +419,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "km"
+          }
+        }
+      }
+    },
+    "Known as the Red Planet due to iron oxide on its surface. Mars has the largest volcanic mountain in the solar system, Olympus Mons, and one of the largest canyons, Valles Marineris." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conhecido como o Planeta Vermelho devido ao óxido de ferro em sua superfície. Marte tem a maior montanha vulcânica do sistema solar, Olympus Mons, e um dos maiores cânions, Valles Marineris."
           }
         }
       }
@@ -273,6 +480,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Marte possui a montanha mais alta do Sistema Solar, Olympus Mons."
+          }
+        }
+      }
+    },
+    "Mars has two small, irregular moons, Phobos and Deimos, believed to be captured asteroids. Additionally, Mars has evidence of liquid water on its surface in the past, and there may still be liquid water underground." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marte tem duas luas pequenas e irregulares, Fobos e \nDeimos, que se acredita serem asteroides capturados.\nAlém disso, Marte tem evidências de água líquida em \nsua superfície no passado, e possivelmente ainda pode \nhaver água líquida subterrânea​."
           }
         }
       }
@@ -396,6 +613,16 @@
         }
       }
     },
+    "Neptune has 14 moons." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netuno possui 14 luas"
+          }
+        }
+      }
+    },
     "Neptune has the fastest winds in the Solar System, reaching up to 2,100 km/h." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -409,6 +636,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Netuno tem os ventos mais rápidos do Sistema Solar, atingindo até 2.100 km/h."
+          }
+        }
+      }
+    },
+    "Neptune has the strongest winds in the Solar System, reaching speeds of over 2,000 km/h." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netuno tem os ventos mais fortes do Sistema Solar, alcançando velocidades de mais de 2.000 km/h."
           }
         }
       }
@@ -565,6 +802,26 @@
         }
       }
     },
+    "Saturn is primarily composed of hydrogen and helium." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturno é composto principalmente de hidrogênio e hélio."
+          }
+        }
+      }
+    },
+    "Saturn is the second-largest planet in the Solar System." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturno é o segundo maior planeta do Sistema Solar."
+          }
+        }
+      }
+    },
     "Saturn's rings are primarily made of ice and rock." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -650,6 +907,16 @@
         }
       }
     },
+    "The farthest planet from the Sun, known for its intense blue color and strong winds, which can reach speeds of over 2000 km/h. Neptune has 14 known moons, the largest being Triton, which orbits the planet in the opposite direction of Neptune's rotation." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O planeta mais distante do Sol, conhecido por sua intensa cor azul e ventos fortes, que podem alcançar velocidades superiores a 2000 km/h. Netuno tem 14 luas conhecidas, sendo Tritão a maior, que orbita o planeta na direção oposta à rotação de Netuno."
+          }
+        }
+      }
+    },
     "The largest planet in the Solar System, the fifth from the Sun." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -663,6 +930,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "O maior planeta do Sistema Solar, o quinto a partir do Sol."
+          }
+        }
+      }
+    },
+    "The largest planet in the solar system, with a mass more than 300 times that of Earth. Jupiter has a Great Red Spot, a storm larger than Earth that has been active for at least 400 years. It also has 95 known moons, including Europa, which may have a potentially habitable subsurface ocean." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O maior planeta do sistema solar, com uma massa mais de 300 vezes a da Terra. Júpiter possui a Grande Mancha Vermelha, uma tempestade maior que a Terra que está ativa há pelo menos 400 anos. Também tem 95 luas conhecidas, incluindo Europa, que pode ter um oceano subterrâneo potencialmente habitável."
+          }
+        }
+      }
+    },
+    "The Moon exerts a significant influence on Earth's tides. The Moon's gravity pulls the oceans, creating high and low tides. Without the Moon, tides would be much weaker, and Earth's climate could be very different, impacting marine life and coastal ecosystems." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Lua exerce uma influência significativa nas marés da Terra. A gravidade da Lua puxa os oceanos, criando marés altas e baixas. Sem a Lua, as marés seriam muito mais fracas, e o clima da Terra poderia ser muito diferente, impactando a vida marinha e os ecossistemas costeiros."
           }
         }
       }
@@ -684,7 +971,28 @@
         }
       }
     },
+    "The most accepted theory about the formation of the Moon is the Giant Impact Theory. According to this theory, the Moon formed about 4.5 billion years ago when an object the size of Mars, called Theia, collided with the young Earth. The debris resulting from this collision coalesced to form the Moon." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A teoria mais aceita sobre a formação da Lua é a Teoria do Grande Impacto. De acordo com essa teoria, a Lua se formou há cerca de 4,5 bilhões de anos, quando um objeto do tamanho de Marte, chamado Theia, colidiu com a Terra jovem. Os detritos resultantes dessa colisão se aglutinaram para formar a Lua."
+          }
+        }
+      }
+    },
+    "The only known planet to harbor life. Earth has an oxygen-rich atmosphere and abundant liquid water, essential factors for life as we know it." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O único planeta conhecido por abrigar vida. A Terra tem uma atmosfera rica em oxigênio e água líquida abundante, fatores essenciais para a vida como a conhecemos."
+          }
+        }
+      }
+    },
     "The only natural satellite of Earth, known for its influence on tides." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -802,6 +1110,16 @@
         }
       }
     },
+    "The Sun goes through activity cycles of approximately 11 years, known as solar cycles. During solar maximum, the Sun's activity increases, resulting in more sunspots, solar flares, and coronal mass ejections." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Sol passa por ciclos de atividade de \naproximadamente 11 anos, conhecidos como ciclos \nsolares. Durante o máximo solar, a atividade do Sol \naumenta, resultando em mais manchas solares, \nerupções solares e ejeções de massa coronal."
+          }
+        }
+      }
+    },
     "The Sun is primarily composed of hydrogen and helium." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -887,6 +1205,26 @@
         }
       }
     },
+    "This is the hottest planet in the solar system, with average temperatures around 465°C due to its extreme greenhouse effect. Its dense and acidic atmosphere is mainly composed of carbon dioxide and clouds of sulfuric acid." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este é o planeta mais quente do sistema solar, com temperaturas médias em torno de 465°C devido ao seu efeito estufa extremo. Sua atmosfera densa e ácida é composta principalmente de dióxido de carbono e nuvens de ácido sulfúrico."
+          }
+        }
+      }
+    },
+    "To the Romans, Mars was the god of war. The red soil of the planet Mars resembles blood and the aggression of war, symbolizing the warlike character of the god." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para os romanos, Marte era o deus da guerra. O solo vermelho do planeta Marte lembra o sangue e a agressividade da guerra, simbolizando o caráter bélico do deus."
+          }
+        }
+      }
+    },
     "Unpause" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -938,6 +1276,36 @@
         }
       }
     },
+    "Uranus has a faint ring system and a magnetic field that is tilted almost 60 degrees from its axis of rotation. The extreme axial tilt causes extreme seasonal variations, with each pole experiencing 42 years of continuous sunlight or darkness." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urano tem um sistema de anéis tênue e um campo magnético inclinado quase 60 graus em relação ao seu eixo de rotação. A inclinação axial extrema causa variações sazonais extremas, com cada polo experimentando 42 anos de luz contínua ou escuridão."
+          }
+        }
+      }
+    },
+    "Uranus is the third-largest planet in the Solar System." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urano é o terceiro maior planeta do Sistema Solar."
+          }
+        }
+      }
+    },
+    "Uranus is tilted 98 degrees on its axis." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urano está inclinado 98 graus em seu eixo."
+          }
+        }
+      }
+    },
     "Uranus rotates on its side, with its axis of rotation almost parallel to the plane of its orbit." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -985,6 +1353,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vênus possui uma temperatura superficial média de 475 graus Celsius."
+          }
+        }
+      }
+    },
+    "Venus rotates in a retrograde direction, meaning it spins opposite to most planets. This causes the Sun to rise in the west and set in the east on Venus. A day on Venus (one full rotation) lasts longer than a Venusian year (one full orbit around the Sun)." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vênus gira em uma direção retrógrada, o que significa que gira na direção oposta à maioria dos planetas. Isso faz com que o Sol nasça no oeste e se ponha no leste em Vênus. Um dia em Vênus (uma rotação completa) dura mais do que um ano venusiano (uma órbita completa ao redor do Sol)."
           }
         }
       }

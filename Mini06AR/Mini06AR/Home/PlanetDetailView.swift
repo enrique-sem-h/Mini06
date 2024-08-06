@@ -8,11 +8,27 @@
 import UIKit
 import SceneKit
 
+class PaddedLabel: UILabel {
+    var padding: UIEdgeInsets = .zero
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: padding.top, left: padding.left, bottom: padding.bottom, right: padding.right)
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        let width = size.width + padding.left + padding.right
+        let height = size.height + padding.top + padding.bottom
+        return CGSize(width: width, height: height)
+    }
+}
+
 class PlanetDetailView: UIView {
     var planet: Planet?
     
-    var planetNameLabel: UILabel!
-    var planetDescriptionLabel: UILabel!
+    var planetNameLabel: PaddedLabel!
+    var planetDescriptionLabels: [PaddedLabel] = []
     var planet3DView: SCNView!
     var stackView: UIStackView!
     var textBackgroundView: UIView!
@@ -51,93 +67,99 @@ class PlanetDetailView: UIView {
     }
     
     private func createUIElements() {
-        planetNameLabel = {
-            let label = UILabel()
-            label.text = planet?.name
-            label.font = UIFont.boldSystemFont(ofSize: 34)
-            label.textAlignment = .left
-            label.textColor = .label
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
+        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, fontWeight: .bold, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16))
         
-        let morseCodeLabel = UILabel()
-        morseCodeLabel.text = planet?.morseCode
-        morseCodeLabel.font = UIFont.systemFont(ofSize: 28)
-        morseCodeLabel.textAlignment = .left
-        morseCodeLabel.textColor = .label
-        morseCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16))
         
-        nameAndMorseStackView = {
-            let stackView = UIStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel])
-            stackView.axis = .horizontal
-            stackView.spacing = 30
-            stackView.alignment = .trailing
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            return stackView
-        }()
+        nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel], axis: .horizontal, spacing: 15)
         
-        planetDescriptionLabel = {
-            let descriptionLabel = UILabel()
-            descriptionLabel.text = planet?.descriptions["Descrição"]
-            descriptionLabel.font = UIFont.systemFont(ofSize: 18)
-            descriptionLabel.textAlignment = .left
-            descriptionLabel.numberOfLines = 0
-            descriptionLabel.textColor = .secondaryLabel
-            descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-            return descriptionLabel
-        }()
+        planetDescriptionLabels = createDescriptionLabels()
         
-        planet3DView = {
-            let sceneView = SCNView()
-            if let modelName = planet?.modelName {
-                let planet = loadPlanetModel(name: modelName)
-                sceneView.scene = planet
-            }
-            sceneView.autoenablesDefaultLighting = true
-            let cameraNode = SCNNode()
-            let camera = SCNCamera()
-            camera.usesOrthographicProjection = true
-            camera.orthographicScale = 1.0
-            cameraNode.camera = camera
-            cameraNode.position = SCNVector3(0, 0, 10)
-            sceneView.scene?.rootNode.addChildNode(cameraNode)
-            sceneView.allowsCameraControl = true
-            sceneView.cameraControlConfiguration.allowsTranslation = false
-            sceneView.backgroundColor = .clear
-            sceneView.translatesAutoresizingMaskIntoConstraints = false
-            return sceneView
-        }()
+        planet3DView = createPlanet3DView()
+        planetBackgroundView = createBackgroundView()
         
+        stackView = createStackView(arrangedSubviews: [nameAndMorseStackView] + planetDescriptionLabels, axis: .vertical, spacing: 40)
         
-        planetBackgroundView = {
-            let view = UIView()
-            view.backgroundColor = UIColor.systemGray6
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
-        
-        stackView = {
-            let stackView = UIStackView(arrangedSubviews: [nameAndMorseStackView, planetDescriptionLabel])
-            stackView.axis = .vertical
-            stackView.spacing = 10
-            stackView.alignment = .leading
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            return stackView
-        }()
-        
-        textBackgroundView = {
-            let view = UIView()
-            view.backgroundColor = UIColor.systemGray5
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
+        textBackgroundView = createBackgroundView(withAlpha: 0.5)
         
         setupViews()
     }
     
+    private func createPaddedLabel(text: String?, fontSize: CGFloat, fontWeight: UIFont.Weight = .regular, padding: UIEdgeInsets = .zero) -> PaddedLabel {
+        let label = PaddedLabel()
+        label.text = text
+        label.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        label.textAlignment = .left
+        label.textColor = .label
+        label.numberOfLines = 0 
+        label.lineBreakMode = .byWordWrapping // Ensure that the text wraps correctly
+        label.padding = padding
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+
+    
+    private func createStackView(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis, spacing: CGFloat) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        stackView.axis = axis
+        stackView.spacing = spacing
+        stackView.alignment = .leading
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }
+    
+    private func createDescriptionLabels() -> [PaddedLabel] {
+        return ["Description 1", "Description 2", "Description 3"].compactMap { descriptionKey in
+            guard let descriptionText = planet?.descriptions[descriptionKey] else { return nil }
+            let descriptionLabel = createPaddedLabel(text: descriptionText, fontSize: 24, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20))
+            descriptionLabel.numberOfLines = 0
+            descriptionLabel.layer.cornerRadius = 10
+            descriptionLabel.layer.masksToBounds = true
+            descriptionLabel.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.3)
+            return descriptionLabel
+        }
+    }
+    
+    private func createPlanet3DView() -> SCNView {
+        let sceneView = SCNView()
+        if let modelName = planet?.modelName {
+            let planetScene = loadPlanetModel(name: modelName)
+            sceneView.scene = planetScene
+        }
+        sceneView.autoenablesDefaultLighting = true
+        let cameraNode = SCNNode()
+        let camera = SCNCamera()
+        camera.usesOrthographicProjection = true
+        camera.orthographicScale = 1.0
+        cameraNode.camera = camera
+        cameraNode.position = SCNVector3(0, 0, 10)
+        sceneView.scene?.rootNode.addChildNode(cameraNode)
+        sceneView.allowsCameraControl = true
+        sceneView.cameraControlConfiguration.allowsTranslation = false
+        sceneView.backgroundColor = .clear
+        sceneView.translatesAutoresizingMaskIntoConstraints = false
+        sceneView.layer.cornerRadius = 15
+        sceneView.layer.masksToBounds = true
+        sceneView.layer.shadowColor = UIColor.black.cgColor
+        sceneView.layer.shadowOpacity = 0.25
+        sceneView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        sceneView.layer.shadowRadius = 5
+        return sceneView
+    }
+    
+    private func createBackgroundView(withAlpha alpha: CGFloat = 1.0) -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.systemGray6.withAlphaComponent(alpha)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 20
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 5
+        return view
+    }
+    
     private func setupViews() {
-        let screenWidth = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow })?.bounds.width ?? 0
         let navigationBarHeight: CGFloat = 90
         
         backgroundColor = .systemBackground
@@ -148,26 +170,25 @@ class PlanetDetailView: UIView {
         planetBackgroundView.addSubview(planet3DView)
         
         NSLayoutConstraint.activate([
-            textBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -screenWidth / 2),
-            textBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight),
-            textBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            textBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            textBackgroundView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -8),
+            textBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight + 16),
+            textBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: textBackgroundView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: textBackgroundView.trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight + 16),
+            stackView.topAnchor.constraint(equalTo: textBackgroundView.topAnchor, constant: 16),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: textBackgroundView.bottomAnchor, constant: -16),
             
-            planetBackgroundView.leadingAnchor.constraint(equalTo: textBackgroundView.trailingAnchor),
-            planetBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            planetBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight),
-            planetBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            planetBackgroundView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 8),
+            planetBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            planetBackgroundView.topAnchor.constraint(equalTo: topAnchor, constant: navigationBarHeight + 16),
+            planetBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
             planet3DView.centerXAnchor.constraint(equalTo: planetBackgroundView.centerXAnchor),
             planet3DView.centerYAnchor.constraint(equalTo: planetBackgroundView.centerYAnchor),
             planet3DView.heightAnchor.constraint(equalTo: planetBackgroundView.widthAnchor, multiplier: 0.5),
             planet3DView.widthAnchor.constraint(equalTo: planet3DView.heightAnchor),
-            
-
         ])
     }
 }
