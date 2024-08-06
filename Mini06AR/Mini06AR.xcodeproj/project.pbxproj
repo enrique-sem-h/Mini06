@@ -28,6 +28,8 @@
 		40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */; };
 		40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */; };
 		40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */; };
+		40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48172C62B59600D9D638 /* PaddedLabel.swift */; };
+		40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */; };
 		E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DA82C541417003F61E8 /* PassthroughView.swift */; };
 		E8264DAB2C54142E003F61E8 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAA2C54142E003F61E8 /* CustomARView.swift */; };
 		E8264DAD2C541532003F61E8 /* Extension+PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */; };
@@ -84,6 +86,8 @@
 		40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailCoordinator.swift; sourceTree = "<group>"; };
 		40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCoordinator.swift; sourceTree = "<group>"; };
+		40CF48172C62B59600D9D638 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCatalog.swift; sourceTree = "<group>"; };
 		E8264DA82C541417003F61E8 /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		E8264DAA2C54142E003F61E8 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PlanetARView.swift"; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			children = (
 				31AFE1CB2C4AFF5D0005DDDB /* PlanetDetailViewController.swift */,
 				31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */,
+				40CF48172C62B59600D9D638 /* PaddedLabel.swift */,
 			);
 			name = PlanetDetail;
 			path = Home;
@@ -244,6 +249,7 @@
 				40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */,
 				40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */,
 				2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */,
+				40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -444,6 +450,8 @@
 				E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
 				E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */,
+				40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */,
+				40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
 				409C02352C5582F90021D622 /* PlanetBoxView.swift in Sources */,
 				E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */,
