@@ -29,14 +29,30 @@ class ARHUDView: UIView {
     }
     
     private func setupHUD() {
+        
         detailsButton = {
             let detailsButton = UIButton(type: .system)
-            //            detailsButton.setTitle("Detalhes", for: .normal)
-            detailsButton.setImage(UIImage(systemName: "ellipsis.circle.fill"), for: .normal)
-            //            detailsButton.setTitleColor(.systemBlue, for: .normal)
+            detailsButton.setImage(UIImage(systemName: "arrowshape.right.fill"), for: .normal)
             detailsButton.tintColor = .white
             detailsButton.addTarget(arViewController, action: #selector(arViewController?.showPlanetDetail), for: .touchUpInside)
             detailsButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.isUserInteractionEnabled = false
+            blurEffectView.layer.cornerRadius = 15
+            blurEffectView.clipsToBounds = true
+            
+            blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+            detailsButton.insertSubview(blurEffectView, belowSubview: detailsButton.imageView!)
+            
+            NSLayoutConstraint.activate([
+                blurEffectView.leadingAnchor.constraint(equalTo: detailsButton.leadingAnchor, constant: -20),
+                blurEffectView.trailingAnchor.constraint(equalTo: detailsButton.trailingAnchor, constant: 20),
+                blurEffectView.topAnchor.constraint(equalTo: detailsButton.topAnchor, constant: -20),
+                blurEffectView.bottomAnchor.constraint(equalTo: detailsButton.bottomAnchor, constant: 20)
+            ])
+            
             return detailsButton
         }()
         
