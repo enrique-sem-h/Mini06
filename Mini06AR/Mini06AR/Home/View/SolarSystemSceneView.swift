@@ -139,22 +139,6 @@ class SolarSystemSceneView: SCNView {
         let saturnNode = addPlanet(name: "Saturn", radius: 2.0, distance: 36, modelName: "saturn")
         saturnOrbitNode.addChildNode(saturnNode)
         
-        let ringNode = SCNNode()
-        let ring = SCNCylinder(radius: 5.0, height: 0.31)
-        
-        let ringMaterial = SCNMaterial()
-        ringMaterial.diffuse.contents = UIImage(named: "saturn_ring_texture")
-        ringMaterial.diffuse.wrapS = .repeat
-        ringMaterial.diffuse.wrapT = .repeat
-        
-        let rotationMatrix = SCNMatrix4MakeRotation(Float.pi / 2, 0, 0, 1)
-        ringMaterial.diffuse.contentsTransform = rotationMatrix
-        
-        ring.materials = [ringMaterial]
-        ringNode.geometry = ring
-        ringNode.position = SCNVector3(0, 0, 0)
-        saturnNode.addChildNode(ringNode)
-        
         scene.rootNode.addChildNode(saturnOrbitNode)
         
         let saturnRotation = CABasicAnimation(keyPath: "rotation")
