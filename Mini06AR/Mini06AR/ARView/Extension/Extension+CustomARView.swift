@@ -89,7 +89,7 @@ extension CustomARView {
         // Reset the translation to zero for incremental updates
         recognizer.setTranslation(.zero, in: self)
     }
-
+    
     
     @objc private func handlePlanetARTap(recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: self)
