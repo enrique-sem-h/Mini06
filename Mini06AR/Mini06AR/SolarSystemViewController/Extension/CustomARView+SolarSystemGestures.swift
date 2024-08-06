@@ -21,16 +21,18 @@ extension CustomARView {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSolarSystemPanGesture))
         self.addGestureRecognizer(panGestureRecognizer)
         
-        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetScale))
-        doubleTap.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTap)
+        let doubleTapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleResetScale))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTapGestureRecognizer)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSolarSystemTap))
-        tapGestureRecognizer.require(toFail: doubleTap)
+        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
         self.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc private func resetScale() {
+    @objc private func handleResetScale() {
+        guard !self.scene.anchors.isEmpty else { return }
+        
         arViewDelegate?.toggleAnimations()
         if let originalSunScale = Self.originalPlanetScale[SolarSystemARView.sunModel],let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
             sun.scale = originalSunScale
