@@ -19,6 +19,7 @@ class HomeView: UIView {
     private var settingsButton: UIButton!
     private var pauseButton: UIButton!
     private var arButton: UIButton!
+    var informationButton: UIButton!
     private var areSettingsButtonsVisible = false
     
     private var planetBoxViewLeadingHiddenConstraint: NSLayoutConstraint!
@@ -51,6 +52,7 @@ class HomeView: UIView {
         setupSettingsButton()
         setupPauseButton()
         setupARButton()
+        SetupinformationsButton()
         
         planetBoxViewLeadingHiddenConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -250)
         planetBoxViewLeadingVisibleConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
@@ -105,6 +107,25 @@ class HomeView: UIView {
         ])
         
         settingsButton.addTarget(self, action: #selector(toggleSettingsButtons), for: .touchUpInside)
+    }
+    
+    private func SetupinformationsButton() {
+        informationButton = UIButton(type: .system)
+        let infoImage = UIImage(systemName: "info.circle")
+        informationButton.setImage(infoImage, for: .normal)
+        informationButton.tintColor = .white
+        
+        informationButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(informationButton)
+        
+        NSLayoutConstraint.activate([
+            informationButton.widthAnchor.constraint(equalToConstant: 40),
+            informationButton.heightAnchor.constraint(equalToConstant: 40),
+            informationButton.topAnchor.constraint(equalTo: pauseButton.topAnchor, constant: 40),
+            informationButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+        ])
+        
+        informationButton.isHidden = true
     }
     
     private func setupPauseButton() {
@@ -196,6 +217,10 @@ class HomeView: UIView {
             self.pauseButton.alpha = alpha
             self.pauseButton.transform = transform
             self.pauseButton.isHidden = !self.areSettingsButtonsVisible
+            
+            self.informationButton.alpha = alpha
+            self.informationButton.transform = transform
+            self.informationButton.isHidden = !self.areSettingsButtonsVisible
         }
     }
     
