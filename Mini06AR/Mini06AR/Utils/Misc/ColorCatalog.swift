@@ -7,76 +7,143 @@
 
 import UIKit
 
+// Extensão para criar uma cor a partir de um valor hexadecimal
+extension UIColor {
+    convenience init(hex: String) {
+        let hex = hex.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "#", with: "")
+        var int = UInt64()
+        Scanner(string: hex).scanHexInt64(&int)
+        
+        let red = CGFloat((int >> 16) & 0xFF) / 255.0
+        let green = CGFloat((int >> 8) & 0xFF) / 255.0
+        let blue = CGFloat(int & 0xFF) / 255.0
+        
+        self.init(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+}
+
 // Estrutura para armazenar cores com valores hexadecimais
 struct ColorCatalog {
 
+    // Valores Hexadecimais
+    struct HexValues {
+        static let blue = "#304B7A"
+        static let yellow = "#DBA451"
+        static let orange = "#E06136"
+        static let red = "#C82238"
+        static let white = "#F4F5F7"
+        static let black = "#191919"
+        
+        static let mercury = "#666666"
+        static let venus = "#F3E3B5"
+        static let earth = "#A3B8D3"
+        static let mars = "#E8A3A3"
+        static let jupiter = "#F3C8A5"
+        static let saturn = "#FCEDD4"
+        static let uranus = "#B5D4E3"
+        static let neptune = "#8DADFF"
+        static let moon = "#BBBBBB"
+        static let sun = "#FFDE80"
+        
+        static let mercuryText = "#FFFFFF"
+        static let venusText = "#B0411C"
+        static let earthText = "#FFFFFF"
+        static let marsText = "#FFFFFF"
+        static let jupiterText = "#923517"
+        static let saturnText = "#B9441D"
+        static let uranusText = "#2F3979"
+        static let neptuneText = "#1A1A1A"
+        static let moonText = "#2F3979"
+        static let sunText = "#2F3979"
+        
+        static let mercuryDescText = "#FFFFFF"
+        static let venusDescText = "#304B7A"
+        static let earthDescText = "#FFFFFF"
+        static let marsDescText = "#FFFFFF"
+        static let jupiterDescText = "#471A0B"
+        static let saturnDescText = "#6E2811"
+        static let uranusDescText = "#000000"
+        static let neptuneDescText = "#000000"
+        static let moonDescText = "#000000"
+        static let sunDescText = "#000000"
+        
+        static let mercuryTextBackground = "#333333"
+        static let venusTextBackground = "#FFDE81"
+        static let earthTextBackground = "#233955"
+        static let marsTextBackground = "#BB4F4F"
+        static let jupiterTextBackground = "#EBA165"
+        static let saturnTextBackground = "#FFDEA6"
+        static let uranusTextBackground = "#71ABC7"
+        static let neptuneTextBackground = "#5D72A8"
+        static let moonTextBackground = "#888888"
+        static let sunTextBackground = "#FFCB37"
+    }
+
     // Cores Básicas
-    static let blue = UIColor(hex: "#304B7A")
-    static let yellow = UIColor(hex: "#DBA451")
-    static let orange = UIColor(hex: "#E06136")
-    static let red = UIColor(hex: "#C82238")
-    static let white = UIColor(hex: "#F4F5F7")
-    static let black = UIColor(hex: "191919")
+    static let blue = UIColor(hex: HexValues.blue)
+    static let yellow = UIColor(hex: HexValues.yellow)
+    static let orange = UIColor(hex: HexValues.orange)
+    static let red = UIColor(hex: HexValues.red)
+    static let white = UIColor(hex: HexValues.white)
+    static let black = UIColor(hex: HexValues.black)
 
     // Cores Pastel para Planetas
     static let planetaryColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#666666"),
-        "Venus": UIColor(hex: "#F3E3B5"),
-        "Earth": UIColor(hex: "#A3B8D3"),
-        "Mars": UIColor(hex: "#E8A3A3"),
-        "Jupiter": UIColor(hex: "#F3C8A5"),
-        "Saturn": UIColor(hex: "#FCEDD4"),
-        "Uranus": UIColor(hex: "#B5D4E3"),
-        "Neptune": UIColor(hex: "#8DADFF"),
-        "Moon" : UIColor(hex: "BBBBBB"),
-        "Sun" : UIColor(hex: "FFDE80")
+        "Mercury": UIColor(hex: HexValues.mercury),
+        "Venus": UIColor(hex: HexValues.venus),
+        "Earth": UIColor(hex: HexValues.earth),
+        "Mars": UIColor(hex: HexValues.mars),
+        "Jupiter": UIColor(hex: HexValues.jupiter),
+        "Saturn": UIColor(hex: HexValues.saturn),
+        "Uranus": UIColor(hex: HexValues.uranus),
+        "Neptune": UIColor(hex: HexValues.neptune),
+        "Moon" : UIColor(hex: HexValues.moon),
+        "Sun" : UIColor(hex: HexValues.sun)
     ]
 
     // Cores para o texto dos planetas
     static let textColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#FFFFFF"),
-        "Venus": UIColor(hex: "#B0411C"),
-        "Earth": UIColor(hex: "#FFFFFF"),
-        "Mars": UIColor(hex: "#FFFFFF"),
-        "Jupiter": UIColor(hex: "#923517"),
-        "Saturn": UIColor(hex: "#B9441D"),
-        "Uranus": UIColor(hex: "#2F3979"),
-        "Neptune": UIColor(hex: "#1A1A1A"),
-        "Moon" : UIColor(hex: "2F3979"),
-        "Sun" : UIColor(hex: "2F3979")
-
+        "Mercury": UIColor(hex: HexValues.mercuryText),
+        "Venus": UIColor(hex: HexValues.venusText),
+        "Earth": UIColor(hex: HexValues.earthText),
+        "Mars": UIColor(hex: HexValues.marsText),
+        "Jupiter": UIColor(hex: HexValues.jupiterText),
+        "Saturn": UIColor(hex: HexValues.saturnText),
+        "Uranus": UIColor(hex: HexValues.uranusText),
+        "Neptune": UIColor(hex: HexValues.neptuneText),
+        "Moon" : UIColor(hex: HexValues.moonText),
+        "Sun" : UIColor(hex: HexValues.sunText)
     ]
 
     // Cores para o texto das descrições dos planetas
     static let descriptionTextColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#FFFFFF"),
-        "Venus": UIColor(hex: "#304B7A"),
-        "Earth": UIColor(hex: "#FFFFFF"),
-        "Mars": UIColor(hex: "#FFFFFF"),
-        "Jupiter": UIColor(hex: "#471A0B"),
-        "Saturn": UIColor(hex: "#6E2811"),
-        "Uranus": UIColor(hex: "#000000"),
-        "Neptune": UIColor(hex: "#000000"),
-        "Moon" : UIColor(hex: "000000"),
-        "Sun" : UIColor(hex: "000000")
-
+        "Mercury": UIColor(hex: HexValues.mercuryDescText),
+        "Venus": UIColor(hex: HexValues.venusDescText),
+        "Earth": UIColor(hex: HexValues.earthDescText),
+        "Mars": UIColor(hex: HexValues.marsDescText),
+        "Jupiter": UIColor(hex: HexValues.jupiterDescText),
+        "Saturn": UIColor(hex: HexValues.saturnDescText),
+        "Uranus": UIColor(hex: HexValues.uranusDescText),
+        "Neptune": UIColor(hex: HexValues.neptuneDescText),
+        "Moon" : UIColor(hex: HexValues.moonDescText),
+        "Sun" : UIColor(hex: HexValues.sunDescText)
     ]
 
     // Cores de fundo para o texto dos planetas
     static let textBackgroundColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#333333"),
-        "Venus": UIColor(hex: "#FFDE81"),
-        "Earth": UIColor(hex: "#233955"),
-        "Mars": UIColor(hex: "#BB4F4F"),
-        "Jupiter": UIColor(hex: "#EBA165"),
-        "Saturn": UIColor(hex: "#FFDEA6"),
-        "Uranus": UIColor(hex: "#71ABC7"),
-        "Neptune": UIColor(hex: "#5D72A8"),
-        "Moon" : UIColor(hex: "#888888"),
-        "Sun" : UIColor(hex: "#FFCB37")
+        "Mercury": UIColor(hex: HexValues.mercuryTextBackground),
+        "Venus": UIColor(hex: HexValues.venusTextBackground),
+        "Earth": UIColor(hex: HexValues.earthTextBackground),
+        "Mars": UIColor(hex: HexValues.marsTextBackground),
+        "Jupiter": UIColor(hex: HexValues.jupiterTextBackground),
+        "Saturn": UIColor(hex: HexValues.saturnTextBackground),
+        "Uranus": UIColor(hex: HexValues.uranusTextBackground),
+        "Neptune": UIColor(hex: HexValues.neptuneTextBackground),
+        "Moon" : UIColor(hex: HexValues.moonTextBackground),
+        "Sun" : UIColor(hex: HexValues.sunTextBackground)
     ]
 
-    // Método para obter a cor de fundo com base no nome do corpo celeste
+    // Métodos para obter cores com base no nome do corpo celeste
     static func getBackgroundColor(for celestialBody: String) -> UIColor {
         return planetaryColors[celestialBody] ?? .white
     }
@@ -91,20 +158,5 @@ struct ColorCatalog {
 
     static func getTextBackgroundColor(for celestialBody: String) -> UIColor {
         return textBackgroundColors[celestialBody] ?? .white
-    }
-}
-
-// Extensão para criar uma cor a partir de um valor hexadecimal
-extension UIColor {
-    convenience init(hex: String) {
-        let hex = hex.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "#", with: "")
-        var int = UInt64()
-        Scanner(string: hex).scanHexInt64(&int)
-        
-        let red = CGFloat((int >> 16) & 0xFF) / 255.0
-        let green = CGFloat((int >> 8) & 0xFF) / 255.0
-        let blue = CGFloat(int & 0xFF) / 255.0
-        
-        self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
