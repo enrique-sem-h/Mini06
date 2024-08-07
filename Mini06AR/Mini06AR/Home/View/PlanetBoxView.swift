@@ -12,7 +12,7 @@ import UIKit
  */
 class PlanetBoxView: UIView {
     
-    /// Closure que é chamada quando um botão de planeta é pressionado, exibindo a visualização de AR para o planeta selecionado.
+    /// Closure que é chamada quando um botão de planeta é pressionado, exibindo o conteúdo de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
     
     /// Lista de planetas a serem exibidos na caixa de seleção.
@@ -71,16 +71,17 @@ class PlanetBoxView: UIView {
         
         let buttonHeight: CGFloat = 40
         let buttonSpacing: CGFloat = 15
-        let topPadding: CGFloat = 20 
+        let topPadding: CGFloat = 20
         
         for (index, name) in planetNames.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(name, for: .normal)
             button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 18)
             button.tag = index
             
             button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-            button.layer.cornerRadius = 8 // Diminuído o raio do canto
+            button.layer.cornerRadius = 8 
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
             button.clipsToBounds = true

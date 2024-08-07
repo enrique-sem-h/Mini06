@@ -28,6 +28,12 @@
 		40C555A92C4D5B0800CBD100 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */; };
 		40C555AB2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */; };
 		40C555AF2C4D5DBB00CBD100 /* ARCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */; };
+		40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48172C62B59600D9D638 /* PaddedLabel.swift */; };
+		40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */; };
+		40CF481E2C6305C900D9D638 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF481D2C6305C900D9D638 /* FontManager.swift */; };
+		40CF48302C6308AF00D9D638 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */; };
+		40CF48392C6308C600D9D638 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */; };
+		40CF483D2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */; };
 		E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DA82C541417003F61E8 /* PassthroughView.swift */; };
 		E8264DAB2C54142E003F61E8 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAA2C54142E003F61E8 /* CustomARView.swift */; };
 		E8264DAD2C541532003F61E8 /* Extension+PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */; };
@@ -84,6 +90,12 @@
 		40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailCoordinator.swift; sourceTree = "<group>"; };
 		40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCoordinator.swift; sourceTree = "<group>"; };
+		40CF48172C62B59600D9D638 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCatalog.swift; sourceTree = "<group>"; };
+		40CF481D2C6305C900D9D638 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		E8264DA82C541417003F61E8 /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		E8264DAA2C54142E003F61E8 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PlanetARView.swift"; sourceTree = "<group>"; };
@@ -172,6 +184,7 @@
 			children = (
 				31AFE1CB2C4AFF5D0005DDDB /* PlanetDetailViewController.swift */,
 				31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */,
+				40CF48172C62B59600D9D638 /* PaddedLabel.swift */,
 			);
 			name = PlanetDetail;
 			path = Home;
@@ -239,13 +252,42 @@
 		40C555A52C4D5AF100CBD100 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				40CF481C2C6304E200D9D638 /* Misc */,
+				40CF481B2C63044E00D9D638 /* Coordinator_Utils */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		40CF481B2C63044E00D9D638 /* Coordinator_Utils */ = {
+			isa = PBXGroup;
+			children = (
 				40C555A62C4D5AFE00CBD100 /* Coordinator.swift */,
 				40C555A82C4D5B0800CBD100 /* MainCoordinator.swift */,
 				40C555AA2C4D5B3B00CBD100 /* PlanetDetailCoordinator.swift */,
 				40C555AE2C4D5DBB00CBD100 /* ARCoordinator.swift */,
-				2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */,
 			);
-			path = Utils;
+			path = Coordinator_Utils;
+			sourceTree = "<group>";
+		};
+		40CF481C2C6304E200D9D638 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				40CF481F2C6305FB00D9D638 /* Font */,
+				40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */,
+				2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */,
+				40CF481D2C6305C900D9D638 /* FontManager.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		40CF481F2C6305FB00D9D638 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */,
+				40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */,
+				40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		E8264DB32C541EA9003F61E8 /* ViewController */ = {
@@ -411,14 +453,17 @@
 				E8264DEF2C5971A5003F61E8 /* neptune.usdz in Resources */,
 				E8264DF82C5971A5003F61E8 /* uranus.usdz in Resources */,
 				E8264DF52C5971A5003F61E8 /* jupiter.usdz in Resources */,
+				40CF48302C6308AF00D9D638 /* IBMPlexSans-Bold.ttf in Resources */,
 				E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */,
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
+				40CF483D2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf in Resources */,
 				E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */,
 				2E18BFDB2C5C0255002E6FBB /* Localizable.xcstrings in Resources */,
 				31AFE1C32C4AFD220005DDDB /* Base in Resources */,
 				E8264DF42C5971A5003F61E8 /* saturn.usdz in Resources */,
 				E8264DF32C5971A5003F61E8 /* moon.usdz in Resources */,
 				E8264DF12C5971A5003F61E8 /* venus.usdz in Resources */,
+				40CF48392C6308C600D9D638 /* IBMPlexSans-Regular.ttf in Resources */,
 				E8264DF62C5971A5003F61E8 /* earth.usdz in Resources */,
 				E8264DF72C5971A5003F61E8 /* mars.usdz in Resources */,
 			);
@@ -444,8 +489,11 @@
 				E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
 				E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */,
+				40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */,
+				40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */,
 				31AFE1D72C4B00270005DDDB /* SolarSystemViewController.swift in Sources */,
 				409C02352C5582F90021D622 /* PlanetBoxView.swift in Sources */,
+				40CF481E2C6305C900D9D638 /* FontManager.swift in Sources */,
 				E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */,
 				31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */,
 				31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */,
@@ -633,8 +681,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,8 +712,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
