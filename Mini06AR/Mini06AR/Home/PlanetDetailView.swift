@@ -51,9 +51,11 @@ class PlanetDetailView: UIView {
     }
 
     private func createUIElements() {
-        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, fontWeight: .bold, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: planet?.name ?? ""))
+        let celestialName = planet?.name ?? ""
         
-        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: planet?.name ?? ""))
+        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, fontWeight: .bold, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+        
+        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
         nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel], axis: .horizontal, spacing: 15)
         
@@ -92,9 +94,10 @@ class PlanetDetailView: UIView {
     }
 
     private func createDescriptionLabels() -> [PaddedLabel] {
+        let celestialName = planet?.name ?? ""
         return ["Description 1", "Description 2", "Description 3"].compactMap { descriptionKey in
             guard let descriptionText = planet?.descriptions[descriptionKey] else { return nil }
-            let descriptionLabel = createPaddedLabel(text: descriptionText, fontSize: 24, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.white)
+            let descriptionLabel = createPaddedLabel(text: descriptionText, fontSize: 24, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
             descriptionLabel.numberOfLines = 0
             descriptionLabel.layer.cornerRadius = 10
             descriptionLabel.layer.masksToBounds = true
