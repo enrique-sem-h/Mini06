@@ -27,17 +27,22 @@ class BottomSheetViewController: UIViewController {
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
-        explorarAttachment.image = UIImage(named: "explorarImage") // Substitua pelo nome da imagem correta
-        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30) // Ajuste os bounds conforme necessário
+        explorarAttachment.image = UIImage(named: "explore_Image") // Substitua pelo nome da imagem correta
+        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 70, height: 30) // Ajuste os bounds conforme necessário
         
         // Texto entre as imagens
         let text2 = " se quiser olhar planetas e astros de maneira individual ou clique no botão "
         
         // Imagem "RA"
         let raAttachment = NSTextAttachment()
-        raAttachment.image = UIImage(named: "raImage") // Substitua pelo nome da imagem correta
+        if let image = UIImage(systemName: "arkit")?.withRenderingMode(.alwaysTemplate) {
+            raAttachment.image = image
+            raAttachment.image = raAttachment.image?.withTintColor(ColorCatalog.white)
+        } else {
+            print("Erro ao carregar a imagem 'arkit'")
+        }
+
         raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30) // Ajuste os bounds conforme necessário
-        
         // Texto após a última imagem
         let text3 = " para ver em Realidade Aumentada somente o sistema solar."
         
@@ -59,8 +64,8 @@ class BottomSheetViewController: UIViewController {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
         ])
     }
 

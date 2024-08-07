@@ -28,7 +28,6 @@ class PlanetBoxView: UIView {
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
         super.init(frame: frame)
-        setupGlassmorphismBox()
         setupPlanetSelectionButtons()
     }
     
@@ -41,77 +40,47 @@ class PlanetBoxView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /**
-     Configura a aparência de Glassmorphism da caixa.
-     */
-    private func setupGlassmorphismBox() {
-        self.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        self.layer.cornerRadius = 15
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
-        self.clipsToBounds = true
-        
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.bounds
-        blurEffectView.isUserInteractionEnabled = false
-        blurEffectView.layer.cornerRadius = 15
-        blurEffectView.clipsToBounds = true
-        self.addSubview(blurEffectView)
-    }
+   
     
     /**
      Configura os botões de seleção de planetas dentro da caixa.
      */
     private func setupPlanetSelectionButtons() {
-        let planetNames = planets.map { $0.name }
-        
-        // Remove qualquer botão existente antes de adicionar novos botões
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
         let buttonHeight: CGFloat = 40
         let buttonSpacing: CGFloat = 15
         let topPadding: CGFloat = 20
         
-        for (index, name) in planetNames.enumerated() {
+        guard let buttonBackgroundImage = UIImage(named: "button_image") else {
+            print("Failed to load the button background image")
+            return
+        }
+        
+        for (index, planet) in planets.enumerated() {
             let button = UIButton(type: .system)
-            button.setTitle(name, for: .normal)
+            button.setTitle(planet.name, for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 18)
             button.tag = index
             
-            button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-            button.layer.cornerRadius = 8 
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
+            button.setBackgroundImage(buttonBackgroundImage, for: .normal)
+            button.layer.cornerRadius = buttonHeight / 2
             button.clipsToBounds = true
-            
-            let blurEffect = UIBlurEffect(style: .light)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = button.bounds
-            blurEffectView.isUserInteractionEnabled = false
-            blurEffectView.layer.cornerRadius = 8
-            blurEffectView.clipsToBounds = true
-            button.insertSubview(blurEffectView, at: 0)
             
             button.addTarget(self, action: #selector(planetButtonTapped(_:)), for: .touchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(button)
             
             NSLayoutConstraint.activate([
-                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                button.heightAnchor.constraint(equalToConstant: buttonHeight)
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+                button.heightAnchor.constraint(equalToConstant: buttonHeight),
+                button.topAnchor.constraint(equalTo: self.topAnchor, constant: topPadding + CGFloat(index) * (buttonHeight + buttonSpacing))
             ])
-            
-            if index == 0 {
-                button.topAnchor.constraint(equalTo: self.topAnchor, constant: topPadding).isActive = true
-            } else {
-                let previousButton = self.subviews.filter { $0 is UIButton }[index - 1] as! UIButton
-                button.topAnchor.constraint(equalTo: previousButton.bottomAnchor, constant: buttonSpacing).isActive = true
-            }
         }
     }
+
     
     /**
      Método chamado quando um botão de planeta é pressionado.
