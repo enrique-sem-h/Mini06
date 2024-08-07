@@ -77,11 +77,11 @@ class PlanetBoxView: UIView {
             let button = UIButton(type: .system)
             button.setTitle(name, for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont(name: "IBMPlexSans-Medium", size: 16) // Ajuste para a fonte Medium
+            button.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 18)
             button.tag = index
             
             button.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-            button.layer.cornerRadius = 8 // Diminuído o raio do canto
+            button.layer.cornerRadius = 8 
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
             button.clipsToBounds = true
