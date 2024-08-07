@@ -15,4 +15,8 @@ extension SolarSystemARView: CustomARViewDelegate {
         isPlayingAnimation = true
         updateAnimationButtonTitle()
     }
+    
+    func toggleAnimations() {
+        togglePlanetAnimations()
+    }
 }

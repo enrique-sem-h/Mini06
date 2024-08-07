@@ -124,7 +124,7 @@ class SolarSystemARView: UIView {
             animationButton.trailingAnchor.constraint(equalTo: arView.trailingAnchor, constant: -40)
         ])
     }
-    @objc private func togglePlanetAnimations() {
+    @objc func togglePlanetAnimations() {
         guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
         for (n, p) in SolarSystem.solarSystemPlanets.enumerated() {
             if let e = arView.scene.findEntity(named: p.modelName) {
