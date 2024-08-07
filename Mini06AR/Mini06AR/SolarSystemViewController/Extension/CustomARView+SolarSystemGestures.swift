@@ -34,11 +34,13 @@ extension CustomARView {
         guard !self.scene.anchors.isEmpty else { return }
         
         arViewDelegate?.toggleAnimations()
-        if let originalSunScale = Self.originalPlanetScale[SolarSystemARView.sunModel],let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
+        if let originalSunScale = Self.originalPlanetScale[SolarSystemARView.sunModel],
+           let sun = self.scene.findEntity(named: SolarSystemARView.sunModel) {
             sun.scale = originalSunScale
         }
         for planet in SolarSystem.solarSystemPlanets.map({ $0.modelName }) {
-            if let planetScale = Self.originalPlanetScale[planet], let planetModel = self.scene.findEntity(named: planet) {
+            if let planetScale = Self.originalPlanetScale[planet],
+                let planetModel = self.scene.findEntity(named: planet) {
                 planetModel.scale = planetScale
             }
         }

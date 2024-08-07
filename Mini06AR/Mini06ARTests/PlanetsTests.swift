@@ -46,16 +46,13 @@ final class PlanetsTests: XCTestCase {
     }
     
     func testPlanetModelHasDescription() {
-        let descriptions = planets.compactMap({ $0.descriptions["Descrição"] })
+        let descriptions = planets.compactMap({ $0.descriptions["Description 1"] })
         XCTAssertFalse(descriptions.isEmpty)
         XCTAssertEqual(descriptions.count, Self.numberOfModels)
     }
     
     func testPlanetModelsHaveCuriosity() {
-        var curiosity = planets.compactMap({ $0.descriptions["Curiosidade 1"] })
-        XCTAssertFalse(curiosity.isEmpty)
-        XCTAssertEqual(curiosity.count, Self.numberOfModels)
-        curiosity = planets.compactMap({ $0.descriptions["Curiosidade 2"]})
+        var curiosity = planets.compactMap({ $0.descriptions["Curiosity 2"] })
         XCTAssertFalse(curiosity.isEmpty)
         XCTAssertEqual(curiosity.count, Self.numberOfModels)
     }

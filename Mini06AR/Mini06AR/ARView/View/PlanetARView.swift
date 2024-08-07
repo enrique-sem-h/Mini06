@@ -108,7 +108,7 @@ class PlanetARView: UIView {
         infoView.translatesAutoresizingMaskIntoConstraints = false
         infoView.backgroundColor = .white
         infoView.layer.cornerRadius = 8.0
-        textLabel.text = (viewController?.planet?.descriptions["Curiosidade 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosidade 2"] ?? "")
+        textLabel.text = (viewController?.planet?.descriptions["Curiosity 1"] ?? "") + "\n" + (viewController?.planet?.descriptions["Curiosity 2"] ?? "")
         textLabel.textColor = .darkText
         textLabel.numberOfLines = 0
         textLabel.translatesAutoresizingMaskIntoConstraints = false
