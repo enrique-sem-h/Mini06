@@ -67,6 +67,7 @@ class HomeView: UIView {
         toggleButton = UIButton(type: .system)
         toggleButton.setTitle("Explore", for: .normal)
         toggleButton.tintColor = .white
+        toggleButton.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 16)
         
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(toggleButton)
