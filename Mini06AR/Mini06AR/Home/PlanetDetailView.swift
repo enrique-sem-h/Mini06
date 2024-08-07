@@ -58,10 +58,12 @@ class PlanetDetailView: UIView {
     }
 
     private func setupBackgroundViews() {
+        let celestialName = planet?.name ?? ""
         planetBackgroundView = createBackgroundView(backgroundColor: ColorCatalog.black)
-        textBackgroundView = createBackgroundView(withAlpha: 0.5, backgroundColor: ColorCatalog.yellow)
+        textBackgroundView = createBackgroundView(
+            backgroundColor: ColorCatalog.getTextBackgroundColor(for: celestialName)
+        )
     }
-
     private func setupConstraints() {
         let navigationBarHeight: CGFloat = 90
         

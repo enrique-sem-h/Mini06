@@ -11,58 +11,70 @@ import UIKit
 struct ColorCatalog {
 
     // Cores Básicas
-    static let blue = UIColor(hex: "#304B7A") // Azul
-    static let yellow = UIColor(hex: "#DBA451") // Amarelo
-    static let orange = UIColor(hex: "#E06136") // Laranja
-    static let red = UIColor(hex: "#C82238") // Vermelho
-    static let white = UIColor(hex: "#F4F5F7") // Branco
-    static let black = UIColor(hex: "191919") // Preto
+    static let blue = UIColor(hex: "#304B7A")
+    static let yellow = UIColor(hex: "#DBA451")
+    static let orange = UIColor(hex: "#E06136")
+    static let red = UIColor(hex: "#C82238")
+    static let white = UIColor(hex: "#F4F5F7")
+    static let black = UIColor(hex: "191919")
 
     // Cores Pastel para Planetas
     static let planetaryColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#A3A3A3"), // Cinza Pastel
-        "Venus": UIColor(hex: "#F3E3B5"), // Amarelo Pastel
-        "Earth": UIColor(hex: "#A3B8D3"), // Azul Pastel
-        "Mars": UIColor(hex: "#E8A3A3"), // Vermelho Pastel
-        "Jupiter": UIColor(hex: "#F3C8A5"), // Laranja Pastel
-        "Saturn": UIColor(hex: "#F4D4A2"), // Mistura de Laranja e Amarelo Pastel
-        "Uranus": UIColor(hex: "#B5D4E3"), // Azul Claro Pastel
-        "Neptune": UIColor(hex: "#A3A3D3") // Azul Escuro Pastel
+        "Mercury": UIColor(hex: "#666666"),
+        "Venus": UIColor(hex: "#F3E3B5"),
+        "Earth": UIColor(hex: "#A3B8D3"),
+        "Mars": UIColor(hex: "#E8A3A3"),
+        "Jupiter": UIColor(hex: "#F3C8A5"),
+        "Saturn": UIColor(hex: "#FCEDD4"),
+        "Uranus": UIColor(hex: "#B5D4E3"),
+        "Neptune": UIColor(hex: "#8DADFF"),
+        "Moon" : UIColor(hex: "BBBBBB"),
+        "Sun" : UIColor(hex: "FFDE80")
     ]
 
     // Cores para o texto dos planetas
     static let textColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#333333"), // Cinza Escuro
-        "Venus": UIColor(hex: "#666666"), // Cinza Médio
-        "Earth": UIColor(hex: "#000000"), // Preto
-        "Mars": UIColor(hex: "#4D4D4D"), // Cinza Escuro
-        "Jupiter": UIColor(hex: "#3D3D3D"), // Cinza Médio
-        "Saturn": UIColor(hex: "#4C4C4C"), // Cinza Escuro
-        "Uranus": UIColor(hex: "#2C2C2C"), // Preto
-        "Neptune": UIColor(hex: "#1A1A1A") // Preto
+        "Mercury": UIColor(hex: "#FFFFFF"),
+        "Venus": UIColor(hex: "#B0411C"),
+        "Earth": UIColor(hex: "#FFFFFF"),
+        "Mars": UIColor(hex: "#FFFFFF"),
+        "Jupiter": UIColor(hex: "#923517"),
+        "Saturn": UIColor(hex: "#B9441D"),
+        "Uranus": UIColor(hex: "#2F3979"),
+        "Neptune": UIColor(hex: "#1A1A1A"),
+        "Moon" : UIColor(hex: "2F3979"),
+        "Sun" : UIColor(hex: "2F3979")
+
     ]
 
     // Cores para o texto das descrições dos planetas
     static let descriptionTextColors: [String: UIColor] = [
-        "Mercury": UIColor(hex: "#595959"), // Cinza Médio
-        "Venus": UIColor(hex: "#7A7A7A"), // Cinza Claro
-        "Earth": UIColor(hex: "#333333"), // Cinza Escuro
-        "Mars": UIColor(hex: "#6E6E6E"), // Cinza Médio
-        "Jupiter": UIColor(hex: "#4A4A4A"), // Cinza Escuro
-        "Saturn": UIColor(hex: "#6B6B6B"), // Cinza Médio
-        "Uranus": UIColor(hex: "#4D4D4D"), // Cinza Escuro
-        "Neptune": UIColor(hex: "#3A3A3A") // Cinza Escuro
+        "Mercury": UIColor(hex: "#FFFFFF"),
+        "Venus": UIColor(hex: "#304B7A"),
+        "Earth": UIColor(hex: "#FFFFFF"),
+        "Mars": UIColor(hex: "#FFFFFF"),
+        "Jupiter": UIColor(hex: "#471A0B"),
+        "Saturn": UIColor(hex: "#6E2811"),
+        "Uranus": UIColor(hex: "#000000"),
+        "Neptune": UIColor(hex: "#000000"),
+        "Moon" : UIColor(hex: "000000"),
+        "Sun" : UIColor(hex: "000000")
+
     ]
 
-    // Cores Pastel para Sol e Lua
-    static let pastelSun = UIColor(hex: "#F7D9A2") // Amarelo Pastel Claro
-    static let pastelMoon = UIColor(hex: "#D3D3D3") // Cinza Pastel
-    static let textSun = UIColor(hex: "#2C2C2C") // Preto
-    static let textMoon = UIColor(hex: "#4A4A4A") // Cinza Escuro
-
-    // Cores para o texto das descrições do Sol e da Lua
-    static let descriptionTextSun = UIColor(hex: "#4A4A4A") // Laranja Claro
-    static let descriptionTextMoon = UIColor(hex: "#6E6E6E") // Cinza Médio
+    // Cores de fundo para o texto dos planetas
+    static let textBackgroundColors: [String: UIColor] = [
+        "Mercury": UIColor(hex: "#333333"),
+        "Venus": UIColor(hex: "#FFDE81"),
+        "Earth": UIColor(hex: "#233955"),
+        "Mars": UIColor(hex: "#BB4F4F"),
+        "Jupiter": UIColor(hex: "#EBA165"),
+        "Saturn": UIColor(hex: "#FFDEA6"),
+        "Uranus": UIColor(hex: "#71ABC7"),
+        "Neptune": UIColor(hex: "#5D72A8"),
+        "Moon" : UIColor(hex: "#888888"),
+        "Sun" : UIColor(hex: "#FFCB37")
+    ]
 
     // Método para obter a cor de fundo com base no nome do corpo celeste
     static func getBackgroundColor(for celestialBody: String) -> UIColor {
@@ -75,6 +87,10 @@ struct ColorCatalog {
     
     static func getDescriptionTextColor(for celestialBody: String) -> UIColor {
         return descriptionTextColors[celestialBody] ?? .black
+    }
+
+    static func getTextBackgroundColor(for celestialBody: String) -> UIColor {
+        return textBackgroundColors[celestialBody] ?? .white
     }
 }
 
