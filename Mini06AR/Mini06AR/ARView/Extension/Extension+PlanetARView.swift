@@ -36,7 +36,7 @@ extension PlanetARView: CustomARViewDelegate {
             NSLayoutConstraint.activate([
                 infoView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 infoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-                infoView.heightAnchor.constraint(equalToConstant: 100),
+                infoView.heightAnchor.constraint(equalToConstant: 120),
                 infoView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.35),
                 textLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor),
                 textLabel.centerYAnchor.constraint(equalTo: infoView.centerYAnchor),
