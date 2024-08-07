@@ -9,6 +9,8 @@ import UIKit
 
 // Estrutura para armazenar cores com valores hexadecimais
 struct ColorCatalog {
+
+    // Cores Básicas
     static let blue = UIColor(hex: "#304B7A") // Azul
     static let yellow = UIColor(hex: "#DBA451") // Amarelo
     static let orange = UIColor(hex: "#E06136") // Laranja
@@ -17,34 +19,40 @@ struct ColorCatalog {
     static let black = UIColor(hex: "191919") // Preto
 
     // Cores Pastel para Planetas
-    static let pastelMercury = UIColor(hex: "#A3A3A3") // Cinza Pastel
-    static let pastelVenus = UIColor(hex: "#F3E3B5") // Amarelo Pastel
-    static let pastelEarth = UIColor(hex: "#A3B8D3") // Azul Pastel
-    static let pastelMars = UIColor(hex: "#E8A3A3") // Vermelho Pastel
-    static let pastelJupiter = UIColor(hex: "#F3C8A5") // Laranja Pastel
-    static let pastelSaturn = UIColor(hex: "#F4D4A2") // Mistura de Laranja e Amarelo Pastel
-    static let pastelUranus = UIColor(hex: "#B5D4E3") // Azul Claro Pastel
-    static let pastelNeptune = UIColor(hex: "#A3A3D3") // Azul Escuro Pastel
+    static let planetaryColors: [String: UIColor] = [
+        "Mercury": UIColor(hex: "#A3A3A3"), // Cinza Pastel
+        "Venus": UIColor(hex: "#F3E3B5"), // Amarelo Pastel
+        "Earth": UIColor(hex: "#A3B8D3"), // Azul Pastel
+        "Mars": UIColor(hex: "#E8A3A3"), // Vermelho Pastel
+        "Jupiter": UIColor(hex: "#F3C8A5"), // Laranja Pastel
+        "Saturn": UIColor(hex: "#F4D4A2"), // Mistura de Laranja e Amarelo Pastel
+        "Uranus": UIColor(hex: "#B5D4E3"), // Azul Claro Pastel
+        "Neptune": UIColor(hex: "#A3A3D3") // Azul Escuro Pastel
+    ]
 
     // Cores para o texto dos planetas
-    static let textMercury = UIColor(hex: "#333333") // Cinza Escuro
-    static let textVenus = UIColor(hex: "#666666") // Cinza Médio
-    static let textEarth = UIColor(hex: "#000000") // Preto
-    static let textMars = UIColor(hex: "#4D4D4D") // Cinza Escuro
-    static let textJupiter = UIColor(hex: "#3D3D3D") // Cinza Médio
-    static let textSaturn = UIColor(hex: "#4C4C4C") // Cinza Escuro
-    static let textUranus = UIColor(hex: "#2C2C2C") // Preto
-    static let textNeptune = UIColor(hex: "#1A1A1A") // Preto
+    static let textColors: [String: UIColor] = [
+        "Mercury": UIColor(hex: "#333333"), // Cinza Escuro
+        "Venus": UIColor(hex: "#666666"), // Cinza Médio
+        "Earth": UIColor(hex: "#000000"), // Preto
+        "Mars": UIColor(hex: "#4D4D4D"), // Cinza Escuro
+        "Jupiter": UIColor(hex: "#3D3D3D"), // Cinza Médio
+        "Saturn": UIColor(hex: "#4C4C4C"), // Cinza Escuro
+        "Uranus": UIColor(hex: "#2C2C2C"), // Preto
+        "Neptune": UIColor(hex: "#1A1A1A") // Preto
+    ]
 
     // Cores para o texto das descrições dos planetas
-    static let descriptionTextMercury = UIColor(hex: "#595959") // Cinza Médio
-    static let descriptionTextVenus = UIColor(hex: "#7A7A7A") // Cinza Claro
-    static let descriptionTextEarth = UIColor(hex: "#333333") // Cinza Escuro
-    static let descriptionTextMars = UIColor(hex: "#6E6E6E") // Cinza Médio
-    static let descriptionTextJupiter = UIColor(hex: "#4A4A4A") // Cinza Escuro
-    static let descriptionTextSaturn = UIColor(hex: "#6B6B6B") // Cinza Médio
-    static let descriptionTextUranus = UIColor(hex: "#4D4D4D") // Cinza Escuro
-    static let descriptionTextNeptune = UIColor(hex: "#3A3A3A") // Cinza Escuro
+    static let descriptionTextColors: [String: UIColor] = [
+        "Mercury": UIColor(hex: "#595959"), // Cinza Médio
+        "Venus": UIColor(hex: "#7A7A7A"), // Cinza Claro
+        "Earth": UIColor(hex: "#333333"), // Cinza Escuro
+        "Mars": UIColor(hex: "#6E6E6E"), // Cinza Médio
+        "Jupiter": UIColor(hex: "#4A4A4A"), // Cinza Escuro
+        "Saturn": UIColor(hex: "#6B6B6B"), // Cinza Médio
+        "Uranus": UIColor(hex: "#4D4D4D"), // Cinza Escuro
+        "Neptune": UIColor(hex: "#3A3A3A") // Cinza Escuro
+    ]
 
     // Cores Pastel para Sol e Lua
     static let pastelSun = UIColor(hex: "#F7D9A2") // Amarelo Pastel Claro
@@ -58,84 +66,15 @@ struct ColorCatalog {
 
     // Método para obter a cor de fundo com base no nome do corpo celeste
     static func getBackgroundColor(for celestialBody: String) -> UIColor {
-        switch celestialBody {
-        case "Mercury":
-            return pastelMercury
-        case "Venus":
-            return pastelVenus
-        case "Earth":
-            return pastelEarth
-        case "Mars":
-            return pastelMars
-        case "Jupiter":
-            return pastelJupiter
-        case "Saturn":
-            return pastelSaturn
-        case "Uranus":
-            return pastelUranus
-        case "Neptune":
-            return pastelNeptune
-        case "Sun":
-            return pastelSun
-        case "Moon":
-            return pastelMoon
-        default:
-            return .white
-        }
+        return planetaryColors[celestialBody] ?? .white
     }
 
     static func getTextColor(for celestialBody: String) -> UIColor {
-        switch celestialBody {
-        case "Mercury":
-            return textMercury
-        case "Venus":
-            return textVenus
-        case "Earth":
-            return textEarth
-        case "Mars":
-            return textMars
-        case "Jupiter":
-            return textJupiter
-        case "Saturn":
-            return textSaturn
-        case "Uranus":
-            return textUranus
-        case "Neptune":
-            return textNeptune
-        case "Sun":
-            return textSun
-        case "Moon":
-            return textMoon
-        default:
-            return .black
-        }
+        return textColors[celestialBody] ?? .black
     }
     
     static func getDescriptionTextColor(for celestialBody: String) -> UIColor {
-        switch celestialBody {
-        case "Mercury":
-            return descriptionTextMercury
-        case "Venus":
-            return descriptionTextVenus
-        case "Earth":
-            return descriptionTextEarth
-        case "Mars":
-            return descriptionTextMars
-        case "Jupiter":
-            return descriptionTextJupiter
-        case "Saturn":
-            return descriptionTextSaturn
-        case "Uranus":
-            return descriptionTextUranus
-        case "Neptune":
-            return descriptionTextNeptune
-        case "Sun":
-            return descriptionTextSun
-        case "Moon":
-            return descriptionTextMoon
-        default:
-            return .black
-        }
+        return descriptionTextColors[celestialBody] ?? .black
     }
 }
 
