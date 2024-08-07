@@ -66,35 +66,34 @@ class HomeView: UIView {
     }
     
     private func setupToggleButton() {
-        toggleButton = UIButton(type: .system)
-        toggleButton.setTitle("Explore", for: .normal)
-        toggleButton.tintColor = .white
-        toggleButton.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 16)
-        
-        toggleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(toggleButton)
-        
-        NSLayoutConstraint.activate([
-            toggleButton.widthAnchor.constraint(equalToConstant: 100),
-            toggleButton.heightAnchor.constraint(equalToConstant: 40),
-            toggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
-            toggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
-        ])
-        
-        toggleButton.layer.cornerRadius = 10
-        toggleButton.layer.borderWidth = 1
-        toggleButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        toggleButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        toggleButton.clipsToBounds = true
-        
-        toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
-    }
-    
+            
+            toggleButton = UIButton(type: .system)
+            toggleButton.setTitle("Explore", for: .normal)
+            toggleButton.tintColor = .white
+            toggleButton.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 16)
+            toggleButton.backgroundColor = ColorCatalog.yellow
+            toggleButton.layer.cornerRadius = 20
+            toggleButton.clipsToBounds = true
+            toggleButton.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(toggleButton)
+            
+            
+            NSLayoutConstraint.activate([
+                toggleButton.widthAnchor.constraint(equalToConstant: 100),
+                toggleButton.heightAnchor.constraint(equalToConstant: 40),
+                toggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+                toggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
+            ])
+            
+            toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
+        }
     private func setupSettingsButton() {
         settingsButton = UIButton(type: .system)
-        let settingsImage = UIImage(systemName: "gearshape")
+        let settingsImage = UIImage(systemName: "gearshape.fill")
         settingsButton.setImage(settingsImage, for: .normal)
-        settingsButton.tintColor = .white
+        settingsButton.tintColor = ColorCatalog.white
+        settingsButton.backgroundColor = ColorCatalog.blue
+        settingsButton.layer.cornerRadius = 20
         
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(settingsButton)
@@ -164,7 +163,7 @@ class HomeView: UIView {
             arButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
         
-        arButton.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        arButton.backgroundColor = ColorCatalog.blue
         arButton.layer.cornerRadius = 20
         arButton.layer.borderWidth = 1
         arButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
@@ -208,6 +207,7 @@ class HomeView: UIView {
         rotationAnimation.toValue = Double.pi * 2
         rotationAnimation.duration = 0.3
         rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
         settingsButton.layer.add(rotationAnimation, forKey: "rotationAnimation")
         
         UIView.animate(withDuration: 0.2) {
@@ -245,6 +245,7 @@ class HomeView: UIView {
             }
             
             toggleButton.setTitle(NSLocalizedString("Fechar", comment: ""), for: .normal)
+            toggleButton.backgroundColor = ColorCatalog.orange 
         } else {
             NSLayoutConstraint.deactivate([planetBoxViewLeadingVisibleConstraint])
             NSLayoutConstraint.activate([planetBoxViewLeadingHiddenConstraint])
@@ -256,6 +257,7 @@ class HomeView: UIView {
             }
             
             toggleButton.setTitle(NSLocalizedString("Explore", comment: ""), for: .normal)
+            toggleButton.backgroundColor = ColorCatalog.yellow
         }
     }
 }
