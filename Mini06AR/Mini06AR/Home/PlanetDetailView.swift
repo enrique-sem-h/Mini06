@@ -41,9 +41,9 @@ class PlanetDetailView: UIView {
 
     private func setupLabels() {
         let celestialName = planet?.name ?? ""
-        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, fontWeight: .bold, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, font: "IBMPlexSans-Bold", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
-        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, font: "IBMPlexSans-Medium", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
         nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel], axis: .horizontal, spacing: 15)
         planetDescriptionLabels = createDescriptionLabels()
@@ -97,10 +97,10 @@ class PlanetDetailView: UIView {
         ])
     }
 
-    private func createPaddedLabel(text: String?, fontSize: CGFloat, fontWeight: UIFont.Weight = .regular, padding: UIEdgeInsets = .zero, textColor: UIColor) -> PaddedLabel {
+    private func createPaddedLabel(text: String?, fontSize: CGFloat, font: String, padding: UIEdgeInsets = .zero, textColor: UIColor) -> PaddedLabel {
         let label = PaddedLabel()
         label.text = text
-        label.font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        label.font = UIFont(name: font, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         label.textAlignment = .left
         label.textColor = textColor
         label.numberOfLines = 0
@@ -128,7 +128,7 @@ class PlanetDetailView: UIView {
     }
 
     private func createDescriptionLabel(text: String, celestialName: String) -> PaddedLabel {
-        let label = createPaddedLabel(text: text, fontSize: 24, padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
+        let label = createPaddedLabel(text: text, fontSize: 24, font: "IBMPlexSans-Regular", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
         label.numberOfLines = 0
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
