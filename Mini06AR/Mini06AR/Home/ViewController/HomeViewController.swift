@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     
     var homeView: HomeView!
     
+    private let bottomSheetTransitioningDelegate = BottomSheetTransitioningDelegate()
+
+    
     /**
      Chamado após a visualização do controlador ser carregada na memória.
      Configura a `HomeView` e define a ação a ser realizada quando um planeta é selecionado.
@@ -28,6 +31,7 @@ class HomeViewController: UIViewController {
         // Cria uma nova HomeView com os limites da tela atual e uma lista de planetas.
         homeView = HomeView(frame: self.view.bounds, planets: planets)
         homeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(planetTouch)))
+        homeView.informationButton.addTarget(self, action: #selector(showBottomSheet), for: .touchUpInside)
         self.view.addSubview(homeView)
         
         // Define a ação a ser realizada quando um planeta é selecionado.
@@ -38,6 +42,16 @@ class HomeViewController: UIViewController {
         homeView.showARViewController = { [weak self] in
                   self?.coordinator?.showSolarSystemView()
               }
+
+
+
+    }
+    
+    @objc private func showBottomSheet() {
+        let bottomSheetVC = BottomSheetViewController()
+        bottomSheetVC.modalPresentationStyle = .custom
+        bottomSheetVC.transitioningDelegate = bottomSheetTransitioningDelegate
+        present(bottomSheetVC, animated: true, completion: nil)
     }
     
     @objc private func planetTouch(recognizer: UITapGestureRecognizer) {
@@ -107,3 +121,4 @@ class HomeViewController: UIViewController {
         return false
     }
 }
+
