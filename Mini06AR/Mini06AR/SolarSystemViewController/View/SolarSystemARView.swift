@@ -13,16 +13,11 @@ import RealityKit
  A classe `SolarSystemARView` define a view que é responsavel por montar a view do Sistema Solar em realidade aumentada, suas interações e controles
  */
 class SolarSystemARView: UIView {
-    var isPlayingAnimation = true {
-        didSet {
-            updateAnimationButtonTitle()
-        }
-    }
+    var isPlayingAnimation = true
     private var viewController: UIViewController?
     
     lazy private var arView = CustomARView()
     lazy private var resetButton = UIButton()
-    lazy private var animationButton = UIButton()
     
     static var sunModel: String {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
@@ -42,7 +37,6 @@ class SolarSystemARView: UIView {
     private func setup() {
         setupARView()
         setupResetButton()
-        setupAnimationButton()
     }
     
     private func setupARView() {
@@ -107,24 +101,8 @@ class SolarSystemARView: UIView {
         ])
     }
     
-    // MARK: - AnimationButton
-    private func setupAnimationButton() {
-        animationButton.configuration = UIButton.Configuration.borderedTinted()
-        animationButton.tintColor = .cyan
-        animationButton.translatesAutoresizingMaskIntoConstraints = false
-        animationButton.addTarget(self, action: #selector(togglePlanetAnimations), for: .touchUpInside)
-        placeAnimationButton()
-        updateAnimationButtonTitle()
-    }
-    
-    private func placeAnimationButton() {
-        arView.addSubview(animationButton)
-        NSLayoutConstraint.activate([
-            animationButton.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -10),
-            animationButton.trailingAnchor.constraint(equalTo: arView.trailingAnchor, constant: -40)
-        ])
-    }
-    @objc func togglePlanetAnimations() {
+    // MARK: - Animations
+    func togglePlanetAnimations() {
         guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
         for (n, p) in SolarSystem.solarSystemPlanets.enumerated() {
             if let e = arView.scene.findEntity(named: p.modelName) {
@@ -139,11 +117,6 @@ class SolarSystemARView: UIView {
             }
         }
         isPlayingAnimation.toggle()
-    }
-    
-    func updateAnimationButtonTitle() {
-        animationButton.setTitle(isPlayingAnimation ? NSLocalizedString("Pause Animation", comment: "") : NSLocalizedString("Play Animation", comment: ""), for: .normal)
-        animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
     }
 }
 
