@@ -37,24 +37,22 @@ extension CustomARView {
     }
     
     @objc private func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer) {
-        let value = Float(recognizer.scale)
-        
         guard let planet = self.scene.findEntity(named: self.arPlanetViewController?.planet?.modelName ?? Self.defaultModelName) else { return }
         
         planet.stopAllAnimations()
-        // Calculate the new scale
-           let currentScale = planet.scale
-           let scaleFactor = Float(recognizer.scale)
-           let newScale = SIMD3<Float>(repeating: scaleFactor) * currentScale
-
-           // Optional: Clamp the new scale to prevent the object from getting too small or large
-           let minScale: Float = 0.1
-           let maxScale: Float = 2.5
-           planet.scale = SIMD3<Float>(
-               x: max(min(newScale.x, maxScale), minScale),
-               y: max(min(newScale.y, maxScale), minScale),
-               z: max(min(newScale.z, maxScale), minScale)
-           )
+        
+        let currentScale = planet.scale
+        let scaleFactor = Float(recognizer.scale)
+        let newScale = SIMD3<Float>(repeating: scaleFactor)
+        
+        let minScale: Float = 0.1
+        let maxScale: Float = 2.5
+        
+        planet.scale = SIMD3<Float>(
+            x: max(min(newScale.x, maxScale), minScale),
+            y: max(min(newScale.y, maxScale), minScale),
+            z: max(min(newScale.z, maxScale), minScale)
+        )
     }
     
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
