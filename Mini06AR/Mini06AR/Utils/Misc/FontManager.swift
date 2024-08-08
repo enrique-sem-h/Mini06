@@ -26,9 +26,5 @@ struct FontManager {
         return UIFont(name: "IBMPlexSans-Medium", size: size)
     }
     
-    // Fonte Beiruti
-    static func Beiruti(size: CGFloat) -> UIFont? {
-        return UIFont(name: "Beiruti[wght]", size: size)
-    }
 }
 
