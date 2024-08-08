@@ -819,7 +819,20 @@
       }
     },
     "Reset" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover"
+          }
+        }
+      }
     },
     "Reset Position" : {
       "extractionState" : "stale",
@@ -905,6 +918,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Os anéis de Saturno são feitos principalmente de gelo e rocha."
+          }
+        }
+      }
+    },
+    "Start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar"
           }
         }
       }

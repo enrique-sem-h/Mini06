@@ -25,7 +25,7 @@ class BackButton: UIButton {
     
     private func setupButton() {
         self.setBackgroundImage(UIImage.backButtonBG, for: .normal)
-        self.setTitle("Voltar", for: .normal)
+        self.setTitle(NSLocalizedString("Back", comment: ""), for: .normal)
         self.titleLabel?.shadowOffset = CGSize(width: 0, height: 4)
         self.translatesAutoresizingMaskIntoConstraints = false
         

@@ -32,7 +32,7 @@ class InitialViewController: UIViewController {
     private func setupPlayButton() {
         playButton = UIButton(type: .system)
         playButton.setImage(UIImage(systemName: "play"), for: .normal)
-        playButton.setTitle(" Start", for: .normal)
+        playButton.setTitle(" "+NSLocalizedString("Start", comment: ""), for: .normal)
         playButton.tintColor = .white
         playButton.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 16)
         
