@@ -61,7 +61,10 @@ class ARHUDView: UIView {
             let label = UILabel()
             label.text = NSLocalizedString("Click the screen to place:  ", comment: "") + (arViewController?.planet?.name ?? "")
             label.textColor = .white
-            label.font = UIFont(name: "Beiruti[wght]", size: 16)
+            
+            let fontSize: CGFloat = 16
+            label.font = FontManager.regularFont(size: fontSize)
+            
             return label
         }()
         

@@ -23,7 +23,10 @@
 		31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */; };
 		31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */; };
 		31C0AE1F2C653B1900E825FF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0AE1E2C653B1900E825FF /* BottomSheetViewController.swift */; };
-		40375DF22C64FC1A00CAAB88 /* Beiruti[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */; };
+		40375DF42C65426400CAAB88 /* Signika-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF32C65426400CAAB88 /* Signika-Bold.ttf */; };
+		40375DF72C65428400CAAB88 /* Signika-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF62C65428400CAAB88 /* Signika-Medium.ttf */; };
+		40375DF82C65428700CAAB88 /* Signika-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF52C65427200CAAB88 /* Signika-Regular.ttf */; };
+		40375DFA2C654A8D00CAAB88 /* Signika-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF92C654A8D00CAAB88 /* Signika-Semibold.ttf */; };
 		40960F822C502B5100A883C6 /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960F812C502B5100A883C6 /* PlanetData.swift */; };
 		409C022F2C554C2F0021D622 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C022E2C554C2F0021D622 /* HomeView.swift */; };
 		409C02332C5582560021D622 /* SolarSystemSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C02322C5582560021D622 /* SolarSystemSceneView.swift */; };
@@ -35,9 +38,6 @@
 		40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48172C62B59600D9D638 /* PaddedLabel.swift */; };
 		40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */; };
 		40CF481E2C6305C900D9D638 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF481D2C6305C900D9D638 /* FontManager.swift */; };
-		40CF48302C6308AF00D9D638 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */; };
-		40CF48392C6308C600D9D638 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */; };
-		40CF483D2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */; };
 		E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DA82C541417003F61E8 /* PassthroughView.swift */; };
 		E8264DAB2C54142E003F61E8 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAA2C54142E003F61E8 /* CustomARView.swift */; };
 		E8264DAD2C541532003F61E8 /* Extension+PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */; };
@@ -89,7 +89,10 @@
 		31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailView.swift; sourceTree = "<group>"; };
 		31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHUDView.swift; sourceTree = "<group>"; };
 		31C0AE1E2C653B1900E825FF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomSheetViewController.swift; path = Mini06AR/Home/ViewController/BottomSheetViewController.swift; sourceTree = SOURCE_ROOT; };
-		40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beiruti[wght].ttf"; sourceTree = "<group>"; };
+		40375DF32C65426400CAAB88 /* Signika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.ttf"; sourceTree = "<group>"; };
+		40375DF52C65427200CAAB88 /* Signika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.ttf"; sourceTree = "<group>"; };
+		40375DF62C65428400CAAB88 /* Signika-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Medium.ttf"; sourceTree = "<group>"; };
+		40375DF92C654A8D00CAAB88 /* Signika-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.ttf"; sourceTree = "<group>"; };
 		40960F812C502B5100A883C6 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
 		409C022E2C554C2F0021D622 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		409C02322C5582560021D622 /* SolarSystemSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemSceneView.swift; sourceTree = "<group>"; };
@@ -101,9 +104,6 @@
 		40CF48172C62B59600D9D638 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCatalog.swift; sourceTree = "<group>"; };
 		40CF481D2C6305C900D9D638 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
-		40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
-		40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
-		40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		E8264DA82C541417003F61E8 /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		E8264DAA2C54142E003F61E8 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		E8264DAC2C541532003F61E8 /* Extension+PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+PlanetARView.swift"; sourceTree = "<group>"; };
@@ -302,10 +302,10 @@
 		40CF481F2C6305FB00D9D638 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */,
-				40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */,
-				40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */,
-				40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */,
+				40375DF92C654A8D00CAAB88 /* Signika-Semibold.ttf */,
+				40375DF62C65428400CAAB88 /* Signika-Medium.ttf */,
+				40375DF52C65427200CAAB88 /* Signika-Regular.ttf */,
+				40375DF32C65426400CAAB88 /* Signika-Bold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -471,20 +471,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8264DEF2C5971A5003F61E8 /* neptune.usdz in Resources */,
+				40375DFA2C654A8D00CAAB88 /* Signika-Semibold.ttf in Resources */,
 				E8264DF82C5971A5003F61E8 /* uranus.usdz in Resources */,
 				E8264DF52C5971A5003F61E8 /* jupiter.usdz in Resources */,
-				40CF48302C6308AF00D9D638 /* IBMPlexSans-Bold.ttf in Resources */,
 				E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */,
-				40375DF22C64FC1A00CAAB88 /* Beiruti[wght].ttf in Resources */,
+				40375DF82C65428700CAAB88 /* Signika-Regular.ttf in Resources */,
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
-				40CF483D2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf in Resources */,
 				E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */,
 				2E18BFDB2C5C0255002E6FBB /* Localizable.xcstrings in Resources */,
+				40375DF72C65428400CAAB88 /* Signika-Medium.ttf in Resources */,
 				31AFE1C32C4AFD220005DDDB /* Base in Resources */,
 				E8264DF42C5971A5003F61E8 /* saturn.usdz in Resources */,
 				E8264DF32C5971A5003F61E8 /* moon.usdz in Resources */,
+				40375DF42C65426400CAAB88 /* Signika-Bold.ttf in Resources */,
 				E8264DF12C5971A5003F61E8 /* venus.usdz in Resources */,
-				40CF48392C6308C600D9D638 /* IBMPlexSans-Regular.ttf in Resources */,
 				E8264DF62C5971A5003F61E8 /* earth.usdz in Resources */,
 				E8264DF72C5971A5003F61E8 /* mars.usdz in Resources */,
 			);
@@ -698,7 +698,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAG47DD75D;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Planetarium;
@@ -729,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAG47DD75D;
+				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Planetarium;

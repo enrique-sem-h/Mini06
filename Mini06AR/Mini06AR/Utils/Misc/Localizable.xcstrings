@@ -33,6 +33,16 @@
         }
       }
     },
+    "A Terra é o único planeta conhecido que tem água em todos os três estados: sólido, líquido e gasoso." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earth is the only known planet that has water in all three states: solid, liquid, and gas."
+          }
+        }
+      }
+    },
     "Back" : {
       "extractionState" : "manual",
       "localizations" : {

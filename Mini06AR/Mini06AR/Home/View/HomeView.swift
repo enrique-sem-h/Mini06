@@ -69,8 +69,8 @@ class HomeView: UIView {
             
             toggleButton = UIButton(type: .system)
             toggleButton.setTitle("Explore", for: .normal)
-            toggleButton.tintColor = .white
-            toggleButton.titleLabel?.font = UIFont(name: "Beiruti[wght]", size: 16)
+        toggleButton.tintColor = ColorCatalog.white
+        toggleButton.titleLabel?.font = FontManager.semiboldFont(size: 16)
             toggleButton.backgroundColor = ColorCatalog.yellow
             toggleButton.layer.cornerRadius = 20
             toggleButton.clipsToBounds = true
