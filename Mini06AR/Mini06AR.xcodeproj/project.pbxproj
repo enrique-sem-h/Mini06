@@ -21,6 +21,7 @@
 		31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */; };
 		31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */; };
 		31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */; };
+		40375DF22C64FC1A00CAAB88 /* Beiruti[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */; };
 		40960F822C502B5100A883C6 /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960F812C502B5100A883C6 /* PlanetData.swift */; };
 		409C022F2C554C2F0021D622 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C022E2C554C2F0021D622 /* HomeView.swift */; };
 		409C02332C5582560021D622 /* SolarSystemSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C02322C5582560021D622 /* SolarSystemSceneView.swift */; };
@@ -84,6 +85,7 @@
 		31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailView.swift; sourceTree = "<group>"; };
 		31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHUDView.swift; sourceTree = "<group>"; };
+		40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beiruti[wght].ttf"; sourceTree = "<group>"; };
 		40960F812C502B5100A883C6 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
 		409C022E2C554C2F0021D622 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		409C02322C5582560021D622 /* SolarSystemSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemSceneView.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		40CF481F2C6305FB00D9D638 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */,
 				40CF483C2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf */,
 				40CF48272C63063500D9D638 /* IBMPlexSans-Bold.ttf */,
 				40CF48222C63063500D9D638 /* IBMPlexSans-Regular.ttf */,
@@ -458,6 +461,7 @@
 				E8264DF52C5971A5003F61E8 /* jupiter.usdz in Resources */,
 				40CF48302C6308AF00D9D638 /* IBMPlexSans-Bold.ttf in Resources */,
 				E8264E012C5AA34A003F61E8 /* mercury.usdz in Resources */,
+				40375DF22C64FC1A00CAAB88 /* Beiruti[wght].ttf in Resources */,
 				31AFE1C02C4AFD220005DDDB /* Assets.xcassets in Resources */,
 				40CF483D2C630C0F00D9D638 /* IBMPlexSans-Medium.ttf in Resources */,
 				E8264DF22C5971A5003F61E8 /* sun.usdz in Resources */,

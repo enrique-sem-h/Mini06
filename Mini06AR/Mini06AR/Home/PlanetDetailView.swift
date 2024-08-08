@@ -41,11 +41,11 @@ class PlanetDetailView: UIView {
 
     private func setupLabels() {
         let celestialName = planet?.name ?? ""
-        planetNameLabel = createPaddedLabel(text: planet?.name, fontSize: 46, font: "IBMPlexSans-Bold", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+        planetNameLabel = createPaddedLabel(text: planet?.name, baseFontSize: 46, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
-        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, fontSize: 30, font: "IBMPlexSans-Medium", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+//        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, baseFontSize: 30, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
-        nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel, morseCodeLabel], axis: .horizontal, spacing: 15)
+        nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel/*, morseCodeLabel*/], axis: .horizontal, spacing: 15)
         planetDescriptionLabels = createDescriptionLabels()
     }
 
@@ -99,17 +99,40 @@ class PlanetDetailView: UIView {
         ])
     }
 
-    private func createPaddedLabel(text: String?, fontSize: CGFloat, font: String, padding: UIEdgeInsets = .zero, textColor: UIColor) -> PaddedLabel {
+    private func createPaddedLabel(text: String?, baseFontSize: CGFloat, font: String, padding: UIEdgeInsets = .zero, textColor: UIColor) -> PaddedLabel {
         let label = PaddedLabel()
         label.text = text
-        label.font = UIFont(name: font, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        label.textAlignment = .left
         label.textColor = textColor
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.padding = padding
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let adjustedFont = adjustFontSizeToFit(text: text, baseFontSize: baseFontSize, font: font, label: label)
+        label.font = adjustedFont
+        
         return label
+    }
+
+    private func adjustFontSizeToFit(text: String?, baseFontSize: CGFloat, font: String, label: PaddedLabel) -> UIFont {
+        guard let text = text else { return UIFont(name: font, size: baseFontSize) ?? UIFont.systemFont(ofSize: baseFontSize) }
+        
+        var fontSize = baseFontSize
+        let maxSize = CGSize(width: label.frame.width - label.padding.left - label.padding.right, height: CGFloat.greatestFiniteMagnitude)
+        
+        while fontSize > 0 {
+            let font = UIFont(name: font, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+            let textAttributes = [NSAttributedString.Key.font: font]
+            let textSize = (text as NSString).boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: textAttributes, context: nil).size
+            
+            if textSize.height <= label.frame.height - label.padding.top - label.padding.bottom && textSize.width <= label.frame.width - label.padding.left - label.padding.right {
+                return font
+            }
+            
+            fontSize -= 1
+        }
+        
+        return UIFont(name: font, size: baseFontSize) ?? UIFont.systemFont(ofSize: baseFontSize)
     }
 
     private func createStackView(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis, spacing: CGFloat) -> UIStackView {
@@ -130,7 +153,7 @@ class PlanetDetailView: UIView {
     }
 
     private func createDescriptionLabel(text: String, celestialName: String) -> PaddedLabel {
-        let label = createPaddedLabel(text: text, fontSize: 24, font: "IBMPlexSans-Regular", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
+        let label = createPaddedLabel(text: text, baseFontSize: 20, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
         label.numberOfLines = 0
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true

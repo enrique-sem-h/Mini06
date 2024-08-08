@@ -33,7 +33,7 @@ class ARHUDView: UIView {
         detailsButton = {
             let detailsButton = UIButton(type: .system)
             detailsButton.setImage(UIImage(systemName: "arrowshape.right.fill"), for: .normal)
-            detailsButton.tintColor = .white
+            detailsButton.tintColor = ColorCatalog.white
             detailsButton.addTarget(arViewController, action: #selector(arViewController?.showPlanetDetail), for: .touchUpInside)
             detailsButton.translatesAutoresizingMaskIntoConstraints = false
             
@@ -42,6 +42,7 @@ class ARHUDView: UIView {
             blurEffectView.isUserInteractionEnabled = false
             blurEffectView.layer.cornerRadius = 15
             blurEffectView.clipsToBounds = true
+            blurEffectView.backgroundColor = ColorCatalog.blue
             
             blurEffectView.translatesAutoresizingMaskIntoConstraints = false
             detailsButton.insertSubview(blurEffectView, belowSubview: detailsButton.imageView!)
@@ -58,9 +59,9 @@ class ARHUDView: UIView {
         
         clickLabel = {
             let label = UILabel()
-            label.text = NSLocalizedString("Click the screen to place:", comment: "") + (arViewController?.planet?.name ?? "")
+            label.text = NSLocalizedString("Click the screen to place:  ", comment: "") + (arViewController?.planet?.name ?? "")
             label.textColor = .white
-            label.font = UIFont(name: "IBMPlexSans-Bold", size: 16)
+            label.font = UIFont(name: "Beiruti[wght]", size: 16)
             return label
         }()
         

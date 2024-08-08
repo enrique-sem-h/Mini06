@@ -13,25 +13,26 @@ class BottomSheetViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         styleBottomSheet()
+        addHandle()
     }
     
     private func setupUI() {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: "IBMPlexSans-Regular", size: 22)
+        label.font = UIFont(name: "Beiruti[wght]", size: 22)
         label.textColor = ColorCatalog.white
         
         // Texto antes da primeira imagem
-        let text1 = "Olá, bem vindo ao PlanetARium, clique em "
+        let text1 = "Olá, bem vindo ao PlanetARium\n\nclique em  "
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
-        explorarAttachment.image = UIImage(named: "explore_Image") // Substitua pelo nome da imagem correta
-        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 70, height: 30) // Ajuste os bounds conforme necessário
+        explorarAttachment.image = UIImage(named: "explore_Image")
+        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 100, height: 30)
         
         // Texto entre as imagens
-        let text2 = " se quiser olhar planetas e astros de maneira individual ou clique no botão "
+        let text2 = "  para olhar planetas e astros de maneira individual.\n\nou clique no botão  "
         
         // Imagem "RA"
         let raAttachment = NSTextAttachment()
@@ -42,9 +43,8 @@ class BottomSheetViewController: UIViewController {
             print("Erro ao carregar a imagem 'arkit'")
         }
 
-        raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30) // Ajuste os bounds conforme necessário
-        // Texto após a última imagem
-        let text3 = " para ver em Realidade Aumentada somente o sistema solar."
+        raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30)
+        let text3 = "  para ver em Realidade Aumentada somente o sistema solar."
         
         // Monta o NSAttributedString combinando texto e imagens
         let attributedString = NSMutableAttributedString(string: text1)
@@ -64,11 +64,10 @@ class BottomSheetViewController: UIViewController {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
-
     
     private func styleBottomSheet() {
         view.backgroundColor = ColorCatalog.blue.withAlphaComponent(0.80)
@@ -76,6 +75,23 @@ class BottomSheetViewController: UIViewController {
         view.layer.cornerRadius = 94
         view.layer.masksToBounds = true
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
+    private func addHandle() {
+        let handleView = UIView()
+        handleView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        handleView.layer.cornerRadius = 3
+        
+        view.addSubview(handleView)
+        
+        // Configura as constraints do handle
+        handleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            handleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            handleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            handleView.widthAnchor.constraint(equalToConstant: 40),
+            handleView.heightAnchor.constraint(equalToConstant: 6)
+        ])
     }
 }
 
