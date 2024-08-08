@@ -13,6 +13,7 @@ class BottomSheetViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         styleBottomSheet()
+        addHandle()
     }
     
     private func setupUI() {
@@ -23,15 +24,15 @@ class BottomSheetViewController: UIViewController {
         label.textColor = ColorCatalog.white
         
         // Texto antes da primeira imagem
-        let text1 = "Hello, welcome to PlanetARium, click on  "
+        let text1 = "Olá, bem vindo ao PlanetARium\n\nclique em  "
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
         explorarAttachment.image = UIImage(named: "explore_Image")
-        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 70, height: 30)
+        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 100, height: 30)
         
         // Texto entre as imagens
-        let text2 = "  if you want to view planets and celestial bodies individually, or click on the button  "
+        let text2 = "  para olhar planetas e astros de maneira individual.\n\nou clique no botão  "
         
         // Imagem "RA"
         let raAttachment = NSTextAttachment()
@@ -43,7 +44,7 @@ class BottomSheetViewController: UIViewController {
         }
 
         raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30)
-        let text3 = "  to view only the solar system in Augmented Reality."
+        let text3 = "  para ver em Realidade Aumentada somente o sistema solar."
         
         // Monta o NSAttributedString combinando texto e imagens
         let attributedString = NSMutableAttributedString(string: text1)
@@ -63,11 +64,10 @@ class BottomSheetViewController: UIViewController {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
-
     
     private func styleBottomSheet() {
         view.backgroundColor = ColorCatalog.blue.withAlphaComponent(0.80)
@@ -75,6 +75,23 @@ class BottomSheetViewController: UIViewController {
         view.layer.cornerRadius = 94
         view.layer.masksToBounds = true
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
+    private func addHandle() {
+        let handleView = UIView()
+        handleView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        handleView.layer.cornerRadius = 3
+        
+        view.addSubview(handleView)
+        
+        // Configura as constraints do handle
+        handleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            handleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            handleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            handleView.widthAnchor.constraint(equalToConstant: 40),
+            handleView.heightAnchor.constraint(equalToConstant: 6)
+        ])
     }
 }
 
