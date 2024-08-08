@@ -5,13 +5,6 @@
 //  Created by Enrique Carvalho on 07/08/24.
 //
 
-//
-//  InitialView.swift
-//  Mini06AR
-//
-//  Created by Enrique Carvalho on 07/08/24.
-//
-
 import Foundation
 import UIKit
 import SceneKit

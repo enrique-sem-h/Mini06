@@ -80,9 +80,9 @@ class SolarSystemARView: UIView {
     
     // MARK: - ResetButton
     private func setupResetButton() {
-        resetButton.setTitle(NSLocalizedString("Reset Position", comment: ""), for: .normal)
-        resetButton.configuration = UIButton.Configuration.borderedTinted()
-        resetButton.tintColor = .red
+        resetButton.setBackgroundImage(.resetButtonbg, for: .normal)
+        resetButton.setTitle(NSLocalizedString("Reset", comment: ""), for: .normal)
+        resetButton.setTitleColor(ColorCatalog.white, for: .normal)
         resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
         placeResetButton()
     }
