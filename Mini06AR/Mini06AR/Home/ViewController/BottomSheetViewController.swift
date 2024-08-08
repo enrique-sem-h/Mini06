@@ -19,19 +19,19 @@ class BottomSheetViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: "IBMPlexSans-Regular", size: 22)
+        label.font = UIFont(name: "Beiruti[wght]", size: 22)
         label.textColor = ColorCatalog.white
         
         // Texto antes da primeira imagem
-        let text1 = "Olá, bem vindo ao PlanetARium, clique em "
+        let text1 = "Hello, welcome to PlanetARium, click on  "
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
-        explorarAttachment.image = UIImage(named: "explore_Image") // Substitua pelo nome da imagem correta
-        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 70, height: 30) // Ajuste os bounds conforme necessário
+        explorarAttachment.image = UIImage(named: "explore_Image")
+        explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 70, height: 30)
         
         // Texto entre as imagens
-        let text2 = " se quiser olhar planetas e astros de maneira individual ou clique no botão "
+        let text2 = "  if you want to view planets and celestial bodies individually, or click on the button  "
         
         // Imagem "RA"
         let raAttachment = NSTextAttachment()
@@ -42,9 +42,8 @@ class BottomSheetViewController: UIViewController {
             print("Erro ao carregar a imagem 'arkit'")
         }
 
-        raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30) // Ajuste os bounds conforme necessário
-        // Texto após a última imagem
-        let text3 = " para ver em Realidade Aumentada somente o sistema solar."
+        raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30)
+        let text3 = "  to view only the solar system in Augmented Reality."
         
         // Monta o NSAttributedString combinando texto e imagens
         let attributedString = NSMutableAttributedString(string: text1)

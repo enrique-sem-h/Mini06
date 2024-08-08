@@ -1,6 +1,28 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "  if you want to view planets and celestial bodies individually, or click on the button  " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "  se quiser olhar planetas e astros de maneira individual ou clique no botão \n"
+          }
+        }
+      }
+    },
+    "  to view only the solar system in Augmented Reality." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "  para ver em Realidade Aumentada somente o sistema solar."
+          }
+        }
+      }
+    },
     "A gas giant with a unique feature: it rotates on its side with an axial tilt of 98 degrees. Its atmosphere contains methane, giving it a bluish color. Uranus has 27 known moons, the most famous being Titania and Oberon." : {
       "localizations" : {
         "pt-BR" : {
@@ -29,6 +51,7 @@
       }
     },
     "Click the screen to place:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -37,6 +60,9 @@
           }
         }
       }
+    },
+    "Click the screen to place:  " : {
+
     },
     "Composition and Energy: The Sun is a star composed mainly of hydrogen (about 74%) and helium (about 24%), with traces of heavier elements. In the Sun's core, nuclear fusion converts hydrogen into helium, releasing an enormous amount of energy. This energy is radiated into space as light and heat, sustaining life on Earth." : {
       "extractionState" : "extracted_with_value",
@@ -201,6 +227,17 @@
         }
       }
     },
+    "Hello, welcome to PlanetARium, click on  " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olá, bem vindo ao PlanetARium, clique em\n"
+          }
+        }
+      }
+    },
     "In addition to its extreme temperatures, Mercury has a highly elliptical orbit and is the second densest planet in the solar system, with a large iron core that occupies about 75% of its radius." : {
       "localizations" : {
         "pt-BR" : {
@@ -281,12 +318,23 @@
         }
       }
     },
-    "In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time. The planet Saturn, with its majestic rings, symbolizes the god's agricultural and time aspects." : {
+    "In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time." : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Na mitologia romana, Saturno representava o \ndeus da agricultura e do tempo. \nO planeta Saturno, com seus impressionantes \nanéis, simboliza a colheita e o ciclo do tempo, \nrefletindo os atributos do deus."
+            "value" : "Na mitologia romana, Saturno era o deus da agricultura e da colheita. Ele estava frequentemente associado ao deus grego Cronos, o deus do tempo."
+          }
+        }
+      }
+    },
+    "In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time. The planet Saturn, with its majestic rings, symbolizes the god's agricultural and time aspects." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na mitologia romana, Saturno representava o \ndeus da agricultura e do tempo. \n"
           }
         }
       }

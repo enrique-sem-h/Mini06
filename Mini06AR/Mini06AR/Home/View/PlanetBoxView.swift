@@ -61,7 +61,7 @@ class PlanetBoxView: UIView {
             let button = UIButton(type: .system)
             button.setTitle(planet.name, for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont(name: "IBMPlexSans-Bold", size: 18)
+            button.titleLabel?.font = UIFont(name: "Beiruti[wght]", size: 18)
             button.tag = index
             
             button.setBackgroundImage(buttonBackgroundImage, for: .normal)

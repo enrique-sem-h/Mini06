@@ -44,7 +44,7 @@ class SolarSystemSceneView: SCNView {
      - Parameter planets: Uma lista de planetas a serem exibidos na cena.
      */
     private func setupScene(planets: [Planet]) {
-        print("Setting up scene with \(planets.count) planets.")
+//        print("Setting up scene with \(planets.count) planets.")
         
         let scene = SCNScene()
         self.scene = scene
@@ -67,7 +67,7 @@ class SolarSystemSceneView: SCNView {
             - name: O nome do planeta.
             - radius: O raio do planeta.
             - distance: A distância do planeta do centro da cena.
-            - texture: O nome da imagem de textura do planeta.
+            - modelName: O nome do modelo de cada planeta
          - Returns: O nó do planeta criado.
          */
         func addPlanet(name: String, radius: CGFloat, distance: Float, modelName: String) -> SCNNode {

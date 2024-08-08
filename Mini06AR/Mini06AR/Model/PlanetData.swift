@@ -118,7 +118,7 @@ let planets = [
            descriptions: [
             "Description 1": NSLocalizedString("It is famous for its extensive ring system, composed of ice and rock particles. Saturn's largest moon, Titan, is larger than Mercury and has a thick atmosphere and surface lakes of liquid methane.", comment: ""),
             "Description 2": NSLocalizedString("In addition to Titan, Saturn has 83 known moons. The planet's composition is mainly hydrogen and helium, and it has a density lower than water, meaning it could float in a hypothetical ocean large enough to hold it.", comment: ""),
-            "Description 3": NSLocalizedString("In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time. The planet Saturn, with its majestic rings, symbolizes the god's agricultural and time aspects.", comment: ""),
+            "Description 3": NSLocalizedString("In Roman mythology, Saturn was the god of agriculture and harvest. He was often associated with the Greek god Cronus, the god of time.", comment: ""),
             "Curiosity 1": NSLocalizedString("Saturn is primarily composed of hydrogen and helium.", comment: ""),
             "Curiosity 2": NSLocalizedString("Saturn is the second-largest planet in the Solar System.", comment: "")
            ],
