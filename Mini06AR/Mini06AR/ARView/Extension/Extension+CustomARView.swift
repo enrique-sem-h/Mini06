@@ -37,36 +37,27 @@ extension CustomARView {
     }
     
     @objc private func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer) {
-        let value = Float(recognizer.scale)
-        
         guard let planet = self.scene.findEntity(named: self.arPlanetViewController?.planet?.modelName ?? Self.defaultModelName) else { return }
         
         planet.stopAllAnimations()
-        // Apply the incremental rotation to the entity's current orientation
-        planet.scale = SIMD3(x: value, y: value, z: value)
+        
+        let scaleFactor = Float(recognizer.scale)
+        let newScale = SIMD3<Float>(repeating: scaleFactor)
+        
+        let minScale: Float = 0.1
+        let maxScale: Float = 2.5
+        
+        planet.scale = SIMD3<Float>(
+            x: max(min(newScale.x, maxScale), minScale),
+            y: max(min(newScale.y, maxScale), minScale),
+            z: max(min(newScale.z, maxScale), minScale)
+        )
     }
     
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         // Get the translation in the view's coordinate system
         let translation = recognizer.translation(in: self)
-        
-        // Define a scale factor for the rotation sensitivity
-        let sensitivity: Float = 0.005
-        
-        // Calculate rotation angles based on the translation
-        let angleX = Float(translation.x) * sensitivity
-        let angleY = Float(translation.y) * sensitivity
-        
-        // Define the rotation axes (y-axis for horizontal panning, x-axis for vertical panning)
-        let rotationAxisX = simd_float3(0, 1, 0) // Rotation around the y-axis
-        let rotationAxisY = simd_float3(1, 0, 0) // Rotation around the x-axis
-        
-        // Create quaternions for each rotation
-        let quatX = simd_quatf(angle: angleX, axis: rotationAxisX)
-        let quatY = simd_quatf(angle: angleY, axis: rotationAxisY)
-        
-        // Combine the rotations
-        let combinedQuat = quatX * quatY
+        let combinedQuat = calculateCombinedRotation(translation)
         
         // Find the entity
         guard let planet = self.scene.findEntity(named: self.arPlanetViewController?.planet?.modelName ?? Self.defaultModelName) else { return }
@@ -78,7 +69,7 @@ extension CustomARView {
         // Reset the translation to zero for incremental updates
         recognizer.setTranslation(.zero, in: self)
     }
-
+    
     
     @objc private func handlePlanetARTap(recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: self)

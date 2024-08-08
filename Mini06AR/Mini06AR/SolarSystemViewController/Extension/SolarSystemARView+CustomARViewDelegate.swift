@@ -13,6 +13,9 @@ import Foundation
 extension SolarSystemARView: CustomARViewDelegate {
     func didPlace3DObject() {
         isPlayingAnimation = true
-        updateAnimationButtonTitle()
+    }
+    
+    func toggleAnimations() {
+        togglePlanetAnimations()
     }
 }

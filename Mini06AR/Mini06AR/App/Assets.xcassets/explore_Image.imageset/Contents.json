@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "galaxy_texture.png",
+      "filename" : "Group 33.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "galaxy_texture 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "galaxy_texture 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

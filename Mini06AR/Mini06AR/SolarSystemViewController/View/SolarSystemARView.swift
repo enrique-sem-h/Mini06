@@ -13,25 +13,21 @@ import RealityKit
  A classe `SolarSystemARView` define a view que é responsavel por montar a view do Sistema Solar em realidade aumentada, suas interações e controles
  */
 class SolarSystemARView: UIView {
-    var isPlayingAnimation = true {
-        didSet {
-            updateAnimationButtonTitle()
-        }
-    }
-    private var viewController: UIViewController?
+    var isPlayingAnimation = true
+    private var viewController: SolarSystemViewController?
     
     lazy private var arView = CustomARView()
     lazy private var resetButton = UIButton()
-    lazy private var animationButton = UIButton()
     
     static var sunModel: String {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
     }
     
-    init(viewController: UIViewController? = nil) {
+    init(viewController: SolarSystemViewController? = nil) {
         super.init(frame: .zero)
         self.viewController = viewController
         setup()
+        setupBackButton()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +38,6 @@ class SolarSystemARView: UIView {
     private func setup() {
         setupARView()
         setupResetButton()
-        setupAnimationButton()
     }
     
     private func setupARView() {
@@ -85,9 +80,9 @@ class SolarSystemARView: UIView {
     
     // MARK: - ResetButton
     private func setupResetButton() {
-        resetButton.setTitle(NSLocalizedString("Reset Position", comment: ""), for: .normal)
-        resetButton.configuration = UIButton.Configuration.borderedTinted()
-        resetButton.tintColor = .red
+        resetButton.setBackgroundImage(.resetButtonbg, for: .normal)
+        resetButton.setTitle(NSLocalizedString("Reset", comment: ""), for: .normal)
+        resetButton.setTitleColor(ColorCatalog.white, for: .normal)
         resetButton.addTarget(self, action: #selector(handleTapDelete), for: .touchUpInside)
         placeResetButton()
     }
@@ -107,24 +102,8 @@ class SolarSystemARView: UIView {
         ])
     }
     
-    // MARK: - AnimationButton
-    private func setupAnimationButton() {
-        animationButton.configuration = UIButton.Configuration.borderedTinted()
-        animationButton.tintColor = .cyan
-        animationButton.translatesAutoresizingMaskIntoConstraints = false
-        animationButton.addTarget(self, action: #selector(togglePlanetAnimations), for: .touchUpInside)
-        placeAnimationButton()
-        updateAnimationButtonTitle()
-    }
-    
-    private func placeAnimationButton() {
-        arView.addSubview(animationButton)
-        NSLayoutConstraint.activate([
-            animationButton.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -10),
-            animationButton.trailingAnchor.constraint(equalTo: arView.trailingAnchor, constant: -40)
-        ])
-    }
-    @objc private func togglePlanetAnimations() {
+    // MARK: - Animations
+    func togglePlanetAnimations() {
         guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
         for (n, p) in SolarSystem.solarSystemPlanets.enumerated() {
             if let e = arView.scene.findEntity(named: p.modelName) {
@@ -141,9 +120,11 @@ class SolarSystemARView: UIView {
         isPlayingAnimation.toggle()
     }
     
-    func updateAnimationButtonTitle() {
-        animationButton.setTitle(isPlayingAnimation ? NSLocalizedString("Pause Animation", comment: "") : NSLocalizedString("Play Animation", comment: ""), for: .normal)
-        animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
+    private func setupBackButton() {
+        guard let coordinator = viewController?.coordinator else { return }
+        lazy var backButton = BackButton(coordinator: coordinator)
+        self.addSubview(backButton)
+        backButton.setupRelatedToView(view: self)
     }
 }
 

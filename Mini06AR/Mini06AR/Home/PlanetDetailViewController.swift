@@ -25,8 +25,14 @@ class PlanetDetailViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         
         self.view = planetDetailView
-        
+        setupBackButton()
     }
     
+    private func setupBackButton() {
+        guard let coordinator = coordinator else { return }
+        lazy var backButton = BackButton(coordinator: coordinator)
+        view.addSubview(backButton)
+        backButton.setupRelatedToView(view: view)
+    }
     
 }
