@@ -13,8 +13,12 @@ import RealityKit
  A classe `SolarSystemARView` define a view que é responsavel por montar a view do Sistema Solar em realidade aumentada, suas interações e controles
  */
 class SolarSystemARView: UIView {
-    var isPlayingAnimation = true
-    private var viewController: UIViewController?
+    var isPlayingAnimation = true {
+        didSet {
+            updateAnimationButtonTitle()
+        }
+    }
+    private var viewController: SolarSystemViewController?
     
     lazy private var arView = CustomARView()
     lazy private var resetButton = UIButton()
@@ -23,10 +27,11 @@ class SolarSystemARView: UIView {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
     }
     
-    init(viewController: UIViewController? = nil) {
+    init(viewController: SolarSystemViewController? = nil) {
         super.init(frame: .zero)
         self.viewController = viewController
         setup()
+        setupBackButton()
     }
     
     required init?(coder: NSCoder) {
@@ -117,6 +122,18 @@ class SolarSystemARView: UIView {
             }
         }
         isPlayingAnimation.toggle()
+    }
+    
+    func updateAnimationButtonTitle() {
+        animationButton.setTitle(isPlayingAnimation ? NSLocalizedString("Pause Animation", comment: "") : NSLocalizedString("Play Animation", comment: ""), for: .normal)
+        animationButton.isEnabled = arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil
+    }
+    
+    private func setupBackButton() {
+        guard let coordinator = viewController?.coordinator else { return }
+        lazy var backButton = BackButton(coordinator: coordinator)
+        self.addSubview(backButton)
+        backButton.setupRelatedToView(view: self)
     }
 }
 

@@ -32,6 +32,7 @@ class ARViewController: UIViewController {
             view.addSubview(arHudView)
             
         }
+        
     }
     
     @objc func showPlanetDetail() {
