@@ -62,7 +62,14 @@
       }
     },
     "Click the screen to place:  " : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clique na tela para colocar:"
+          }
+        }
+      }
     },
     "Composition and Energy: The Sun is a star composed mainly of hydrogen (about 74%) and helium (about 24%), with traces of heavier elements. In the Sun's core, nuclear fusion converts hydrogen into helium, releasing an enormous amount of energy. This energy is radiated into space as light and heat, sustaining life on Earth." : {
       "extractionState" : "extracted_with_value",
@@ -234,6 +241,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Olá, bem vindo ao PlanetARium, clique em\n"
+          }
+        }
+      }
+    },
+    "Hello, welcome to PlanetARium\\n\\nclick on " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olá, bem-vindo ao PlanetARium\\n\\nclique em"
           }
         }
       }
@@ -1259,6 +1277,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este é o planeta mais quente do sistema solar, com temperaturas médias em torno de 465°C devido ao seu efeito estufa extremo. Sua atmosfera densa e ácida é composta principalmente de dióxido de carbono e nuvens de ácido sulfúrico."
+          }
+        }
+      }
+    },
+    "to look at planets and stars individually.\\n\\nor click the button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para observar planetas e estrelas individualmente.\\n\\nem clique no botão"
+          }
+        }
+      }
+    },
+    "to see only the solar system in Augmented Reality." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para ver apenas o sistema solar em Realidade Aumentada."
           }
         }
       }
