@@ -18,14 +18,25 @@ class BackButton: UIButton {
         self.coordinator = coordinator
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setupButton() {
         self.setBackgroundImage(UIImage.backButtonBG, for: .normal)
-        self.setTitle("Voltar", for: .normal)
+        
+        let fontSize: CGFloat = 18
+        let customFont = FontManager.semiboldFont(size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .font: customFont,
+            .foregroundColor: UIColor.white,
+            .shadow: NSShadow()
+        ]
+        
+        let attributedTitle = NSAttributedString(string: NSLocalizedString("Back", comment: ""), attributes: titleAttributes)
+        self.setAttributedTitle(attributedTitle, for: .normal)
+        
         self.titleLabel?.shadowOffset = CGSize(width: 0, height: 4)
         self.translatesAutoresizingMaskIntoConstraints = false
         

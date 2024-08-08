@@ -41,11 +41,11 @@ class PlanetDetailView: UIView {
 
     private func setupLabels() {
         let celestialName = planet?.name ?? ""
-        planetNameLabel = createPaddedLabel(text: planet?.name, baseFontSize: 46, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+        planetNameLabel = createPaddedLabel(text: planet?.name, baseFontSize: 46, font: "Signika-Bold", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
         
-//        let morseCodeLabel = createPaddedLabel(text: planet?.morseCode, baseFontSize: 30, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16), textColor: ColorCatalog.getTextColor(for: celestialName))
+
         
-        nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel/*, morseCodeLabel*/], axis: .horizontal, spacing: 15)
+        nameAndMorseStackView = createStackView(arrangedSubviews: [planetNameLabel], axis: .horizontal, spacing: 15)
         planetDescriptionLabels = createDescriptionLabels()
     }
 
@@ -153,7 +153,7 @@ class PlanetDetailView: UIView {
     }
 
     private func createDescriptionLabel(text: String, celestialName: String) -> PaddedLabel {
-        let label = createPaddedLabel(text: text, baseFontSize: 20, font: "Beiruti[wght]", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
+        let label = createPaddedLabel(text: text, baseFontSize: 20, font: "Signika-Regular", padding: UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 20), textColor: ColorCatalog.getDescriptionTextColor(for: celestialName))
         label.numberOfLines = 0
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true

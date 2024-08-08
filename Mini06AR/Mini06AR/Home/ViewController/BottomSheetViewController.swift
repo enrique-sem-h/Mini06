@@ -17,14 +17,20 @@ class BottomSheetViewController: UIViewController {
     }
     
     private func setupUI() {
+        // Cria a UIView que vai envolver o UILabel
+        let containerView = UIView()
+        containerView.backgroundColor = ColorCatalog.white.withAlphaComponent(0.2) // Cor da box
+        containerView.layer.cornerRadius = 12 // Define as bordas arredondadas
+        containerView.layer.masksToBounds = true
+        
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont(name: "Beiruti[wght]", size: 22)
+        label.font = FontManager.semiboldFont(size: 22)
         label.textColor = ColorCatalog.white
         
         // Texto antes da primeira imagem
-        let text1 = "Hello, welcome to PlanetARium\n\nclick on "
+        let text1 = "Hello, welcome to Planetarium\n\nclick on "
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
@@ -42,7 +48,7 @@ class BottomSheetViewController: UIViewController {
         } else {
             print("Erro ao carregar a imagem 'arkit'")
         }
-
+        
         raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30)
         let text3 = "  to see only the solar system in Augmented Reality."
         
@@ -56,16 +62,27 @@ class BottomSheetViewController: UIViewController {
         // Define o NSAttributedString no UILabel
         label.attributedText = attributedString
         
-        // Adiciona o UILabel à view
-        view.addSubview(label)
+        // Adiciona o UILabel à containerView
+        containerView.addSubview(label)
         
-        // Configura as constraints do UILabel
+        // Adiciona a containerView à view principal
+        view.addSubview(containerView)
+        
+        // Configura as constraints do UILabel dentro da containerView
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
+            label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
+            label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+        ])
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
     
@@ -140,11 +157,9 @@ class BottomSheetPresentationController: UIPresentationController {
     }
 }
 
-
 class BottomSheetTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return BottomSheetPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
-

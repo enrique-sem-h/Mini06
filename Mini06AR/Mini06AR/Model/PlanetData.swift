@@ -78,6 +78,7 @@ let planets = [
             "Description 1": NSLocalizedString("The only known planet to harbor life. Earth has an oxygen-rich atmosphere and abundant liquid water, essential factors for life as we know it.", comment: ""),
             "Description 2": NSLocalizedString("Earth has a single moon, which is the largest natural satellite in relation to the size of its planet. The presence of the Moon stabilizes Earth's axial tilt, which has an important impact on climate and seasons.", comment: ""),
             "Description 3": NSLocalizedString("In Roman culture, Earth (or Tellus) symbolized the goddess of earth and fertility. The name of our planet honors the goddess who represents life and fertility, reflecting Earth's importance as the home of all known life.", comment: ""),
+            "Curiosity 1": NSLocalizedString("A Terra é o único planeta conhecido que tem água em todos os três estados: sólido, líquido e gasoso.", comment: ""),
             "Curiosity 2": NSLocalizedString("The surface of Earth is composed of 71% water.", comment: "")
            ],
            modelName: "earth.usdz"),

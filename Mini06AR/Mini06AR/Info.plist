@@ -4,10 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IBMPlexSans-Regular.ttf</string>
-		<string>IBMPlexSans-Bold.ttf</string>
-		<string>IBMPlexSans-Medium.ttf</string>
-		<string>Beiruti[wght].ttf</string>
+		<string>Signika-Bold.ttf</string>
+		<string>Signika-Regular.ttf</string>
+		<string>Signika-Medium.ttf</string>
+		<string>Signika-Semibold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

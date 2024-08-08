@@ -54,11 +54,31 @@ class MainCoordinator: Coordinator {
     }
     
     /**
-     Mostra a visualização da Home.
+     Mostra a visualização da Home com animação de fade.
      */
     func showHomeView() {
         let homeViewController = HomeViewController()
         homeViewController.coordinator = self
-        navigationController.pushViewController(homeViewController, animated: true)
-    }
-}
+
+        // Cria uma view temporária para a transição
+        let transitionView = UIView(frame: navigationController.view.bounds)
+        transitionView.backgroundColor = UIColor.black
+        transitionView.alpha = 0
+        navigationController.view.addSubview(transitionView)
+
+        // Anima o fade out da view atual
+        UIView.animate(withDuration: 0.5, animations: {
+            transitionView.alpha = 1
+        }) { _ in
+            // Após o fade out, realiza a transição para a nova tela
+            self.navigationController.pushViewController(homeViewController, animated: false)
+            
+            // Anima o fade in
+            UIView.animate(withDuration: 0.5, animations: {
+                transitionView.alpha = 0
+            }) { _ in
+                // Remove a view de transição após o fade in
+                transitionView.removeFromSuperview()
+            }
+        }
+    }}
