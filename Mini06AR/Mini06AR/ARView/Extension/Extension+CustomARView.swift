@@ -41,7 +41,6 @@ extension CustomARView {
         
         planet.stopAllAnimations()
         
-        let currentScale = planet.scale
         let scaleFactor = Float(recognizer.scale)
         let newScale = SIMD3<Float>(repeating: scaleFactor)
         

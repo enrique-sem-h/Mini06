@@ -14,7 +14,7 @@ import RealityKit
  */
 class SolarSystemARView: UIView {
     var isPlayingAnimation = true
-    private var viewController: UIViewController?
+    private var viewController: SolarSystemViewController?
     
     lazy private var arView = CustomARView()
     lazy private var resetButton = UIButton()
@@ -23,10 +23,11 @@ class SolarSystemARView: UIView {
         return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
     }
     
-    init(viewController: UIViewController? = nil) {
+    init(viewController: SolarSystemViewController? = nil) {
         super.init(frame: .zero)
         self.viewController = viewController
         setup()
+        setupBackButton()
     }
     
     required init?(coder: NSCoder) {
@@ -117,6 +118,13 @@ class SolarSystemARView: UIView {
             }
         }
         isPlayingAnimation.toggle()
+    }
+    
+    private func setupBackButton() {
+        guard let coordinator = viewController?.coordinator else { return }
+        lazy var backButton = BackButton(coordinator: coordinator)
+        self.addSubview(backButton)
+        backButton.setupRelatedToView(view: self)
     }
 }
 
