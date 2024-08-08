@@ -29,6 +29,7 @@ class PlanetARView: UIView {
         setupARView()
         setupResetButton()
         configureInfo()
+        setupBackButton()
     }
     
     required init?(coder: NSCoder) {
@@ -122,6 +123,17 @@ class PlanetARView: UIView {
             contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
             contentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor),
         ])
+    }
+    
+    private func setupBackButton() {
+        guard let coordinator = viewController?.coordinator else { return }
+        lazy var backButton = BackButton(coordinator: coordinator)
+        self.addSubview(backButton)
+        backButton.setupRelatedToView(view: self)
+    }
+    
+    @objc private func backButtonTap() {
+        viewController?.coordinator?.navigationController.popViewController(animated: true)
     }
 }
 

@@ -21,15 +21,16 @@ class MainCoordinator: Coordinator {
      */
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.isNavigationBarHidden = true
     }
 
     /**
      Inicia o fluxo principal mostrando o controlador de visualização inicial.
      */
     func start() {
-        let homeViewController = HomeViewController()
-        homeViewController.coordinator = self
-        navigationController.pushViewController(homeViewController, animated: false)
+        let initialViewController = InitialViewController()
+        initialViewController.coordinator = self
+        navigationController.pushViewController(initialViewController, animated: false)
     }
 
     /**
@@ -48,7 +49,16 @@ class MainCoordinator: Coordinator {
      Mostra a visualização do sistema solar.
      */
     func showSolarSystemView() {
-        let solarSystemViewController = SolarSystemViewController()
+        let solarSystemViewController = SolarSystemViewController(coordinator: self)
         navigationController.pushViewController(solarSystemViewController, animated: true)
+    }
+    
+    /**
+     Mostra a visualização da Home.
+     */
+    func showHomeView() {
+        let homeViewController = HomeViewController()
+        homeViewController.coordinator = self
+        navigationController.pushViewController(homeViewController, animated: true)
     }
 }

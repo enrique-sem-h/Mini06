@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E18BFDB2C5C0255002E6FBB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */; };
-		2E18BFDD2C63F57C002E6FBB /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18BFDC2C63F57C002E6FBB /* BottomSheetViewController.swift */; };
+		31359F7C2C63F97900F9777E /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31359F7B2C63F97900F9777E /* InitialViewController.swift */; };
+		31359F7F2C6411A000F9777E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31359F7E2C6411A000F9777E /* BackButton.swift */; };
 		31746B1D2C52BEF20035B9CD /* PlanetARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31746B1C2C52BEF20035B9CD /* PlanetARView.swift */; };
 		31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */; };
 		31AFE1B92C4AFD210005DDDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1B82C4AFD210005DDDB /* SceneDelegate.swift */; };
@@ -21,6 +22,8 @@
 		31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */; };
 		31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */; };
 		31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */; };
+		31C0AE1F2C653B1900E825FF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0AE1E2C653B1900E825FF /* BottomSheetViewController.swift */; };
+		40375DF22C64FC1A00CAAB88 /* Beiruti[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */; };
 		40960F822C502B5100A883C6 /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960F812C502B5100A883C6 /* PlanetData.swift */; };
 		409C022F2C554C2F0021D622 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C022E2C554C2F0021D622 /* HomeView.swift */; };
 		409C02332C5582560021D622 /* SolarSystemSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C02322C5582560021D622 /* SolarSystemSceneView.swift */; };
@@ -69,7 +72,8 @@
 /* Begin PBXFileReference section */
 		2E18BFD12C5AC069002E6FBB /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		2E18BFDC2C63F57C002E6FBB /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		31359F7B2C63F97900F9777E /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		31359F7E2C6411A000F9777E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		31746B1C2C52BEF20035B9CD /* PlanetARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetARView.swift; sourceTree = "<group>"; };
 		31AFE1B32C4AFD210005DDDB /* Mini06AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mini06AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AFE1B62C4AFD210005DDDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		31AFE1D82C4B003D0005DDDB /* PlanetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetModel.swift; sourceTree = "<group>"; };
 		31BDB0612C4EE13100B59EA5 /* PlanetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailView.swift; sourceTree = "<group>"; };
 		31BDB0632C4EF2DD00B59EA5 /* ARHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHUDView.swift; sourceTree = "<group>"; };
+		31C0AE1E2C653B1900E825FF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomSheetViewController.swift; path = Mini06AR/Home/ViewController/BottomSheetViewController.swift; sourceTree = SOURCE_ROOT; };
+		40375DF12C64FB7F00CAAB88 /* Beiruti[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Beiruti[wght].ttf"; sourceTree = "<group>"; };
 		40960F812C502B5100A883C6 /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
 		409C022E2C554C2F0021D622 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		409C02322C5582560021D622 /* SolarSystemSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemSceneView.swift; sourceTree = "<group>"; };
@@ -138,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31359F7D2C63F97E00F9777E /* Initial Screen */ = {
+			isa = PBXGroup;
+			children = (
+				31359F7B2C63F97900F9777E /* InitialViewController.swift */,
+			);
+			path = "Initial Screen";
+			sourceTree = "<group>";
+		};
 		31AFE1AA2C4AFD200005DDDB = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +177,7 @@
 				4022CCE82C5837CC008A1F4D /* App */,
 				40C555A52C4D5AF100CBD100 /* Utils */,
 				31AFE1DA2C4B00400005DDDB /* Model */,
+				31359F7D2C63F97E00F9777E /* Initial Screen */,
 				31AFE1CA2C4AFED40005DDDB /* Home */,
 				31AFE1CD2C4AFF740005DDDB /* PlanetDetail */,
 				31AFE1D52C4B00180005DDDB /* SolarSystemViewController */,
@@ -246,8 +261,8 @@
 		409C02372C5598B90021D622 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				31C0AE1E2C653B1900E825FF /* BottomSheetViewController.swift */,
 				31AFE1BA2C4AFD210005DDDB /* HomeViewController.swift */,
-				2E18BFDC2C63F57C002E6FBB /* BottomSheetViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -279,6 +294,7 @@
 				40CF48192C62BAEC00D9D638 /* ColorCatalog.swift */,
 				2E18BFDA2C5C0255002E6FBB /* Localizable.xcstrings */,
 				40CF481D2C6305C900D9D638 /* FontManager.swift */,
+				31359F7E2C6411A000F9777E /* BackButton.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -486,11 +502,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31359F7F2C6411A000F9777E /* BackButton.swift in Sources */,
 				40C555A72C4D5AFE00CBD100 /* Coordinator.swift in Sources */,
 				31BDB0642C4EF2DD00B59EA5 /* ARHUDView.swift in Sources */,
 				31AFE1BB2C4AFD210005DDDB /* HomeViewController.swift in Sources */,
+				31359F7C2C63F97900F9777E /* InitialViewController.swift in Sources */,
 				E8264DA92C541417003F61E8 /* PassthroughView.swift in Sources */,
 				40960F822C502B5100A883C6 /* PlanetData.swift in Sources */,
+				31C0AE1F2C653B1900E825FF /* BottomSheetViewController.swift in Sources */,
 				E8264E032C5AC6AE003F61E8 /* SolarSystemARView+CustomARViewDelegate.swift in Sources */,
 				40CF48182C62B59600D9D638 /* PaddedLabel.swift in Sources */,
 				40CF481A2C62BAEC00D9D638 /* ColorCatalog.swift in Sources */,
@@ -499,7 +518,6 @@
 				40CF481E2C6305C900D9D638 /* FontManager.swift in Sources */,
 				E8264DAF2C5416A7003F61E8 /* Extension+CustomARView.swift in Sources */,
 				31BDB0622C4EE13100B59EA5 /* PlanetDetailView.swift in Sources */,
-				2E18BFDD2C63F57C002E6FBB /* BottomSheetViewController.swift in Sources */,
 				31AFE1B72C4AFD210005DDDB /* AppDelegate.swift in Sources */,
 				31AFE1D92C4B003D0005DDDB /* PlanetModel.swift in Sources */,
 				E8264DAB2C54142E003F61E8 /* CustomARView.swift in Sources */,
