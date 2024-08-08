@@ -818,7 +818,11 @@
         }
       }
     },
+    "Reset" : {
+
+    },
     "Reset Position" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
