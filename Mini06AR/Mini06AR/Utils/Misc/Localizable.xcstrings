@@ -12,6 +12,37 @@
         }
       }
     },
+    "  to look at planets and stars individually.\n\nor click the button  " : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para olhar planetas e estrelas individualmente.\n\nou clique no botão"
+          }
+        }
+      }
+    },
+    "  to look at planets and stars individually.\\n\\nor click the button  " : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para observar planetas e estrelas individualmente.\\n\\nem clique no botão"
+          }
+        }
+      }
+    },
+    "  to see only the solar system in Augmented Reality." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para ver apenas o sistema solar em Realidade Aumentada."
+          }
+        }
+      }
+    },
     "  to view only the solar system in Augmented Reality." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -244,24 +275,23 @@
         }
       }
     },
-    "Hello, welcome to PlanetARium, click on  " : {
-      "extractionState" : "manual",
+    "Hello, welcome to Little Planets\n\nclick on " : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olá, bem vindo ao PlanetARium, clique em\n"
+            "value" : "Olá, bem-vindo ao Little Planets\n\nclique em"
           }
         }
       }
     },
-    "Hello, welcome to PlanetARium\\n\\nclick on " : {
+    "Hello, welcome to Little Planets\\n\\nclick on " : {
       "extractionState" : "manual",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olá, bem-vindo ao PlanetARium\\n\\nclique em"
+            "value" : "Olá, bem-vindo ao Little Planets\\n\\nclique em"
           }
         }
       }
