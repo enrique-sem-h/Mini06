@@ -41,7 +41,7 @@ class InitialViewController: UIViewController {
         NSLayoutConstraint.activate([
             titleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            titleImageView.widthAnchor.constraint(equalToConstant: 600),
+            titleImageView.widthAnchor.constraint(equalToConstant: 700),
             titleImageView.heightAnchor.constraint(equalToConstant: 250)
         ])
     }

@@ -30,7 +30,7 @@ class BottomSheetViewController: UIViewController {
         label.textColor = ColorCatalog.white
         
         // Texto antes da primeira imagem
-        let text1 = "Hello, welcome to Planetarium\n\nclick on "
+        let text1 = NSLocalizedString("Hello, welcome to Little Planets\n\nclick on ", comment: "")
         
         // Imagem "Explorar"
         let explorarAttachment = NSTextAttachment()
@@ -38,7 +38,7 @@ class BottomSheetViewController: UIViewController {
         explorarAttachment.bounds = CGRect(x: 0, y: -5, width: 100, height: 30)
         
         // Texto entre as imagens
-        let text2 = "  to look at planets and stars individually.\n\nor click the button  "
+        let text2 = NSLocalizedString("  to look at planets and stars individually.\n\nor click the button  ", comment: "")
         
         // Imagem "RA"
         let raAttachment = NSTextAttachment()
@@ -50,7 +50,7 @@ class BottomSheetViewController: UIViewController {
         }
         
         raAttachment.bounds = CGRect(x: 0, y: -5, width: 30, height: 30)
-        let text3 = "  to see only the solar system in Augmented Reality."
+        let text3 = NSLocalizedString("  to see only the solar system in Augmented Reality.", comment: "")
         
         // Monta o NSAttributedString combinando texto e imagens
         let attributedString = NSMutableAttributedString(string: text1)

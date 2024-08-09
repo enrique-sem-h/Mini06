@@ -701,7 +701,8 @@
 				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Planetarium;
+				INFOPLIST_KEY_CFBundleDisplayName = "Little Planets";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -732,7 +733,8 @@
 				DEVELOPMENT_TEAM = M9H5R689TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mini06AR/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Planetarium;
+				INFOPLIST_KEY_CFBundleDisplayName = "Little Planets";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to display AR content.";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
