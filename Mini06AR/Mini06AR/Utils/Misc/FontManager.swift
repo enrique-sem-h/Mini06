@@ -21,11 +21,12 @@ struct FontManager {
         return UIFont(name: "Signika-Bold", size: size)
     }
     
-    // Fonte SemiBold
+    // Fonte Medium
     static func mediumFont(size: CGFloat) -> UIFont? {
         return UIFont(name: "Signika-Medium", size: size)
     }
     
+    // Fonte SemiBold
     static func semiboldFont(size: CGFloat) -> UIFont? {
         return UIFont(name: "Signika-Semibold", size: size)
     }
