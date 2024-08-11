@@ -10,22 +10,22 @@ import ARKit
 import RealityKit
 
 /**
- A classe `SolarSystemARView` define a view que é responsavel por montar a view do Sistema Solar em realidade aumentada, suas interações e controles
+ A classe `SolarSystemARView` define a view que é responsável por montar a view do Sistema Solar em realidade aumentada, suas interações e controles.
  */
 class SolarSystemARView: UIView {
     var isPlayingAnimation = true
     private var viewController: SolarSystemViewController?
     
-    lazy private var arView = CustomARView()
-    lazy private var resetButton = UIButton()
+    private lazy var arView = CustomARView()
+    private lazy var resetButton = UIButton()
     
     static var sunModel: String {
-        return planets.filter({ $0.modelName.contains("sun")}).first?.modelName ?? "<unknown>"
+        return planets.filter({ $0.modelName.contains("sun") }).first?.modelName ?? "<unknown>"
     }
     
     init(viewController: SolarSystemViewController? = nil) {
-        super.init(frame: .zero)
         self.viewController = viewController
+        super.init(frame: .zero)
         setup()
         setupBackButton()
     }
@@ -34,7 +34,7 @@ class SolarSystemARView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - ARView
+    // MARK: - ARView Setup
     private func setup() {
         setupARView()
         setupResetButton()
@@ -42,7 +42,7 @@ class SolarSystemARView: UIView {
     
     private func setupARView() {
         guard ARWorldTrackingConfiguration.isSupported else {
-            print("AR is not supported")
+            showErrorAlert(message: "AR is not supported on this device.")
             return
         }
         configureARViewSession()
@@ -50,7 +50,6 @@ class SolarSystemARView: UIView {
         arView.enableSolarSystemGesture()
         arView.arViewDelegate = self
     }
-    
     
     private func configureARViewSession() {
         let configuration = ARWorldTrackingConfiguration()
@@ -64,13 +63,16 @@ class SolarSystemARView: UIView {
         coachingOverlay.goal = .horizontalPlane
         self.addSubview(arView)
         self.addSubview(coachingOverlay)
+        
         arView.translatesAutoresizingMaskIntoConstraints = false
         coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             arView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             arView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             arView.widthAnchor.constraint(equalTo: self.widthAnchor),
             arView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            
             coachingOverlay.centerXAnchor.constraint(equalTo: arView.centerXAnchor),
             coachingOverlay.centerYAnchor.constraint(equalTo: arView.centerYAnchor),
             coachingOverlay.widthAnchor.constraint(equalTo: arView.widthAnchor),
@@ -78,7 +80,7 @@ class SolarSystemARView: UIView {
         ])
     }
     
-    // MARK: - ResetButton
+    // MARK: - Reset Button
     private func setupResetButton() {
         resetButton.setBackgroundImage(.resetButtonbg, for: .normal)
         resetButton.setTitle(NSLocalizedString("Reset", comment: ""), for: .normal)
@@ -104,15 +106,19 @@ class SolarSystemARView: UIView {
     
     // MARK: - Animations
     func togglePlanetAnimations() {
-        guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else { return }
-        for (n, p) in SolarSystem.solarSystemPlanets.enumerated() {
-            if let e = arView.scene.findEntity(named: p.modelName) {
+        guard arView.scene.findEntity(named: SolarSystemARView.sunModel) != nil else {
+            showErrorAlert(message: "Sun model not found in the scene.")
+            return
+        }
+        
+        for (index, planet) in SolarSystem.solarSystemPlanets.enumerated() {
+            if let entity = arView.scene.findEntity(named: planet.modelName) {
                 if isPlayingAnimation {
-                    e.stopAllAnimations()
+                    entity.stopAllAnimations()
                 } else {
-                    let n = n + 1
-                    if let a = CustomARView.createOrbitAnimation(transform: e.transform, n: n) {
-                        e.playAnimation(a)
+                    let adjustedIndex = index + 1
+                    if let animation = CustomARView.createOrbitAnimation(transform: entity.transform, n: adjustedIndex) {
+                        entity.playAnimation(animation)
                     }
                 }
             }
@@ -122,9 +128,23 @@ class SolarSystemARView: UIView {
     
     private func setupBackButton() {
         guard let coordinator = viewController?.coordinator else { return }
-        lazy var backButton = BackButton(coordinator: coordinator)
+        let backButton = BackButton(coordinator: coordinator)
         self.addSubview(backButton)
         backButton.setupRelatedToView(view: self)
     }
+    
+    /**
+     Exibe um alerta de erro.
+     
+     - Parameter message: A mensagem a ser exibida no alerta.
+     */
+    private func showErrorAlert(message: String) {
+        if let topController = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            topController.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
+
 

@@ -7,24 +7,62 @@
 
 import UIKit
 
+/**
+ `HomeView` é uma subclasse de `UIView` que representa a tela principal do aplicativo `Mini06AR`.
+
+ Esta visualização inclui elementos como botões para alternar entre diferentes modos de exibição, pausar a cena, acessar configurações e abrir uma visualização de Realidade Aumentada (AR). Além disso, exibe um `SolarSystemSceneView` com uma cena do sistema solar.
+ */
 class HomeView: UIView {
     
+    /// Indica se o `planetBoxView` está visível.
     var isPlanetBoxVisible = false
+    
+    /// Array contendo objetos `Planet` para exibição.
     var planets: [Planet] = []
+    
+    /// Closure chamada para exibir a visualização de AR com o planeta selecionado.
     var showARView: ((Planet) -> Void)?
+    
+    /// Instância de `SolarSystemSceneView` que exibe o sistema solar.
     var sceneView: SolarSystemSceneView
+    
+    /// Closure chamada para exibir o controlador de visualização de AR.
     var showARViewController: (() -> Void)?
+    
+    /// Subview que exibe informações detalhadas sobre os planetas.
     private var planetBoxView: PlanetBoxView!
+    
+    /// Botão que alterna a visibilidade do `planetBoxView`.
     private var toggleButton: UIButton!
+    
+    /// Botão que abre as configurações.
     private var settingsButton: UIButton!
+    
+    /// Botão que pausa a cena do sistema solar.
     private var pauseButton: UIButton!
+    
+    /// Botão que inicia a visualização de AR.
     private var arButton: UIButton!
+    
+    /// Botão que exibe informações adicionais.
     var informationButton: UIButton!
+    
+    /// Indica se os botões de configurações estão visíveis.
     private var areSettingsButtonsVisible = false
     
+    /// Constraint usada para esconder o `planetBoxView`.
     private var planetBoxViewLeadingHiddenConstraint: NSLayoutConstraint!
+    
+    /// Constraint usada para mostrar o `planetBoxView`.
     private var planetBoxViewLeadingVisibleConstraint: NSLayoutConstraint!
     
+    /**
+     Inicializa uma nova instância de `HomeView`.
+     
+     - Parameters:
+        - frame: O retângulo que especifica o tamanho e a posição inicial da visualização.
+        - planets: Array de objetos `Planet` a serem exibidos.
+     */
     init(frame: CGRect, planets: [Planet]) {
         self.planets = planets
         sceneView = SolarSystemSceneView(frame: frame, planets: planets)
@@ -36,6 +74,9 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+     Configura a visualização e seus subcomponentes, incluindo o `sceneView`, `planetBoxView` e botões de interação.
+     */
     private func setupView() {
         sceneView = SolarSystemSceneView(frame: self.frame, planets: planets)
         self.addSubview(sceneView)
@@ -52,7 +93,7 @@ class HomeView: UIView {
         setupSettingsButton()
         setupPauseButton()
         setupARButton()
-        SetupinformationsButton()
+        setupInformationButton()
         
         planetBoxViewLeadingHiddenConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -250)
         planetBoxViewLeadingVisibleConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
@@ -65,28 +106,33 @@ class HomeView: UIView {
         ])
     }
     
+    /**
+     Configura o `toggleButton`, que alterna a visibilidade do `planetBoxView`.
+     */
     private func setupToggleButton() {
-            
-            toggleButton = UIButton(type: .system)
-            toggleButton.setTitle("Explore", for: .normal)
+        toggleButton = UIButton(type: .system)
+        toggleButton.setTitle("Explore", for: .normal)
         toggleButton.tintColor = ColorCatalog.white
         toggleButton.titleLabel?.font = FontManager.semiboldFont(size: 16)
-            toggleButton.backgroundColor = ColorCatalog.yellow
-            toggleButton.layer.cornerRadius = 20
-            toggleButton.clipsToBounds = true
-            toggleButton.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(toggleButton)
-            
-            
-            NSLayoutConstraint.activate([
-                toggleButton.widthAnchor.constraint(equalToConstant: 100),
-                toggleButton.heightAnchor.constraint(equalToConstant: 40),
-                toggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
-                toggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
-            ])
-            
-            toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
-        }
+        toggleButton.backgroundColor = ColorCatalog.yellow
+        toggleButton.layer.cornerRadius = 20
+        toggleButton.clipsToBounds = true
+        toggleButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(toggleButton)
+        
+        NSLayoutConstraint.activate([
+            toggleButton.widthAnchor.constraint(equalToConstant: 100),
+            toggleButton.heightAnchor.constraint(equalToConstant: 40),
+            toggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            toggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
+        ])
+        
+        toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
+    }
+    
+    /**
+     Configura o `settingsButton`, que alterna a visibilidade dos botões de configuração.
+     */
     private func setupSettingsButton() {
         settingsButton = UIButton(type: .system)
         let settingsImage = UIImage(systemName: "gearshape.fill")
@@ -108,7 +154,12 @@ class HomeView: UIView {
         settingsButton.addTarget(self, action: #selector(toggleSettingsButtons), for: .touchUpInside)
     }
     
-    private func SetupinformationsButton() {
+    /**
+     Configura o `informationButton`, que exibe informações adicionais.
+     
+     Este botão está inicialmente oculto e é exibido junto com outros botões de configuração.
+     */
+    private func setupInformationButton() {
         informationButton = UIButton(type: .system)
         let infoImage = UIImage(systemName: "info.circle")
         informationButton.setImage(infoImage, for: .normal)
@@ -127,6 +178,11 @@ class HomeView: UIView {
         informationButton.isHidden = true
     }
     
+    /**
+     Configura o `pauseButton`, que pausa ou retoma a cena do sistema solar.
+     
+     Este botão também está inicialmente oculto e é exibido junto com outros botões de configuração.
+     */
     private func setupPauseButton() {
         pauseButton = UIButton(type: .system)
         let pauseImage = UIImage(systemName: "pause.fill")
@@ -147,6 +203,9 @@ class HomeView: UIView {
         pauseButton.addTarget(self, action: #selector(pause), for: .touchUpInside)
     }
     
+    /**
+     Configura o `arButton`, que inicia a visualização de AR.
+     */
     private func setupARButton() {
         arButton = UIButton(type: .system)
         let arImage = UIImage(systemName: "arkit")
@@ -172,10 +231,14 @@ class HomeView: UIView {
         arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
     }
     
+    /**
+     Método chamado quando o `arButton` é pressionado.
+     
+     Exibe a visualização de AR e aplica uma animação de fade ao botão.
+     */
     @objc private func openARView() {
-        
         showARViewController?()
-
+        
         let fadeAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.fromValue = 1.0
         fadeAnimation.toValue = 0.5
@@ -185,6 +248,11 @@ class HomeView: UIView {
         arButton.layer.add(fadeAnimation, forKey: "fadeAnimation")
     }
     
+    /**
+     Método chamado quando o `pauseButton` é pressionado.
+     
+     Alterna o estado de pausa da cena do sistema solar e aplica uma animação de pulsação ao botão.
+     */
     @objc private func pause() {
         sceneView.scene?.isPaused.toggle()
         let newImage = sceneView.scene?.isPaused == true ? UIImage(systemName: "play.fill") : UIImage(systemName: "pause.fill")
@@ -198,6 +266,11 @@ class HomeView: UIView {
         pauseButton.layer.add(pulseAnimation, forKey: "pulseAnimation")
     }
     
+    /**
+     Método chamado quando o `settingsButton` é pressionado.
+     
+     Alterna a visibilidade dos botões de configurações e aplica uma animação de rotação ao `settingsButton`.
+     */
     @objc private func toggleSettingsButtons() {
         areSettingsButtonsVisible.toggle()
         
@@ -223,6 +296,11 @@ class HomeView: UIView {
         }
     }
     
+    /**
+     Método chamado quando o `toggleButton` é pressionado.
+     
+     Alterna a visibilidade do `planetBoxView`, aplicando uma animação de escala ao `toggleButton`.
+     */
     @objc private func togglePlanetBox() {
         isPlanetBoxVisible.toggle()
         
@@ -244,7 +322,7 @@ class HomeView: UIView {
             }
             
             toggleButton.setTitle(NSLocalizedString("Fechar", comment: ""), for: .normal)
-            toggleButton.backgroundColor = ColorCatalog.orange 
+            toggleButton.backgroundColor = ColorCatalog.orange
         } else {
             NSLayoutConstraint.deactivate([planetBoxViewLeadingVisibleConstraint])
             NSLayoutConstraint.activate([planetBoxViewLeadingHiddenConstraint])

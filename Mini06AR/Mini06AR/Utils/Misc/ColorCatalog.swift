@@ -7,7 +7,12 @@
 
 import UIKit
 
-// Extensão para criar uma cor a partir de um valor hexadecimal
+/**
+ A extensão `UIColor` permite criar cores a partir de valores hexadecimais.
+ 
+ - Parameters:
+ - hex: Uma string representando o valor hexadecimal da cor.
+ */
 extension UIColor {
     convenience init(hex: String) {
         let hex = hex.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "#", with: "")
@@ -22,10 +27,18 @@ extension UIColor {
     }
 }
 
-// Estrutura para armazenar cores com valores hexadecimais
+/**
+ A estrutura `ColorCatalog` armazena e organiza cores usadas no projeto `Mini06AR`.
+ 
+ Ela fornece cores baseadas em valores hexadecimais e métodos para obter cores específicas associadas a corpos celestes.
+ */
 struct ColorCatalog {
-
-    // Valores Hexadecimais
+    
+    /**
+     A estrutura `HexValues` armazena os valores hexadecimais para as cores usadas no projeto.
+     
+     Inclui cores básicas, cores associadas aos planetas, cores de texto, cores de descrição de texto, e cores de fundo de texto.
+     */
     struct HexValues {
         static let blue = "#304B7A"
         static let yellow = "#DBA451"
@@ -78,16 +91,16 @@ struct ColorCatalog {
         static let moonTextBackground = "#474A4D"
         static let sunTextBackground = "#B26F5A"
     }
-
-    // Cores Básicas
+    
+    // MARK: - Cores Básicas
     static let blue = UIColor(hex: HexValues.blue)
     static let yellow = UIColor(hex: HexValues.yellow)
     static let orange = UIColor(hex: HexValues.orange)
     static let red = UIColor(hex: HexValues.red)
     static let white = UIColor(hex: HexValues.white)
     static let black = UIColor(hex: HexValues.black)
-
-    // Cores Pastel para Planetas
+    
+    // MARK: - Cores Pastel para Planetas
     static let planetaryColors: [String: UIColor] = [
         "Mercury": UIColor(hex: HexValues.mercury),
         "Venus": UIColor(hex: HexValues.venus),
@@ -100,8 +113,8 @@ struct ColorCatalog {
         "Moon" : UIColor(hex: HexValues.moon),
         "Sun" : UIColor(hex: HexValues.sun)
     ]
-
-    // Cores para o texto dos planetas
+    
+    // MARK: - Cores para o Texto dos Planetas
     static let textColors: [String: UIColor] = [
         "Mercury": UIColor(hex: HexValues.mercuryText),
         "Venus": UIColor(hex: HexValues.venusText),
@@ -114,8 +127,8 @@ struct ColorCatalog {
         "Moon" : UIColor(hex: HexValues.moonText),
         "Sun" : UIColor(hex: HexValues.sunText)
     ]
-
-    // Cores para o texto das descrições dos planetas
+    
+    // MARK: - Cores para o Texto das Descrições dos Planetas
     static let descriptionTextColors: [String: UIColor] = [
         "Mercury": UIColor(hex: HexValues.mercuryDescText),
         "Venus": UIColor(hex: HexValues.venusDescText),
@@ -128,8 +141,8 @@ struct ColorCatalog {
         "Moon" : UIColor(hex: HexValues.moonDescText),
         "Sun" : UIColor(hex: HexValues.sunDescText)
     ]
-
-    // Cores de fundo para o texto dos planetas
+    
+    // MARK: - Cores de Fundo para o Texto dos Planetas
     static let textBackgroundColors: [String: UIColor] = [
         "Mercury": UIColor(hex: HexValues.mercuryTextBackground),
         "Venus": UIColor(hex: HexValues.venusTextBackground),
@@ -142,20 +155,45 @@ struct ColorCatalog {
         "Moon" : UIColor(hex: HexValues.moonTextBackground),
         "Sun" : UIColor(hex: HexValues.sunTextBackground)
     ]
-
-    // Métodos para obter cores com base no nome do corpo celeste
+    
+    // MARK: - Métodos para Obter Cores com Base no Nome do Corpo Celeste
+    
+    /**
+     Obtém a cor de fundo associada ao corpo celeste.
+     
+     - Parameter celestialBody: O nome do corpo celeste.
+     - Returns: A cor de fundo associada, ou branco se não encontrada.
+     */
     static func getBackgroundColor(for celestialBody: String) -> UIColor {
         return planetaryColors[celestialBody] ?? .white
     }
-
+    
+    /**
+     Obtém a cor do texto associada ao corpo celeste.
+     
+     - Parameter celestialBody: O nome do corpo celeste.
+     - Returns: A cor do texto associada, ou preto se não encontrada.
+     */
     static func getTextColor(for celestialBody: String) -> UIColor {
         return textColors[celestialBody] ?? .black
     }
     
+    /**
+     Obtém a cor do texto de descrição associada ao corpo celeste.
+     
+     - Parameter celestialBody: O nome do corpo celeste.
+     - Returns: A cor do texto de descrição associada, ou preto se não encontrada.
+     */
     static func getDescriptionTextColor(for celestialBody: String) -> UIColor {
         return descriptionTextColors[celestialBody] ?? .black
     }
-
+    
+    /**
+     Obtém a cor de fundo para o texto associada ao corpo celeste.
+     
+     - Parameter celestialBody: O nome do corpo celeste.
+     - Returns: A cor de fundo do texto associada, ou branco se não encontrada.
+     */
     static func getTextBackgroundColor(for celestialBody: String) -> UIColor {
         return textBackgroundColors[celestialBody] ?? .white
     }
