@@ -13,6 +13,8 @@ import SceneKit
  */
 class SolarSystemSceneView: SCNView {
 
+    let cameraNode = SCNNode()
+    
     /**
      Inicializa uma nova `SolarSystemSceneView` com o quadro e os planetas fornecidos.
      
@@ -20,8 +22,6 @@ class SolarSystemSceneView: SCNView {
         - frame: O quadro da visualização.
         - planets: Uma lista de planetas a serem exibidos na cena.
      */
-    let cameraNode = SCNNode()
-    
     init(frame: CGRect, planets: [Planet]) {
         super.init(frame: frame, options: [:])
         self.autoenablesDefaultLighting = true
@@ -44,8 +44,6 @@ class SolarSystemSceneView: SCNView {
      - Parameter planets: Uma lista de planetas a serem exibidos na cena.
      */
     private func setupScene(planets: [Planet]) {
-//        print("Setting up scene with \(planets.count) planets.")
-        
         let scene = SCNScene()
         self.scene = scene
         self.allowsCameraControl = true
@@ -53,63 +51,12 @@ class SolarSystemSceneView: SCNView {
         if let backgroundImage = UIImage(named: "galaxy_texture") {
             scene.background.contents = backgroundImage
         } else {
-            print("Error: Background image not found.")
+            showErrorAlert(message: "Background image not found.")
         }
         
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 50)
         scene.rootNode.addChildNode(cameraNode)
-        
-        /**
-         Adiciona um planeta à cena.
-         
-         - Parameters:
-            - name: O nome do planeta.
-            - radius: O raio do planeta.
-            - distance: A distância do planeta do centro da cena.
-            - modelName: O nome do modelo de cada planeta
-         - Returns: O nó do planeta criado.
-         */
-        func addPlanet(name: String, radius: CGFloat, distance: Float, modelName: String) -> SCNNode {
-            guard let url = Bundle.main.url(forResource: modelName, withExtension: ".usdz"), let referenceNode = SCNReferenceNode(url: url) else { return SCNNode()}
-            
-            referenceNode.load()
-            referenceNode.name = name
-            referenceNode.scale = SCNVector3(radius, radius, radius)
-            referenceNode.position = SCNVector3(x: distance, y: 0, z: 0)
-            
-            if modelName == "sun" {
-                let light = SCNLight()
-                light.intensity = 5000
-                referenceNode.light = light
-            }
-            
-            return referenceNode
-        }
-        
-        /**
-         Adiciona um planeta em órbita à cena.
-         
-         - Parameters:
-            - name: O nome do planeta.
-            - radius: O raio do planeta.
-            - distance: A distância do planeta do centro da cena.
-            - texture: O nome da imagem de textura do planeta.
-            - duration: A duração da órbita do planeta.
-         */
-        func addOrbitingPlanet(name: String, radius: CGFloat, distance: Float, modelName: String, duration: TimeInterval) {
-            let orbitNode = SCNNode()
-            let planetNode = addPlanet(name: name, radius: radius, distance: distance, modelName: modelName)
-            orbitNode.name = "orbit"
-            orbitNode.addChildNode(planetNode)
-            scene.rootNode.addChildNode(orbitNode)
-            
-            let rotation = CABasicAnimation(keyPath: "rotation")
-            rotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
-            rotation.duration = duration
-            rotation.repeatCount = .infinity
-            orbitNode.addAnimation(rotation, forKey: "rotation")
-        }
         
         let sunNode = addPlanet(name: "Sun", radius: 3.0, distance: 0, modelName: "sun")
         scene.rootNode.addChildNode(sunNode)
@@ -125,35 +72,104 @@ class SolarSystemSceneView: SCNView {
         moonOrbitNode.addChildNode(moonNode)
         earthOrbitNode.addChildNode(moonOrbitNode)
         
-        let moonRotation = CABasicAnimation(keyPath: "rotation")
-        moonRotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
-        moonRotation.duration = 5
-        moonRotation.repeatCount = .infinity
-        moonOrbitNode.addAnimation(moonRotation, forKey: nil)
+        addRotationAnimation(to: moonOrbitNode, duration: 5)
         
         addOrbitingPlanet(name: "Mars", radius: 0.53, distance: 20, modelName: "mars", duration: 40)
         addOrbitingPlanet(name: "Jupiter", radius: 2.5, distance: 28, modelName: "jupiter", duration: 50)
         
-        // Adição de Saturno e seus anéis
         let saturnOrbitNode = SCNNode()
         let saturnNode = addPlanet(name: "Saturn", radius: 2.0, distance: 36, modelName: "saturn")
         saturnOrbitNode.addChildNode(saturnNode)
-        
         scene.rootNode.addChildNode(saturnOrbitNode)
         
-        let saturnRotation = CABasicAnimation(keyPath: "rotation")
-        saturnRotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
-        saturnRotation.duration = 60
-        saturnRotation.repeatCount = .infinity
-        saturnOrbitNode.addAnimation(saturnRotation, forKey: nil)
+        addRotationAnimation(to: saturnOrbitNode, duration: 60)
         
         addOrbitingPlanet(name: "Uranus", radius: 1.5, distance: 44, modelName: "uranus", duration: 70)
         addOrbitingPlanet(name: "Neptune", radius: 1.5, distance: 52, modelName: "neptune", duration: 80)
         
-        let sunRotation = CABasicAnimation(keyPath: "rotation")
-        sunRotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
-        sunRotation.duration = 30
-        sunRotation.repeatCount = .infinity
-        sunNode.addAnimation(sunRotation, forKey: nil)
+        addRotationAnimation(to: sunNode, duration: 30)
+    }
+    
+    /**
+     Adiciona um planeta à cena.
+     
+     - Parameters:
+        - name: O nome do planeta.
+        - radius: O raio do planeta.
+        - distance: A distância do planeta do centro da cena.
+        - modelName: O nome do modelo de cada planeta
+     - Returns: O nó do planeta criado.
+     */
+    private func addPlanet(name: String, radius: CGFloat, distance: Float, modelName: String) -> SCNNode {
+        guard let url = Bundle.main.url(forResource: modelName, withExtension: "usdz") else {
+            showErrorAlert(message: "Model \(modelName) not found.")
+            return SCNNode()
+        }
+        
+        guard let referenceNode = SCNReferenceNode(url: url) else {
+            showErrorAlert(message: "Failed to load model \(modelName).")
+            return SCNNode()
+        }
+        
+        referenceNode.load()
+        referenceNode.name = name
+        referenceNode.scale = SCNVector3(radius, radius, radius)
+        referenceNode.position = SCNVector3(x: distance, y: 0, z: 0)
+        
+        if modelName == "sun" {
+            let light = SCNLight()
+            light.intensity = 5000
+            referenceNode.light = light
+        }
+        
+        return referenceNode
+    }
+    
+    /**
+     Adiciona um planeta em órbita à cena.
+     
+     - Parameters:
+        - name: O nome do planeta.
+        - radius: O raio do planeta.
+        - distance: A distância do planeta do centro da cena.
+        - modelName: O nome do modelo do planeta.
+        - duration: A duração da órbita do planeta.
+     */
+    private func addOrbitingPlanet(name: String, radius: CGFloat, distance: Float, modelName: String, duration: TimeInterval) {
+        let orbitNode = SCNNode()
+        let planetNode = addPlanet(name: name, radius: radius, distance: distance, modelName: modelName)
+        orbitNode.name = "orbit"
+        orbitNode.addChildNode(planetNode)
+        scene?.rootNode.addChildNode(orbitNode)
+        
+        addRotationAnimation(to: orbitNode, duration: duration)
+    }
+    
+    /**
+     Adiciona uma animação de rotação a um nó.
+     
+     - Parameters:
+        - node: O nó ao qual a animação será adicionada.
+        - duration: A duração da animação.
+     */
+    private func addRotationAnimation(to node: SCNNode, duration: TimeInterval) {
+        let rotation = CABasicAnimation(keyPath: "rotation")
+        rotation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float.pi * 2))
+        rotation.duration = duration
+        rotation.repeatCount = .infinity
+        node.addAnimation(rotation, forKey: "rotation")
+    }
+    
+    /**
+     Exibe um alerta de erro.
+     
+     - Parameter message: A mensagem a ser exibida no alerta.
+     */
+    private func showErrorAlert(message: String) {
+        if let topController = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            topController.present(alertController, animated: true, completion: nil)
+        }
     }
 }

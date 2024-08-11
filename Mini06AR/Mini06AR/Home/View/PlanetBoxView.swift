@@ -40,23 +40,24 @@ class PlanetBoxView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
-    
     /**
      Configura os botões de seleção de planetas dentro da caixa.
      */
     private func setupPlanetSelectionButtons() {
+        // Remove quaisquer botões existentes
         self.subviews.filter { $0 is UIButton }.forEach { $0.removeFromSuperview() }
         
         let buttonHeight: CGFloat = 40
         let buttonSpacing: CGFloat = 15
         let topPadding: CGFloat = 20
         
+        // Carrega a imagem de fundo do botão
         guard let buttonBackgroundImage = UIImage(named: "button_image") else {
-            print("Failed to load the button background image")
+            showErrorAlert(message: "Failed to load the button background image.")
             return
         }
         
+        // Cria e configura os botões para cada planeta
         for (index, planet) in planets.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(planet.name, for: .normal)
@@ -81,7 +82,6 @@ class PlanetBoxView: UIView {
         }
     }
 
-    
     /**
      Método chamado quando um botão de planeta é pressionado.
      
@@ -89,7 +89,26 @@ class PlanetBoxView: UIView {
      */
     @objc private func planetButtonTapped(_ sender: UIButton) {
         let planetIndex = sender.tag
+        // Verifica se o índice está dentro dos limites
+        guard planetIndex >= 0 && planetIndex < planets.count else {
+            showErrorAlert(message: "Invalid planet index.")
+            return
+        }
         let selectedPlanet = planets[planetIndex]
         showARView?(selectedPlanet)
+    }
+    
+    /**
+     Exibe um alerta de erro.
+     
+     - Parameter message: A mensagem a ser exibida no alerta.
+     */
+    private func showErrorAlert(message: String) {
+        // Obtém o controlador de visualização atual
+        if let topController = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            topController.present(alertController, animated: true, completion: nil)
+        }
     }
 }
