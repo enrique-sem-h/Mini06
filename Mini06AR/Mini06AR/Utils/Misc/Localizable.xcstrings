@@ -74,6 +74,17 @@
         }
       }
     },
+    "AR is not supported on this device." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O AR não está disponível no dispositivo"
+          }
+        }
+      }
+    },
     "Back" : {
       "extractionState" : "manual",
       "localizations" : {

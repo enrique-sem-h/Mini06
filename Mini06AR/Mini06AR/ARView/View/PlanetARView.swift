@@ -39,7 +39,7 @@ class PlanetARView: UIView {
     // MARK: - ARView Setup
     private func setupARView() {
         guard ARWorldTrackingConfiguration.isSupported else {
-            showErrorAlert(message: "AR is not supported on this device.")
+            showErrorAlert(message: NSLocalizedString("AR is not supported on this device.", comment: ""))
             return
         }
         configureARViewSession()
