@@ -46,17 +46,17 @@ class InitialViewController: UIViewController {
      - Note: Esta imagem é posicionada no topo da tela inicial e redimensionada proporcionalmente.
      */
     private func setupTitleImageView() {
-//        titleImageView = UIImageView(image: UIImage(named: "image_logo"))
-//        titleImageView.contentMode = .scaleAspectFit
-//        view.addSubview(titleImageView)
+        titleImageView = UIImageView(image: UIImage(named: "image_logo"))
+        titleImageView.contentMode = .scaleAspectFit
+        view.addSubview(titleImageView)
         
-//        titleImageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            titleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            titleImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-//            titleImageView.widthAnchor.constraint(equalToConstant: 700),
-//            titleImageView.heightAnchor.constraint(equalToConstant: 250)
-//        ])
+        titleImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            titleImageView.widthAnchor.constraint(equalToConstant: 700),
+            titleImageView.heightAnchor.constraint(equalToConstant: 250)
+        ])
     }
     
     /**
