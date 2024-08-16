@@ -12,9 +12,6 @@ import Foundation
  */
 struct Planet {
     let name: String
-    let morseCode: String
-    let radius: Double
-    let distanceFromSun: Double
     let descriptions: [String: String]
     let modelName: String
 
@@ -23,9 +20,6 @@ struct Planet {
      
      - Parameters:
         - name: O nome do planeta.
-        - morseCode: O código morse do planeta selecionado
-        - radius: O raio do planeta em quilômetros.
-        - distanceFromSun: A distância do planeta ao Sol em milhões de quilômetros.
         - descriptions: Um dicionário contendo descrições e curiosidades sobre o planeta.
         - modelName: O nome do arquivo do modelo 3D do planeta.
         - textureName: O nome do arquivo da textura do modelo 3D.
