@@ -114,6 +114,7 @@
       }
     },
     "Click the screen to place:  " : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
