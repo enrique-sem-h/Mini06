@@ -30,7 +30,7 @@ class HomeView: UIView {
     var showARViewController: (() -> Void)?
     
     /// Subview que exibe informações detalhadas sobre os planetas.
-    private var planetBoxView: PlanetBoxView!
+     var planetBoxView: PlanetBoxView!
     
     /// Botão que alterna a visibilidade do `planetBoxView`.
     private var toggleButton: UIButton!

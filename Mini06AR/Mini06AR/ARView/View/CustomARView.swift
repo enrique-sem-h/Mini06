@@ -25,5 +25,5 @@ extension CustomARViewDelegate {
  */
 class CustomARView: ARView {
     var arViewDelegate: CustomARViewDelegate?
-    var arPlanetViewController: ARViewController?
+  //  var arPlanetViewController: ARViewController?
 }

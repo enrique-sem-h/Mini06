@@ -34,10 +34,13 @@ class HomeViewController: UIViewController {
         homeView.informationButton.addTarget(self, action: #selector(showBottomSheet), for: .touchUpInside)
         self.view.addSubview(homeView)
         
+        
         // Define a ação a ser realizada quando um planeta é selecionado.
-        homeView.showARView = { [weak self] planet in
-            self?.coordinator?.showARView(for: planet)
+        homeView.planetBoxView.showPlanetDetailView = { [weak self] planet in
+            self?.coordinator?.showPlanetDetail(for: planet)
         }
+        
+        
         
         homeView.showARViewController = { [weak self] in
                   self?.coordinator?.showSolarSystemView()

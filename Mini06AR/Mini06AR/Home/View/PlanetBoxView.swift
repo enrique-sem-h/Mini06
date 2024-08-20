@@ -14,7 +14,8 @@ class PlanetBoxView: UIView {
     
     /// Closure que é chamada quando um botão de planeta é pressionado, exibindo o conteúdo de AR para o planeta selecionado.
     var showARView: ((Planet) -> Void)?
-    
+    var showPlanetDetailView: ((Planet) -> Void)?
+
     /// Lista de planetas a serem exibidos na caixa de seleção.
     private var planets: [Planet]
     
@@ -95,7 +96,7 @@ class PlanetBoxView: UIView {
             return
         }
         let selectedPlanet = planets[planetIndex]
-        showARView?(selectedPlanet)
+        showPlanetDetailView?(selectedPlanet)
     }
     
     /**

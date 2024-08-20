@@ -38,12 +38,21 @@ class MainCoordinator: Coordinator {
      
      - Parameter planet: O planeta a ser exibido na visualização AR.
      */
-    func showARView(for planet: Planet) {
-        let arCoordinator = ARCoordinator(navigationController: navigationController, planet: planet)
-        childCoordinators.append(arCoordinator)
-        arCoordinator.parentCoordinator = self
-        arCoordinator.start()
-    }
+//    func showARView(for planet: Planet) {
+//        let arCoordinator = ARCoordinator(navigationController: navigationController, planet: planet)
+//        childCoordinators.append(arCoordinator)
+//        arCoordinator.parentCoordinator = self
+//        arCoordinator.start()
+//    }
+    
+        func showPlanetDetail(for planet: Planet) {
+            let planetDetailCoordinator = PlanetDetailCoordinator(navigationController: navigationController, planet: planet)
+            childCoordinators.append(planetDetailCoordinator)
+            planetDetailCoordinator.parentCoordinator = self
+            planetDetailCoordinator.start()
+        }
+    
+
     
     /**
      Mostra a visualização do sistema solar.
