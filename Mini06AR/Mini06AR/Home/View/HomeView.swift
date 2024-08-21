@@ -114,7 +114,9 @@ class HomeView: UIView {
         toggleButton.setTitle("Explore", for: .normal)
         toggleButton.tintColor = ColorCatalog.white
         toggleButton.titleLabel?.font = FontManager.semiboldFont(size: 16)
-        toggleButton.backgroundColor = ColorCatalog.yellow
+        if let exploreImage = UIImage(named: "backgroundExplore") {
+            toggleButton.setBackgroundImage(exploreImage, for: .normal)
+        }
         toggleButton.layer.cornerRadius = 20
         toggleButton.clipsToBounds = true
         toggleButton.translatesAutoresizingMaskIntoConstraints = false
@@ -129,6 +131,7 @@ class HomeView: UIView {
         
         toggleButton.addTarget(self, action: #selector(togglePlanetBox), for: .touchUpInside)
     }
+
     
     /**
      Configura o `settingsButton`, que alterna a visibilidade dos botões de configuração.
@@ -294,11 +297,9 @@ class HomeView: UIView {
         UIView.animate(withDuration: 0.2) {
             let alpha: CGFloat = self.areSettingsButtonsVisible ? 1.0 : 0.0
             let transform: CGAffineTransform = self.areSettingsButtonsVisible ? .identity : CGAffineTransform(scaleX: 0.5, y: 0.5)
-            
             self.pauseButton.alpha = alpha
             self.pauseButton.transform = transform
             self.pauseButton.isHidden = !self.areSettingsButtonsVisible
-            
             self.informationButton.alpha = alpha
             self.informationButton.transform = transform
             self.informationButton.isHidden = !self.areSettingsButtonsVisible
@@ -312,7 +313,6 @@ class HomeView: UIView {
      */
     @objc private func togglePlanetBox() {
         isPlanetBoxVisible.toggle()
-        
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = 1.0
         scaleAnimation.toValue = 1.1
@@ -320,7 +320,6 @@ class HomeView: UIView {
         scaleAnimation.autoreverses = true
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         toggleButton.layer.add(scaleAnimation, forKey: "scaleAnimation")
-        
         if isPlanetBoxVisible {
             planetBoxView.isHidden = false
             NSLayoutConstraint.deactivate([planetBoxViewLeadingHiddenConstraint])
@@ -354,5 +353,4 @@ class HomeView: UIView {
             }
         }
     }
-
 }
