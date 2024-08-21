@@ -138,8 +138,12 @@ class HomeView: UIView {
         let settingsImage = UIImage(systemName: "gearshape.fill")
         settingsButton.setImage(settingsImage, for: .normal)
         settingsButton.tintColor = ColorCatalog.white
-        settingsButton.backgroundColor = ColorCatalog.blue
+        if let backgroundImage = UIImage(named: "circleSettings") {
+            settingsButton.setBackgroundImage(backgroundImage, for: .normal)
+        }
+
         settingsButton.layer.cornerRadius = 20
+        settingsButton.clipsToBounds = true
         
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(settingsButton)
@@ -212,6 +216,11 @@ class HomeView: UIView {
         arButton.setImage(arImage, for: .normal)
         arButton.tintColor = .white
         
+        // Substitui o backgroundColor pela imagem de fundo
+        if let backgroundImage = UIImage(named: "circleSettings") {
+            arButton.setBackgroundImage(backgroundImage, for: .normal)
+        }
+
         arButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(arButton)
         
@@ -222,14 +231,14 @@ class HomeView: UIView {
             arButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
         
-        arButton.backgroundColor = ColorCatalog.blue
         arButton.layer.cornerRadius = 20
         arButton.layer.borderWidth = 1
         arButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        arButton.clipsToBounds = true
+        arButton.clipsToBounds = true // Certifique-se de que a imagem respeite os cantos arredondados
         
         arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
     }
+
     
     /**
      Método chamado quando o `arButton` é pressionado.
@@ -322,7 +331,11 @@ class HomeView: UIView {
             }
             
             toggleButton.setTitle(NSLocalizedString("Fechar", comment: ""), for: .normal)
-            toggleButton.backgroundColor = ColorCatalog.orange
+            
+            // Define a imagem de fundo para o estado "Fechar"
+            if let closeImage = UIImage(named: "closeBackground") {
+                toggleButton.setBackgroundImage(closeImage, for: .normal)
+            }
         } else {
             NSLayoutConstraint.deactivate([planetBoxViewLeadingVisibleConstraint])
             NSLayoutConstraint.activate([planetBoxViewLeadingHiddenConstraint])
@@ -334,7 +347,12 @@ class HomeView: UIView {
             }
             
             toggleButton.setTitle(NSLocalizedString("Explore", comment: ""), for: .normal)
-            toggleButton.backgroundColor = ColorCatalog.yellow
+            
+            // Define a imagem de fundo para o estado "Explore"
+            if let exploreImage = UIImage(named: "backgroundExplore") {
+                toggleButton.setBackgroundImage(exploreImage, for: .normal)
+            }
         }
     }
+
 }
