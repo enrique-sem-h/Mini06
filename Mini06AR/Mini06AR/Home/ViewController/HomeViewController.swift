@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     var homeView: HomeView!
     
     private let bottomSheetTransitioningDelegate = BottomSheetTransitioningDelegate()
-
+    
     
     /**
      Chamado após a visualização do controlador ser carregada na memória.
@@ -40,11 +40,11 @@ class HomeViewController: UIViewController {
         }
         
         homeView.showARViewController = { [weak self] in
-                  self?.coordinator?.showSolarSystemView()
-              }
-
-
-
+            self?.coordinator?.showSolarSystemView()
+        }
+        
+        
+        
     }
     
     @objc private func showBottomSheet() {
@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
     
     private func focusCameraOnNode(_ node: SCNNode) {
         guard let cameraNode = homeView.sceneView.pointOfView else { return }
-
+        
         // Calculate the bounding box center of the node
         let (min, max) = node.boundingBox
         let center = SCNVector3(
@@ -83,15 +83,15 @@ class HomeViewController: UIViewController {
             (min.y + max.y) / 2,
             (min.z + max.z) / 2
         )
-
+        
         // Convert the center to world coordinates
         let worldCenter = node.convertPosition(center, to: nil)
-
+        
         // Position the camera at a suitable distance from the node
         let distance: Float = 5
         let direction = SCNVector3(0, 0, distance)
         let cameraPosition = addVectors(left: worldCenter, right: direction)
-
+        
         // Set the camera's position and orientation
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 1 // Adjust the duration as needed
@@ -103,12 +103,12 @@ class HomeViewController: UIViewController {
         
         SCNTransaction.commit()
     }
-
+    
     // Helper operator to add two SCNVector3 vectors
     func addVectors(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
         return SCNVector3(left.x + right.x, left.y + right.y, left.z + right.z)
     }
-
+    
     
     private func isDescendant(of rootNode: SCNNode, node: SCNNode) -> Bool {
         var currentNode: SCNNode? = node
@@ -119,6 +119,17 @@ class HomeViewController: UIViewController {
             currentNode = currentNode?.parent
         }
         return false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard let home = self.view as? HomeView else { return }
+        if let scene = home.sceneView.scene {
+            scene.rootNode.enumerateChildNodes { node, _ in
+                node.removeFromParentNode()
+            }
+            home.sceneView.scene = nil
+        }
     }
 }
 

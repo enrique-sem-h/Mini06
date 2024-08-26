@@ -8,6 +8,7 @@
 import UIKit
 import ARKit
 import RealityKit
+import Combine
 
 /**
  Esta extensão em `CustomARView` é responsável pelos métodos lidam com os gestures que possuem interação com a Realidade Aumentada relativos à view do Sistema Solar
@@ -162,30 +163,50 @@ extension CustomARView {
         
     }
     private func createSun(anchor: AnchorEntity) {
-        guard let sun = try? ModelEntity.load(named: SolarSystemARView.sunModel) else { return }
-        sun.name = SolarSystemARView.sunModel
-        sun.scale = [SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize]
-        sun.transform.translation.y = anchor.transform.translation.y
-        anchor.addChild(sun)
+        var cancellable: AnyCancellable? = nil
+        cancellable = ModelEntity.loadModelAsync(named: SolarSystemARView.sunModel)
+            .sink(receiveCompletion: { result in
+                if case .failure(let failure) = result {
+                    print("Failed to load sun model: \(failure.localizedDescription)")
+                    cancellable?.cancel()
+                }
+            }, receiveValue: { sun in
+                sun.name = SolarSystemARView.sunModel
+                sun.scale = [SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize,SolarSystem.SolarSystemPlanetModel.sunSize]
+                sun.transform.translation.y = anchor.transform.translation.y
+                anchor.addChild(sun)
+            })
     }
     
     private func createOrbitingPlanets(anchor: AnchorEntity, planets: [SolarSystem.SolarSystemPlanetModel]) {
         for (n,planet) in planets.enumerated() {
-            guard  let planetEntity = try? ModelEntity.load(named: planet.modelName) else { return }
-            let p = planetEntity.clone(recursive: true)
-            let n = n + 1
-            p.name = planet.modelName
-            let planetSize = SolarSystem.SolarSystemPlanetModel.sunSize * planet.scaleRelativeToSun
-            p.scale = [planetSize,planetSize,planetSize] // Size
-            p.transform.translation.y = anchor.transform.translation.y
-            anchor.addChild(p)
-            
-            var t = p.transform
-            t .translation = [0,0,SolarSystem.SolarSystemPlanetModel.distanceToFurthest*planet.distanceRelativeToFurthest] // Distance
-            if let orbit = Self.createOrbitAnimation(transform: t, n: n){
-                p.playAnimation(orbit)
-            }
+            createPlanet(anchor: anchor, n: n, planet: planet)
         }
+    }
+    
+    private func createPlanet(anchor: AnchorEntity, n: Int, planet: SolarSystem.SolarSystemPlanetModel) {
+        var cancellable: AnyCancellable? = nil
+        cancellable = ModelEntity.loadModelAsync(named: planet.modelName)
+            .sink(receiveCompletion: { result in
+                if case .failure(let failure) = result {
+                    print("Failed to load planet model: \(planet.modelName)")
+                    print(failure.localizedDescription)
+                    cancellable?.cancel()
+                }
+            }, receiveValue: { p in
+                let n = n + 1
+                p.name = planet.modelName
+                let planetSize = SolarSystem.SolarSystemPlanetModel.sunSize * planet.scaleRelativeToSun
+                p.scale = [planetSize,planetSize,planetSize] // Size
+                p.transform.translation.y = anchor.transform.translation.y
+                anchor.addChild(p)
+                
+                var t = p.transform
+                t .translation = [0,0,SolarSystem.SolarSystemPlanetModel.distanceToFurthest*planet.distanceRelativeToFurthest] // Distance
+                if let orbit = Self.createOrbitAnimation(transform: t, n: n){
+                    p.playAnimation(orbit)
+                }
+            })
     }
     
     static func createOrbitAnimation(transform: Transform, n: Int?) -> AnimationResource? {

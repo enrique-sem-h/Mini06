@@ -16,8 +16,8 @@ class SolarSystemARView: UIView {
     var isPlayingAnimation = true
     private var viewController: SolarSystemViewController?
     
-    private lazy var arView = CustomARView()
-    private lazy var resetButton = UIButton()
+    lazy var arView = CustomARView()
+    lazy private var resetButton = UIButton()
     
     static var sunModel: String {
         return planets.filter({ $0.modelName.contains("sun") }).first?.modelName ?? "<unknown>"
@@ -54,7 +54,7 @@ class SolarSystemARView: UIView {
     private func configureARViewSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal]
-        arView.session.run(configuration)
+        arView.session.run(configuration, options: [.removeExistingAnchors, .stopTrackedRaycasts])
     }
     
     private func placeARView() {

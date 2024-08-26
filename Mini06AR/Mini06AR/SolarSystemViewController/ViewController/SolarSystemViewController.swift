@@ -26,4 +26,10 @@ class SolarSystemViewController: UIViewController {
         super.viewDidLoad()
         self.view = SolarSystemARView(viewController: self)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard let solarSystemArView = self.view as? SolarSystemARView else { return }
+        solarSystemArView.arView.scene.anchors.removeAll()
+    }
 }

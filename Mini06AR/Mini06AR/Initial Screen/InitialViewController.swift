@@ -97,4 +97,16 @@ class InitialViewController: UIViewController {
     @objc private func begin() {
         coordinator?.showHomeView()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        guard let view = self.view as? SolarSystemSceneView else { return }
+        if let scene = view.scene {
+            scene.rootNode.enumerateChildNodes { node, _ in
+                node.removeFromParentNode()
+            }
+            view.scene = nil
+        }
+    }
 }

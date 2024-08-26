@@ -40,6 +40,8 @@ class ARViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
         if let planetARView, planetARView.isShowingInfo {
             planetARView.toggleInfo()
         }
