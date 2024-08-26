@@ -50,7 +50,7 @@ class PlanetARView: UIView {
     private func configureARViewSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal]
-        arView.session.run(configuration)
+        arView.session.run(configuration, options: [.removeExistingAnchors, .stopTrackedRaycasts])
         arView.arViewDelegate = self
         arView.arPlanetViewController = self.viewController
     }
