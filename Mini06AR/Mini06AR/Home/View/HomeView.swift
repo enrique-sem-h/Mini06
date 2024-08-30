@@ -92,7 +92,7 @@ class HomeView: UIView {
         setupToggleButton()
         setupSettingsButton()
         setupPauseButton()
-        setupARButton()
+      //  setupARButton()
         setupInformationButton()
         
         planetBoxViewLeadingHiddenConstraint = planetBoxView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -250)
@@ -213,34 +213,34 @@ class HomeView: UIView {
     /**
      Configura o `arButton`, que inicia a visualização de AR.
      */
-    private func setupARButton() {
-        arButton = UIButton(type: .system)
-        let arImage = UIImage(systemName: "arkit")
-        arButton.setImage(arImage, for: .normal)
-        arButton.tintColor = .white
-        
-        // Substitui o backgroundColor pela imagem de fundo
-        if let backgroundImage = UIImage(named: "circleSettings") {
-            arButton.setBackgroundImage(backgroundImage, for: .normal)
-        }
-
-        arButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(arButton)
-        
-        NSLayoutConstraint.activate([
-            arButton.widthAnchor.constraint(equalToConstant: 40),
-            arButton.heightAnchor.constraint(equalToConstant: 40),
-            arButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
-            arButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
-        ])
-        
-        arButton.layer.cornerRadius = 20
-        arButton.layer.borderWidth = 1
-        arButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        arButton.clipsToBounds = true // Certifique-se de que a imagem respeite os cantos arredondados
-        
-        arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
-    }
+//    private func setupARButton() {
+//        arButton = UIButton(type: .system)
+//        let arImage = UIImage(systemName: "arkit")
+//        arButton.setImage(arImage, for: .normal)
+//        arButton.tintColor = .white
+//        
+//        // Substitui o backgroundColor pela imagem de fundo
+//        if let backgroundImage = UIImage(named: "circleSettings") {
+//            arButton.setBackgroundImage(backgroundImage, for: .normal)
+//        }
+//
+//        arButton.translatesAutoresizingMaskIntoConstraints = false
+//        self.addSubview(arButton)
+//        
+//        NSLayoutConstraint.activate([
+//            arButton.widthAnchor.constraint(equalToConstant: 40),
+//            arButton.heightAnchor.constraint(equalToConstant: 40),
+//            arButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+//            arButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+//        ])
+//        
+//        arButton.layer.cornerRadius = 20
+//        arButton.layer.borderWidth = 1
+//        arButton.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+//        arButton.clipsToBounds = true // Certifique-se de que a imagem respeite os cantos arredondados
+//        
+//        arButton.addTarget(self, action: #selector(openARView), for: .touchUpInside)
+//    }
 
     
     /**
